@@ -1,0 +1,98 @@
+
+% --- -----------------------------------------------------------------
+% --- Elementos usados na Capa e na Folha de Rosto.
+% --- -----------------------------------------------------------------
+
+% >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> BLOCO A SER ALTERADO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+\autor{MICHAEL DOUGRAS DA SILVA } % deve ser escrito em maiúsculo
+
+\titulo{ORM4QT: Biblioteca de Mapeamento Objeto Relacional em C++ para o Framework Qt}
+
+\instituicao{UNIVERSIDADE DE ITAÚNA \par FACULDADE DE ENGENHARIA \par CIÊNCIA DA COMPUTAÇÃO}
+
+\orientador{Angélica Moreira}
+
+%\coorientador{Sicrano de Tal} % se não existir co-orientador comente essa linha
+
+\local{Itaúna}
+
+\data{2014} % ano da defesa
+
+% >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> FIM DO BLOCO A SER ALTERADO >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+\comentario{Trabalho de Conclusão de Curso apresentado
+como requisito parcial para obtenção do título
+de Bacharel em Ciência da Computação da Faculdade
+de Engenharia da Universidade de Itaúna.}
+
+% --- -----------------------------------------------------------------
+% --- Capa externa
+% --- ----------------------------------------------------------------
+\capa
+
+% --- -----------------------------------------------------------------
+% --- Folha de rosto. (Obrigatorio)
+% --- ----------------------------------------------------------------
+\folhaderosto
+\pagestyle{ruledheader}
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+% --- -----------------------------------------------------------------
+% --- Termo de aprovacao. (Obrigatorio)
+% --- ----------------------------------------------------------------
+\input{00_folha_aprovacao.tex}
+
+% --- -----------------------------------------------------------------
+% --- Dedicatoria. (Opcional)
+% --- -----------------------------------------------------------------
+\cleardoublepage
+\thispagestyle{empty}
+\vspace*{170mm}
+\input{dedicatoria.tex}
+
+% --- -----------------------------------------------------------------
+% --- Agradecimentos. (Opcional)
+% --- -----------------------------------------------------------------
+\newpage
+\pretextualchapter{Agradecimentos}
+\hspace{5mm}
+\input{agradecimentos.tex}
+
+% --- -----------------------------------------------------------------
+% --- Resumo em portugues.(Obrigatorio)
+% --- -----------------------------------------------------------------
+\begin{resumo}
+\input{resumo.tex}
+\end{resumo}
+
+% --- -----------------------------------------------------------------
+% --- Resumo em lingua estrangeira.(Opcional)
+% --- -----------------------------------------------------------------
+\begin{abstract}
+\input{abstract.tex}
+\end{abstract}
+
+% --- -----------------------------------------------------------------
+% --- Glossário com uma lista de abreviacoes.(Opcional)
+% --- ----------------------------------------------------------------
+\input{glossario.tex}
+
+% --- -----------------------------------------------------------------
+% --- Sumario.(Obrigatorio)
+% --- -----------------------------------------------------------------
+\pagestyle{ruledheader}
+\tableofcontents
+
+% --- -----------------------------------------------------------------
+% --- Lista de figuras.(Opcional)
+% --- -----------------------------------------------------------------
+\listoffigures
+
+
+% --- -----------------------------------------------------------------
+% --- Lista de tabelas.(Opcional)
+% --- -----------------------------------------------------------------
+\listoftables
+\cleardoublepage

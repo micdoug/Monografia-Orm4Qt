@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    UNIVERSIDADE DE ITAUNA        %%
+%%  Autor: Zilton Cordeiro Junior   %%
+%%  Versão: 1.1                     %%
+%%  Data: Fevereiro/2014            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --- -----------------------------------------------------------------
+% --- Arquivo principal. Os demais serao os dos capitulos.
+% --- -----------------------------------------------------------------
+
+\documentclass[ruledheader, a4paper]{abnt_UFF}
+
+%---pacotes para hiphenização e acentuação em portugues
+\usepackage[brazil]{babel}
+
+%\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+%--- pacote para figuras
+\usepackage{epsf}
+
+\usepackage[]{graphicx}
+%\usepackage{subfigure}
+
+%--- pacote de simbolos
+\usepackage{latexsym}
+
+%--- simbolos matematicos
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%--- pacote para algoritmos
+\usepackage{algorithmic}
+
+%--- pacote para tabelas landscape
+\usepackage{rotating}
+\usepackage{multirow}
+
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\usepackage{listings}
+\usepackage[final]{pdfpages}
+
+\hyphenation{pes-qui-sa-do-res}
+
+% Tabelas com qualidade de publicacao
+\usepackage{booktabs}
+
+%\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{graphicx}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage[boxed,portugues,linesnumbered]{algorithm2e}
+
+%---------usando tipo de fonte padrao
+\renewcommand{\ABNTchapterfont}{\bfseries\fontfamily{cmr}\fontseries{b}\selectfont}
+\renewcommand{\ABNTsectionfont}{\bfseries\fontfamily{cmr}}
+
+% --- -----------------------------------------------------------------
+% --- Documento Principal.
+% --- -----------------------------------------------------------------
+\begin{document}
+
+% --- -----------------------------------------------------------------
+% --- Titulo, abstract, dedicatorias e agradecimentos.
+% --- Indice geral, lista de figuras e tabelas.
+% --- -----------------------------------------------------------------
+\input{00_capa_demais_blocos.tex}
+
+% --- -----------------------------------------------------------------
+% --- Insercao dos capitulos.
+% --- Aqui voce deve alterar:
+% --- --- os nomes dos capitulos (\chapter{})
+% --- --- o marcador para referencia (\label{})
+% --- --- o nome do arquivo de entrada, mantendo a extensao .tex (\input{})
+% --- -----------------------------------------------------------------
+\pagestyle{ruledheader}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+%-------------------------------------------------------------
+\chapter{Introdução}
+\label{cap_introducao}
+\input{01_introducao.tex}
+
+%-------------------------------------------------------------
+ \chapter{Segundo Capítulo}
+ \label{cap_segundo}
+ \input{02_segundo_capitulo.tex}
+
+%-------------------------------------------------------------
+ \chapter{Terceiro Capítulo}
+ \label{cap_terceiro}
+ \input{03_terceiro_capitulo.tex}
+
+%-------------------------------------------------------------
+ \chapter{Quarto Capítulo}
+ \label{cap_quarto}
+ \input{04_quarto_capitulo.tex}
+
+%-------------------------------------------------------------
+ \chapter{Quinto Capítulo}
+ \label{cap_quinto}
+ \input{05_quinto_capitulo.tex}
+
+%-------------------------------------------------------------
+ \chapter{Sexto Capítulo}
+ \label{cap_sexto}
+ \input{06_sexto_capitulo.tex}
+
+%-------------------------------------------------------------
+\appendix
+\chapter{Nome do Apêndice}
+\label{apendiceA}
+\input{07_apendice.tex}
+
+
+%-------------------------------------------------------------
+% --- -----------------------------------------------------------------
+% --- Referencias Bibliograficas. (Obrigatorio)
+% --- -----------------------------------------------------------------
+\cleardoublepage
+\bibliographystyle{apalike} %tipo de bibliografia
+\bibliography{referencias} % arquivo fonte com a bibilografia
+
+\end{document} %Fim do documento principal.
