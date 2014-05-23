@@ -1,104 +1,13 @@
 % Contexto %
 
-Grande parte dos desenvolvedores atualmente trabalha com \textbf{Sistemas de Informação Empresarial} (\textit{Enterprise Information Systems} - EIS), que são sistemas caracterizados pela constante consulta e geração de dados estruturados. Estes dados devem ser acessíveis a múltiplos usuários simultaneamente em diferentes localizações físicas. Atualmente o meio consolidado para armazenamento destes dados é através do uso de Sistemas Gerenciadores de Bancos de Dados (SGBDs) Relacionais. \cite{hibernateInAction}
+Vivemos em uma era onde os sistemas informatizados deixaram de ser vistos como meras ferramentas de automatização de tarefas. Nos últimos tempos, os softwares tem desempenhado papel fundamental no planejamento estratégico e desempenho de atividades nas grandes empresas. A proliferação de \textbf{Sistemas de Informação Empresarial} (\textit{Enterprise Information Systems} - EIS) se mostra cada vez mais notória. Estes sistemas são caracterizados por sua alta complexidade e por trabalharem com gerenciamento constante de dados \cite{expertCSharpObjects}. 
 
-Além do uso de SGBDs Relacionais, outro padrão largamente adotado pelos desenvolvedores é o uso de \textbf{Linguagens Orientadas a Objeto} como \textbf{Java}, \textbf{C++} e \textbf{Python}. Este tipo de linguagem permite aproximar a representação das entidades envolvidas no software da sua representação real. Isso é feito através da criação de classes que contém propriedades (representação do estado atual) e métodos (representação do comportamento que podem adquirir). \cite{expertCSharpObjects}
+As \textbf{Linguagens Orientadas a Objeto} se tornaram um padrão consolidado no desenvolvimento destes sistemas. Devido à sua capacidade de abstrair representações de entidades do mundo real como componentes de software, estas linguagens permitem aos arquitetos e engenheiros de software terem uma visão de alto nível durante o planejamento e especificação do sistema\cite{oopSurvey}.
 
-% Motivação %
-Os SGBDs usam uma estrutura de armazenamento baseada em tabelas e colunas enquanto as linguagens orientadas a objeto processam os dados em forma de objetos e classes. Devido a essa incompatibilidade de estrutura entre os dois contextos, precisamos converter os dados durante sua transição. 
+Os \textbf{Sistemas Gerenciadores de Bancos de Dados Relacionais} ou \textbf{SGBD}s são o meio consolidado para armazenamento de dados estruturados. Eles permitem o armazenamento de informações de tal forma que estas possam ser manipuladas através de comandos em linguagem \textbf{SQL}. Esta linguagem permite executar operações de inserção, remoção, edição e geração de consultas de alta complexidade nos dados armazenados. \cite{ormPaper}.
 
-A conversão entre os dois contextos pode ser feita manualmente através da geração de código específico para cada entidade envolvida na aplicação. Esta abordagem se mostra efetiva para projetos de pequeno porte, porém em projetos de grande porte se mostra ineficiente devido a grande quantidade de código a ser gerado e ao alto índice de alteração na estrutura das entidades, o que leva a necessidade de reajuste do código de conversão.
+Apesar de as linguagens orientadas a objeto serem utilizadas em conjunto com os SGBDs no desenvolvimento de sistemas, a forma de representação dos dados nos dois contextos é diferente. No contexto orientado a objetos, as informações são vistas sobre uma perspectiva comportamental, onde os componentes do software são importantes não somente pelos dados que eles contém, mas pela habilidade de se comunicar com outros componentes para compartilhar estas informações e executar ações sobre elas. Já no contexto dos SGBDs as informações são vistas sobre uma perspectiva estrutural, onde o objetivo principal das entidades é armazenar os dados e representar suas relações da forma mais otimizada possível. Não existe a preocupação em se definir o comportamento das informações.
 
-Uma solução para o problema é o uso de \textbf{Bibliotecas de Mapeamento Objeto Relacional} ou \textbf{ORM} (\textit{Object Relational Mapping}). Estas bibliotecas trabalham com o conceito de mapeamento das informações entre os dois contextos, que é geralmente especificada pelo programador por alguma interface de código. Através deste mapeamento estas bibliotecas conseguem gerar o código de conversão automaticamente. Com isso, temos uma redução drástica da quantidade de código manual a ser gerado pelo desenvolvedor e amenizamos o problema de mudança de estrutura de entidades. \cite{hibernateInAction}
+Devido a essa diferença de representação de dados entre os dois contextos existe a necessidade de conversão ou mapeamento durante a transição entre eles. A geração de código para mapeamento se mostra uma tarefa repetitiva e propensa a erros.
 
-% Justificativa %
-A forma de especificar o mapeamento varia entre as bibliotecas, mas em geral elas tentam utilizar mecanismos nativos de \textbf{reflexão} da linguagem, como as anotações em Java, por exemplo. Porém temos linguagens que não possuem tais mecanismos nativos, sobretudo as linguagens puramente compiladas, como \textbf{C++}. Nestes casos o desenvolvimento de bibliotecas ORM se torna mais complexo, ficando a cargo do desenvolvedor ou desenvolver um mecanismo próprio de reflexão ou se apoiar em outro método para obter as informações de mapeamento.
-
-%As principais linguagens orientadas a objeto possuem implementações de bibliotecas ORM. Dentre elas temos \textbf{Java} com o \textbf{Hibernate}, \textbf{Python} com o \textbf{Framework Django} e \textbf{C\#} com o \textbf{Entity Framework}.
-
-% Objetivo %
-
-% Geral
-Neste trabalho proponho desenvolver uma biblioteca ORM para C++ usando mecanismos de pré-compilação para obter as informações relativas ao mapeamento das entidades do software. 
-
-A biblioteca será integrada ao \textbf{Framework Qt}, que oferece tipos de dados não nativos a C++ que são importantes na troca de informações com o banco de dados, além de fornecer um módulo que facilita o gerenciamento de conexões com SGBDs. \cite{qtFoundations}
-
-% Específico
-A biblioteca será desenvolvida de forma a oferecer possibilidade de adição de suporte para múltiplos SGBDs, sendo que inicialmente será implementado suporte ao banco de dados PostgreSQL. Ela deverá funcionar nos sistemas operacionais \textbf{Microsoft Windows 8.1} e \textbf{Fedora 20 GNU/Linux}, podendo também ser compatível com outras distribuições \textbf{GNU/Linux}.
-
-\section{Conceitos básicos} 
-Para compreender o desenvolvimento da biblioteca bem como as decisões de projeto tomadas ao longo de sua especificação, é preciso entender alguns conceitos básicos sobre as ferramentas e tecnologias de apoio utilizadas.
-
-\subsection{Linguagens Orientadas a Objetos}
-% Falar sobre LOO em geral (procurar citações)
-As Linguagens Orientadas a Objeto utilizam um paradigma de desenvolvimento baseado no uso de classes e objetos para promover principalmente encapsulamento e reuso de código. 
-
-As classes são estruturas de dados complexas que permitem abstrair a representação de uma entidade real envolvida no contexto de negócio da aplicação. Elas são constituídas de atributos e métodos.
-
-Os atributos são variáveis internas que permitem expressar o estado atual de uma instância da classe. Os métodos são funções internas que permitem expressar os possíveis comportamentos que uma classe pode assumir.
-
-As classes criam um modelo para construção de instâncias de uma entidade. Estas instâncias são denominadas objetos. Cada objeto possui um estado independente (valores de atributos) e age sobre estes próprios valores. Durante o trabalho as classes construídas serão mostradas em forma de diagramas UML.
-
-%Falar sobre os tipos de linguagens (compiladas, híbridas, interpretadas) - não é necessário
-
-%Aprofundar em C++ (citações de cplusplus annotations)
-Neste trabalho será usada a linguagem C++, que é uma linguagem orientada a objeto totalmente compilada. Ser uma linguagem compilada significa que o código gerado pelo desenvolvedor será convertido através de um compilador para uma linguagem passível de execução por uma plataforma alvo sem a necessidade de intervenção, por exemplo, de um interpretador em momento de execução.
-
-Este tipo de linguagem se caracteriza por gerar aplicativos com melhor desempenho em momento de execução devido a natureza de execução direta e independente. Porém elas são geralmente limitadas em recursos de reflexão ou introspecção.
-
-A introspecção nos permite em momento de execução obter informações sobre as estruturas de dados, como por exemplo, quais atributos e métodos uma classe tem. Este tipo de informação é de grande auxílio para geração de bibliotecas de geração automática de código em geral.
-
-\subsection{Sistemas Gerenciadores de Bancos de Dados Relacionais}
-% O que são SGBDs em geral
-Os SGBDs ou Sistemas Gerenciadores de Bancos de Dados, representam o meio mais utilizado atualmente para persistência de dados de aplicativos em geral. Isso se deve em grande parte ao fato de fornecerem mecanismos nativos que permitem acesso simultâneo aos dados de diferentes localidades físicas, controle de permissões de acesso e sistemas de recuperação de falhas.
-
-%O que é o modelo relacional
-Eles utilizam um modelo de persistência denominado modelo relacional, que se baseia no uso de tabelas e colunas. As tabelas representam entidades, ou um grupo de informação a ser armazenado, e podem se relacionar com outras tabelas para promover regras de armazenamento. As colunas representam as características da entidade armazenada. Neste modelo quando armazenamos um registro ele é acrescentado como uma linha em uma ou mais tabelas relacionadas.
-
-% O que é SQL
-Para permitir a manipulação dos dados armazenados usando o modelo relacional, os SGBDs oferecem suporte ao uso de uma linguagem baseada no padrão \textbf{SQL} (\textit{Structured Query Language} - Linguagem de Pesquisa Estruturada). Porém a implementação da SQL entre os diversos SGBDs varia, o que dificulta a montagem de um código unificado.
-
-%Principais SGBDs do mercado
-
-%Falar sobre o postgresql (talvez mudar para o mysql ou oracle?)
-A biblioteca construída inicialmente terá suporte ao SGBD PostgreSQL, que é um software de código aberto, gratuito e que oferece suporte a diversas plataformas de sistemas operacionais.
-
-\subsection{Bibliotecas ORM}
-%explicar paradigma objeto-relacional
-O modelo orientado a objeto e o modelo relacional são incompatíveis, então quando estamos usando uma linguagem orientada a objeto e armazenando dados em um SGDB, precisamos ajustar ou converter os dados durante a transição entre os modelos. Devido a inviabilidade de construção deste código de conversão manualmente em grandes projetos, foram criadas as bibliotecas ORM (Object Relational Mapping) ou Bibliotecas de Mapeamento Objeto Relacional.
-
-%O que é ORM
-Estas bibliotecas tem como finalidade gerar código de conversão entre os contextos automaticamente. O código gerado é baseado na especificação da equivalência ou mapeamento entre as entidades no contexto orientado a objeto com as entidades no contexto relacional. 
-
-O mapeamento geralmente é especificado utilizando mecanismos de inserção de metadados da linguagem utilizada. Os metadados podem ser recuperados através do uso de mecanismos de reflexão no momento em que for ocorrer a geração do código de conversão.
-
-%quais os principais orm do mercado
-
-%falar sobre o hibernate (fonte de inspiração)
-
-
-\subsection{Framework Qt}
-O que é um framework
-
-O que é qt em geral
-
-Falar sobre a natureza multiplataforma de qt
-
-Falar sobre a modularidade de qt (módulo QtSql - ajudar no acesso a bancos de dados)
-
-falar sobre os tipos de dados adicionais de qt (QDateTime, QTime, QString (unicode), QByteArray, QDate)
-
-\subsection{Especificação C++11}
-Explicar o que é a especificação C++11
-
-\subsection{Compilador G++}
-O que é G++ (ambiente gnu/linux)
-
-MinGW (implementação do g++ para windows)
-
-G++ e seu suporte para C++11
-
-\subsection{Sistema Operacional}
-Falar sobre as plataformas a serem suportadas (windows 8.1 e fedora 20)
-
-Este tópico é realmente necessário?
+Com o objetivo de otimizar a utilização das linguagens orientadas a objeto em conjunto com os SGBDs surgiu o conceito de \textbf{Biblioteca de Mapeamento Objeto Relacional} ou \textbf{ORM} (\textit{Object Relational Mapping}). Esta biblioteca tem como objetivo automatizar as tarefas de mapeamento dos dados entre os dois contextos. Sua utilização promove maior produtividade e redução da complexidade envolvida em tarefas de manutenção e modificação do código. Neste trabalho é proposto o desenvolvimento de uma biblioteca ORM para a linguagem C++. O \textbf{Framework Qt} é utilizado como auxílio para comunicação com os SGBDs, e extensão dos tipos nativos da linguagem C++. 

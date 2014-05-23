@@ -1,0 +1,174 @@
+Neste capítulo iremos inserir alguns conceitos básicos utilizados ao longo do trabalho, situando-os dentro do problema a ser resolvido.
+
+%--- Inserir os conceitos de orientação a objetos
+\section{Orientação a Objetos}
+\label{sec:oop}
+Um conceito bastante difundido tanto no meio acadêmico quanto no mercado são as \textbf{Linguagens Orientadas a Objetos}. São linguagens de programação que utilizam um paradigma ou padrão de estruturação de código que permite ao desenvolvedor criar abstrações no contexto do software para modelar objetos ou entidades do mundo real[\cite{oopSurvey}].
+
+Não existe uma definição universal que diga quais são as características ou funcionalidades que uma linguagem de programação deve apresentar para ser considerada orientada a objetos \cite{oopSurvey}. Porém de maneira geral, elas possuem mecanismos que permitem agrupar dentro de uma unidade de software, estruturas para prover informações de \textbf{estado}, \textbf{comportamento} e \textbf{identidade} \cite{ormPaper}. Este agrupamento de estruturas dentro de uma unidade é conhecido como \textbf{encapsulamento}.
+
+Esta unidade de software que representa o estado, comportamento e identidade de uma entidade do software é conhecida como \textbf{objeto}. Um objeto é criado a partir de um modelo pré-estabelecido que define todas as estruturas internas que o compõe. Este modelo é conhecido como \textbf{classe} \cite{oopSurvey}. 
+
+Algumas linguagens não oferecem mecanismos explícitos para criação de classes, porém oferecem suporte à instanciação de objetos. Um exemplo de linguagem que apresenta esta característica é a linguagem \textbf{\textit{Javascript}}\footnote{Linguagem de script dinâmica utilizada em programação para a WEB.}. Outras linguagens oferecem mecanismos avançados para definição de classes, permitindo por exemplo que uma classe seja composta por objetos de outras classes. Um exemplo de linguagem com esta característica é a linguagem \textbf{\textit{C++}}. O estado de um objeto é definido a partir da adição de variáveis em sua estrutura interna para armazenamento de valores unitários. Estas variáveis são conhecidas como \textbf{atributos} ou \textbf{propriedades} de uma classe \cite{oopSurvey}. 
+
+Algumas linguagens permitem a adição de objetos como atributos de uma classe, como é o caso da linguagem C++. Este comportamento é conhecido como \textbf{composição}. O comportamento de um objeto é definido a partir da adição de funções em sua estrutura interna. Elas são utilizadas para efetuar operações sobre os atributos que o objeto contém. Estas funções são conhecidas como \textbf{métodos} de uma classe \cite{oopSurvey}.
+
+O conjunto de atributos e métodos de uma classe define o que chamamos de \textbf{interface}. Algumas linguagens permitem reduzir a interface de um objeto de forma que nem todas as estruturas internas sejam acessíveis externamente. Um exemplo é a linguagem C++, que nos permite utilizar os modificadores \textbf{"private"} (estruturas não acessíveis externamente) e \textbf{"public"} (estruturas acessíveis externamente). A identidade de um objeto se refere à capacidade de se referenciar instâncias de objetos de maneira unívoca, ou seja, se refere à capacidade de se distinguir diversas instâncias de objetos entre si através de algum mecanismo de comparação \cite{oopSurvey}. 
+
+Em algumas linguagens este mecanismo se baseia no endereçamento de memória ocupado pela instância do objeto, como é o caso da linguagem C++. Já em outras linguagens existem mecanismos que permitem a criação de uma função de comparação pelo desenvolvedor, o que acontece por exemplo na linguagem \textbf{\textit{JAVA}} onde podemos definir o método \textbf{\textit{"equals"}} das classes criadas. Um exemplo de definição de uma classe utilizando a linguagem C++ é apresentado no trecho de código  \ref{lst:simpleclass}, para demonstrar os conceitos explicados anteriormente. No código é definida a estrutura de uma classe que representa uma pessoa. A classe foi definida com o identificador Pessoa (linha 1), possui dois atributos internos para armazenar o nome e sobrenome (linhas 3 e 4) e um método que retorna o nome completo de uma pessoa através da combinação do seu nome e sobrenome (linha 6). Os atributos não são acessíveis externamente devido ao modificador de acesso \textit{"private"} utilizado na linha 2. Já o método é acessível devido ao modificador de acesso \textit{"public"} utilizado na linha 5.
+
+\begin{lstlisting}[label={lst:simpleclass},caption={Definição de uma classe simples em C++}]
+class Pessoa {
+	private:
+		string nome;
+		string sobrenome;
+	public:
+		string nomeCompleto() { return this->nome + this->sobrenome; }
+}
+\end{lstlisting}
+
+As características citadas anteriormente são as mais comumente encontradas nas linguagens consideradas como orientadas a objeto. Existem mecanismos mais avançados que permitem uma melhoria na definição do comportamento das classes e auxiliam também no reaproveitamento de código. Algumas destas características são o suporte à \textbf{herança} e ao \textbf{polimorfismo}. A herança consiste na capacidade de uma classe estender a estrutura de uma classe já definida. Isso significa que a nova classe criada mantém a interface da  anterior e tem a capacidade de adicionar novos atributos e métodos a ela. Algumas linguagens oferecem somente suporte para herança simples, onde uma classe pode herdar de somente uma outra classe, porém geralmente definem mecanismos alternativos de extensão. Um exemplo é a linguagem JAVA. Outras linguagens oferecem suporte para herança múltipla, onde uma classe pode estender as funcionalidades de uma ou mais classes já definidas. Um exemplo de linguagem com esta característica é a linguagem C++ \cite{oopSurvey}.
+
+Quando criamos uma classe "B" que herda de uma classe "A", dizemos que "A" é a classe \textbf{base} ou \textbf{pai}, enquanto a "B" é uma classe \textbf{especializada} ou \textbf{filha}. Uma característica importante a observar é que ao declararmos um objeto da classe "B", este objeto poderá ser utilizado em contextos onde é esperado um objeto da classe "A" \cite{oopSurvey}.
+
+Ao utilizar o mecanismo de herança, algumas linguagens permitem a modificação de um método existente na classe base. Este mecanismo é utilizado para especializar o comportamento herdado na nova classe, mantendo um mesmo padrão de interface. Quando isto acontece temos um impasse a ser resolvido. Quando um objeto de uma classe filha com métodos especializados for utilizado em um contexto como um objeto da classe pai, ao chamar este método, deverá ser executada a implementação da classe pai ou da classe filha? Quando desejamos que a implementação da classe filha seja utilizada, surge o conceito de polimorfismo, onde o comportamento de um objeto é mantido consistente em relação à sua definição ou declaração não importa em qual contexto ele seja utilizado\cite{oopSurvey}. 
+
+Em algumas linguagens como JAVA o polimorfismo é implícito, ou seja, na pergunta anterior se desejássemos que a implementação da classe pai fosse executada, isso não seria possível. Já em outras linguagens como C++, o polimorfismo é definido explicitamente através do uso de palavras-chave da linguagem.
+
+Ao analisar todas estas características citadas, percebemos que as linguagens orientadas a objeto promovem a criação de entidades de software bem descritivas. Isto facilita sua utilização por arquitetos e engenheiros de software, que podem visualizar os elementos envolvidos no desenvolvimento com uma visão de mais alto nível. Talvez esta seja a razão da vasta aceitação e utilização destas linguagens. Neste trabalho é utilizada a linguagem orientada a objetos C++, a qual é detalhada na seção \ref{sec:cpp}. 
+
+%--- Introduzindo a linguagem C++
+\section{A Linguagem de Programação C++}
+\label{sec:cpp}
+A linguagem \textbf{C++} é uma linguagem orientada a objetos criada em 1980 por \textit{Bjarne Stroustrup}. É uma linguagem compilada, ou seja, o código criado pelo desenvolvedor é convertido através de um programa denominado \textbf{compilador} para uma linguagem nativa de uma plataforma alvo, gerando um ou mais arquivos executáveis. Estes arquivos são passíveis de execução direta na plataforma sem a intervenção de ferramentas externas \cite{bueno2002apostila}.
+
+As linguagens compiladas se caracterizam por gerar aplicativos com melhor desempenho em momento de execução. Isso se deve ao fato da geração de código nativo, que pode ser executado sem intervenção externa\cite{bueno2002apostila}. Porém esta característica também implica em a linguagem oferecer poucos mecanismos de \textbf{reflexão} ou \textbf{introspecção}, que nos permitem conhecer em momento de execução as estruturas dos objetos sendo utilizados\cite{ormPaper}.
+
+C++ foi construída com base na linguagem \textbf{C}. Inicialmente o código escrito em C++ era traduzido para C e compilado com compiladores desta linguagem. Com o aumento da complexidade de implementação das características e funcionalidades que foram surgindo na linguagem ao longo de sua existência, surgiram compiladores específicos para C++\cite{cppAnnotations}.
+
+Dentre as características da linguagem estão a capacidade de definição de classes, utilização de herança múltipla, utilização de polimorfismo explicitamente, gerenciamento de memória controlado pelo desenvolvedor e compatibilidade com códigos escritos em C. Outra importante característica da linguagem é a sua não portabilidade, ou seja, o código gerado para uma plataforma (sistema operacional e/ou hardware específico) geralmente não é compatível com outras plataformas. Devido a isso, a linguagem possui uma biblioteca padrão bem reduzida, não oferecendo por exemplo bibliotecas de comunicação em rede e utilização de banco de dados \cite{bueno2002apostila}.
+
+Existe uma grande dificuldade em se desenvolver programas voltados para diversas plataformas utilizando a linguagem, pois quando começamos a utilizar funcionalidades um pouco mais avançadas temos que utilizar implementações específicas para cada plataforma. Como tentativa de diminuir esta dificuldade foram criadas bibliotecas e \textit{frameworks}\footnote{Um conjunto de bibliotecas que implementam funcionalidades frequentemente utilizadas no desenvolvimento de softwares, como por exemplo, acesso a banco de dados e comunicação em redes.} multiplataformas para a linguagem \cite{qtFoundations}. Neste trabalho é utilizado o \textbf{Framework Qt} que será descrito na seção \ref{sec:qt}.
+
+\section{O Framework Qt}
+\label{sec:qt}
+Qt é um framework multiplataforma voltado para a criação de aplicativos com interface gráfica utilizando a linguagem C++. Sua primeira versão foi lançada em 1995 pelos seus criadores \textit{Haavard Nord} e \textit{Eirik Chambe-Eng} em sua empresa chamada \textit{Trolltech}\cite{qtGuiProgramming}.
+
+O objetivo do framework é basicamente prover uma interface de programação padrão para executar tarefas como criação de interface gráfica, programação paralela e acesso a banco de dados, para todas as plataformas suportadas. Esse comportamento é alcançado através do direcionamento da execução das tarefas para implementações específicas existentes na plataforma alvo \cite{qtGuiProgramming}. Uma característica interessante do framework é a adaptação da interface gráfica criada ao seu ambiente de execução. Uma janela executada em um sistema operacional suportado assume a aparência nativa do mesmo, como é possível verificar nas figuras \ref{fig:windowLinux}, \ref{fig:windowWindows} e \ref{fig:windowMac}, onde temos uma janela de um programa sendo exibida nos três sistemas suportados da plataforma desktop.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{imagens/windowLinux.png}
+\caption{Janela no GNU/Linux}
+\label{fig:windowLinux}
+\end{figure}
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.8]{imagens/windowWindows.png}
+\caption{Janela no Microsoft Windows XP}
+\label{fig:windowWindows}
+\end{figure}
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.8]{imagens/windowMac.png}
+\caption{Janela no Mac Os}
+\label{fig:windowMac}
+\end{figure}
+
+Inicialmente o framework era totalmente focado na padronização do processo de criação de interface gráfica entre diferentes plataformas, porém ao longo de sua existência foram sendo adicionadas novas funções voltadas para tarefas rotineiras no desenvolvimento de software, como por exemplo acesso a banco de dados, programação paralela e manipulação de arquivos multimídia (vídeos e imagens). Com a adição destes novos componentes o framework acabou crescendo muito, o que levou aos desenvolvedores o reestruturem em forma de módulos. Dessa maneira o desenvolvedor pode adicionar em seu projeto somente os módulos que pretende utilizar, diminuindo o tamanho final do executável gerado para distribuição de seu aplicativo \cite{qtGuiProgramming}.
+
+Neste trabalho são utilizados basicamente três dos módulos existentes no framework, sendo eles o \textbf{QtSql}, o \textbf{QtTest} e o \textbf{QtCore}. O QtSql é um módulo voltado para utilização de \textbf{Sistemas Gerenciadores de Bancos de Dados Relacionais} (ver seção \ref{sec:sgbd}) como forma de persistência dos dados gerados pelo aplicativo. Ele provê suporte para utilização dos sistemas mais populares, como \textbf{MySQL}, \textbf{Oracle}, \textbf{PostgreSQL},
+\textbf{Sybase}, \textbf{DB2}, \textbf{SQLite}, \textbf{Interbase}, e \textbf{ODBC} \cite{qtFoundations}. Esse módulo será utilizado como apoio para utilização de bancos de dados relacionais em diferentes plataformas de sistema operacional. 
+
+O QtTest é um módulo voltado para a criação de testes unitários. Os testes são utilizados para validar o funcionamento do software desenvolvido ao longo de sua existência. Geralmente são executados quando é feita alguma modificação no código, como por exemplo adição de novos componentes. QtCore é o módulo principal do framework. Ele é responsável por prover rotinas para programação paralela, conversão de tipos, além de adicionar tipos de dados muito importantes na utilização de bancos de dados, como o \textbf{\textit{QDateTime}}\footnote{Tipo de dado que armazena um valor de data e hora. Não existe um tipo de dado nativo em C++ para esta finalidade.} \cite{qtFoundations}. 
+
+No momento da criação deste documento, o framework está em sua versão 5.3.0, e é compatível com os sistemas operacionais \textit{GNU/Linux}, \textit{Microsoft Windows} e \textit{Mac OS} na plataforma \textit{desktop}. Ele oferece também suporte a dispositivos embarcados com sistema operacional \textit{GNU/Linux} e para dispositivos móveis com os sistemas \textit{Android}, \textit{IOS} e \textit{Windows Phone}.
+
+\section {Sistemas Gerenciadores de Bancos de Dados Relacionais}
+\label{sec:sgbd}
+
+Assim como as linguagens orientadas a objeto (ver seção \ref{sec:oop}) são consideradas um padrão para desenvolvimento de software, os Sistemas Gerenciadores de Bancos de Dados Relacionais ou \textbf{SGBD}s são considerados um padrão para armazenamento estruturado de informações \cite{ormPaper}.
+
+Os SGBDs utilizam um modelo de persistência denominado \textbf{modelo relacional}, que se baseia no uso de \textbf{tabelas} e \textbf{colunas}. As tabelas representam entidades, ou um grupo de informação a ser armazenado, e podem se relacionar com outras tabelas para promover regras de armazenamento. As colunas representam as características da entidade armazenada. Neste modelo quando armazenamos um registro ele é acrescentado como uma linha em uma ou mais tabelas relacionadas. Nas tabelas é aplicado o conceito de unicidade dos registros armazenados, através da definição de um conjunto de colunas que deve representar uma combinação de valores única dentre os registros armazenados. Este conjunto de colunas define o que chamamos de \textbf{chave primária} da tabela ou 
+\textbf{\textit{"primary key"}} \cite{ormPaper}.
+
+A definição de chaves primárias nas tabelas criadas permite a criação de relações entre elas através do uso de referências entre suas chaves. A referência em uma tabela para uma chave primária de outra tabela é conhecida como \textbf{chave estrangeira} ou \textbf{\textit{"foreign key"}} \cite{ormPaper}. Na figura \ref{fig:modeloRelacional} temos um exemplo de definição de duas tabelas, uma representando registros de pessoas e outra de telefones. Elas estão relacionadas, de modo que um registro de telefone pertence a uma pessoa. Este comportamento é obtido através da definição da chave estrangeira "TelefoneId" na tabela "Pessoa", que se refere à chave "Id" na tabela "Telefone".
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{imagens/modeloRelacional.png}
+\caption{Exemplo de definição de tabelas e relações}
+\label{fig:modeloRelacional}
+\end{figure}
+
+Uma das funcionalidades mais importantes apresentada pelos SGBDs é a capacidade de aplicação de rotinas complexas de pesquisa usando a linguagem \textbf{SQL} ou \textbf{Structured Query Language}. Esta linguagem define um conjunto de operações que permite executar inserções, modificações, remoção e busca de registros armazenados em um SGBD \cite{ormPaper}. Talvez esta funcionalidade seja a causa de sua grande utilização e aceitação. Neste trabalho é utilizado o SGBD \textbf{PostgreSQL} (ver seção \ref{sec:postgresql}).
+
+\section{O PostgreSQL}
+\label{sec:postgresql}
+O PostgreSQL é um SGBD de código aberto, e com licença de uso gratuita para qualquer pessoa sobre qualquer propósito. Ele pode ser utilizado, modificado e redistribuído livremente. Este SGBD é derivado do projeto \textbf{POSTGRES} desenvolvido na Universidade de Berkeley na Califórnia no ano de 1986. Por ser um software de código aberto desenvolvido em comunidade, ele é conhecido por ser pioneiro na adição de novas funcionalidades, e se mantém sempre atualizado em relação aos conceitos e especificações da linguagem SQL \cite{postgresqlDoc}.
+
+
+\section{A combinação SGBDs com Linguagens Orientadas a Objetos}
+\label{sec:sgbdWithOop}
+
+Os programas trabalham com dados em memória principal, que é volátil. Portanto ao desligarmos o equipamento todos os dados são perdidos. Devido a isso necessitamos de algum mecanismo de persistência, ou seja, que permita a gravação de dados importantes em memória secundária não volátil \cite{ormPaper}. 
+
+A combinação mais comumente utilizada para alcançar este cenário é o uso de linguagens orientadas a objetos para desenvolver o software, e o uso de SGBDs para armazenar os dados gerados pelo software \cite{hibernateInAction}. Porém os dados no contexto orientado a objetos e no contexto relacional são estruturados de maneira diferente (ver seções \ref{sec:oop} e \ref{sec:sgbd}), portanto precisamos realizar uma conversão ou mapeamento dos dados durante a transição de contextos.
+
+Quando estamos trabalhando com classes simples (não compostas por membros de outras classes), o mapeamento segue uma lógica simples. Podemos criar uma correspondência entre a classe para uma tabela, onde os atributos da classe são mapeados para colunas de uma tabela. Porém quando começamos a utilizar mecanismos mais avançados de orientação a objetos como herança e composição, o mapeamento entre os contextos se torna mais complexo \cite{ormPaper}.
+
+Mesmo quando temos um cenário onde o mapeamento é simples, precisamos gerar código de conversão. As linguagens de programação fornecem bibliotecas ou \textbf{\textit{APIs}}\footnote{Application Programming Interface. Define uma interface de um conjunto de bibliotecas de software.} que permitem a comunicação com SGBDs através do envio de comandos em linguagem SQL \cite{ormPaper}. O código gerado para executar a transição de dados entre os dois contextos geralmente segue a seguinte sequência de passos:
+
+\begin{enumerate}
+	\item Carregar um driver de comunicação com o SGBD utilizado e abrir a conexão;
+	\item Criar um objeto que permita a montagem de código SQL;
+	\item Enviar o comando para o SGBD para que seja executado;
+	\item Recuperar e processar os dados ou resposta gerados pelo SGBD;
+	\item Liberar os recursos alocados para execução da tarefa, como por exemplo fechar a conexão com SGDB.
+\end{enumerate}
+
+No trecho de código \ref{lst:qtsql_mapclasse} temos um esboço de como estas etapas são realizadas utilizando a linguagem C++ em conjunto com o módulo QtSql do framework Qt (ver seção \ref{sec:qt}) e comunicando com o SGBD PostgreSQL (ver seção \ref{sec:postgresql}).
+
+\lstinputlisting[label={lst:qtsql_mapclasse}, caption={Exemplo de comunicação com SGBD utilizando o módulo QtSql}]{codigos/qtsql_mapclasse.cpp}
+
+A utilização deste tipo de código se torna repetitiva, visto que temos que executar estes passos para todas as classes que armazenam dados utilizando SGBDs. Este tipo de comportamento é indesejado, pois diminui a produtividade do desenvolvimento, e tarefas repetitivas tem grande potencial de gerarem erros. Outro grande problema que encontramos é que os comandos em linguagem SQL variam entre os SGBDs, portanto ao mudar o SGBD utilizado pelo programa, temos de reescrever os comandos SQL utilizados. Este é outro fator com grande potencial de geração de erros, além de diminuir a flexibilidade do software. Em alguns casos a mudança de SGBD pode se tornar inviável \cite{ormPaper}.
+
+Para otimizar a combinação do uso de linguagens de programação orientadas a objeto em conjunto com SGBDs, surgiu o conceito de \textbf{Biblioteca de Mapeamento Objeto Relacional} ou \textbf{ORM} (\textbf{\textit{Object Relational Mapping}}). Este assunto é abordado na seção \ref{sec:orm}.
+
+%--- Explicar o que é ORM de maneira simples e direta
+\section{Bibliotecas de Mapeamento Objeto Relacional (ORM)}
+\label{sec:orm}
+
+As bibliotecas ORM têm como objetivo principal automatizar as tarefas relacionadas com a transição de informações entre os contextos orientado a objetos e o relacional. Não existe um conceito universal que defina quais são as funcionalidades que uma biblioteca ORM deve oferecer \cite{ormPaper}, porém as três funcionalidades mais comumente encontradas são:
+
+\begin{description}
+\item[Definição de mapeamento] 
+As bibliotecas ORM permitem a definição explícita da correspondência entre entidades no contexto orientado a objetos (classes) e entidades no contexto relacional (tabelas). Os mecanismos de definição deste mapeamento variam entre as implementações;
+\item[Geração de banco de dados]
+As bibliotecas ORM geralmente permitem a geração automática do banco de dados equivalente às estruturas do contexto orientado a objetos;
+\item[Definição de uma API]
+Geralmente as bibliotecas ORM disponibilizam interfaces padronizadas para realização de tarefas que envolvam a transição de dados entre os dois contextos. Operações como salvar, deletar ou pesquisar registros são encapsuladas em classes de propósito geral, ou seja, que conseguem trabalhar sobre qualquer entidade mapeada.
+\end{description}
+
+Nem todas as bibliotecas existentes oferecem as três funcionalidades descritas, mas o mais comum é encontrar uma combinação das três. Existem ainda bibliotecas que permitem gerar o código de mapeamento e até mesmo gerar o código das classes a partir da análise de um banco de dados existente. Esta funcionalidade é conhecida como \textbf{Mapeamento Reverso} ou \textbf{Engenharia Reversa} \cite{ormPaper}.
+
+As bibliotecas ORM divergem bastante na forma de implementação e funcionalidades disponibilizadas. Isso se deve principalmente ao fato da divergência de recursos entre as próprias linguagens de programação em que são implementadas. Porém uma decisão comum a ser tomada no desenvolvimento de uma biblioteca ORM em qualquer linguagem, é a definição do ponto de partida para obtenção das informações de mapeamento \cite{ormPaper}. Os paradigmas mais utilizados são:
+
+\begin{description}
+\item[Orientado a metadados]
+Neste paradigma, o desenvolvedor informa a estrutura das entidades envolvidas no software que devem ser mapeadas através de alguma fonte externa, como um arquivo XML. Neste arquivo são informados metadados sobre as entidades nos dois contextos, o que permite a biblioteca ORM criar o código de definição das classes e do código de mapeamento. Neste modelo podemos utilizar um banco de dados já existente, ou a biblioteca ORM pode construí-lo a partir da análise dos metadados. A vantagem deste paradigma é a abstração total da geração de código de manipulação do banco de dados, e sua grande desvantagem é a limitação de edição do código gerado pela biblioteca. Os códigos das classes mapeadas serão gerados automaticamente pela biblioteca e não poderão ser editados pelo desenvolvedor \cite{ormPaper}.
+
+\item[Orientado a aplicação]
+Neste paradigma o desenvolvedor deve escrever o código das classes de todo o programa normalmente, porém sem se preocupar com as operações de persistência. Após a definição das classes, a biblioteca ORM através da análise do código e opcionalmente metadados, consegue criar o código de persistência. É possível utilizar um banco de dados existente ou a biblioteca pode construí-lo. A vantagem deste paradigma é a total abstração da geração de código de manipulação do banco de dados, e sua grande desvantagem é a alta complexidade de desenvolver o mecanismo de análise do código escrito pelo desenvolvedor para inferir informações de mapeamento. A definição deste mecanismo pode influenciar bastante no desempenho final da aplicação que utiliza a biblioteca ORM \cite{ormPaper}.
+
+\item[Orientado ao banco de dados]
+Neste paradigma o desenvolvedor deve primeiramente criar o banco de dados. Então a biblioteca ORM auxiliada por metadados consegue gerar o código das classes a serem mapeadas e das operações de persistência. A grande desvantagem deste paradigma é a não abstração do conhecimento de banco de dados, visto que o desenvolvedor deve primeiramente definir a estrutura da base de dados a ser utilizada. Outra desvantagem é o desenvolvedor não ter a permissão de modificar o código das classes mapeadas pela biblioteca ORM. Sua vantagem consiste no melhor controle da definição da estrutura da base de dados sendo utilizada\cite{ormPaper}.
+\end{description}
+
+As bibliotecas de mapeamento mais robustas possuem a possibilidade de operar nos três paradigmas citados. Em alguns casos, elas ainda permitem que o desenvolvedor tenha controle dos três componentes principais citados pelos paradigmas, ou seja, o desenvolvedor pode definir o código das classes a serem mapeadas, os metadados e construir o banco de dados a ser utilizado, deixando para a biblioteca ORM somente a tarefa de adicionar o código de persitência \cite{ormPaper}.
+
+Existe ainda o conceito de \textbf{transparência}, que é aplicado a bibliotecas que utilizam o paradigma orientado a aplicação. Uma biblioteca ORM é transparente quando não requer que classes implementem interfaces, ou sigam um modelo específico de código para serem mapeadas \cite{ormPaper}. Estas bibliotecas seguem a filosofia de que as classes envolvidas no software não precisam saber como, porque ou quando elas serão persistidas, ou seja, elas devem se comportar como "classes ordinárias" ou comuns.
+
+Analisando as principais funcionalidades que as bibliotecas ORM possuem, podemos perceber que elas promovem uma melhoria considerável de produtividade (economia de tempo de desenvolvimento) além de diminuir a complexidade do desenvolvimento de sistemas que lidam com gerenciamento constante de dados persistidos em bancos de dados relacionais \cite{ormPaper}.
+
+

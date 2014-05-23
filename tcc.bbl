@@ -1,0 +1,45 @@
+\begin{thebibliography}{}
+
+\bibitem[Barnes, 2007]{ormPaper}
+Barnes, J.~M. (2007).
+\newblock Object-relational mapping as a persistence mechanism for
+  object-oriented applications.
+
+\bibitem[Bauer and King, 2005]{hibernateInAction}
+Bauer, C. and King, G. (2005).
+\newblock {\em Hibernate in Action}, volume~1.
+\newblock Manning Publications Co.
+
+\bibitem[Blanchette and Summerfield, 2006]{qtGuiProgramming}
+Blanchette, J. and Summerfield, M. (2006).
+\newblock {\em C++ GUI programming with Qt 4}.
+\newblock O'Reilly Japan.
+
+\bibitem[Brokken and Kubat, 2008]{cppAnnotations}
+Brokken, F.~B. and Kubat, K. (2008).
+\newblock {\em C++ annotations}.
+\newblock Citeseer.
+
+\bibitem[Bueno, 2002]{bueno2002apostila}
+Bueno, A. (2002).
+\newblock Apostila de programa{\c{c}}{\~a}o orientada a objeto em c++.
+
+\bibitem[Lhotka, 2009]{expertCSharpObjects}
+Lhotka, R. (2009).
+\newblock {\em Expert C\# 2008 Business Objects}, volume~1.
+\newblock Apress.
+
+\bibitem[Nierstrasz, 1989]{oopSurvey}
+Nierstrasz, O. (1989).
+\newblock A survey of object-oriented concepts.
+
+\bibitem[PostgreSQL, 2014]{postgresqlDoc}
+PostgreSQL, T. G. D.~G. (2014).
+\newblock {\em PostgreSQL 9.3.4 Documentation}.
+
+\bibitem[Thelin, 2007]{qtFoundations}
+Thelin, J. (2007).
+\newblock {\em Foundations of Qt development}, volume~7.
+\newblock Springer.
+
+\end{thebibliography}
