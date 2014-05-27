@@ -17,7 +17,10 @@ O conjunto de atributos e métodos de uma classe define o que chamamos de \textbf
 
 Em algumas linguagens este mecanismo se baseia no endereçamento de memória ocupado pela instância do objeto, como é o caso da linguagem C++. Já em outras linguagens existem mecanismos que permitem a criação de uma função de comparação pelo desenvolvedor, o que acontece por exemplo na linguagem \textbf{\textit{JAVA}} onde podemos definir o método \textbf{\textit{"equals"}} das classes criadas. Um exemplo de definição de uma classe utilizando a linguagem C++ é apresentado no trecho de código  \ref{lst:simpleclass}, para demonstrar os conceitos explicados anteriormente. No código é definida a estrutura de uma classe que representa uma pessoa. A classe foi definida com o identificador Pessoa (linha 1), possui dois atributos internos para armazenar o nome e sobrenome (linhas 3 e 4) e um método que retorna o nome completo de uma pessoa através da combinação do seu nome e sobrenome (linha 6). Os atributos não são acessíveis externamente devido ao modificador de acesso \textit{"private"} utilizado na linha 2. Já o método é acessível devido ao modificador de acesso \textit{"public"} utilizado na linha 5.
 
-\begin{lstlisting}[label={lst:simpleclass},caption={Definição de uma classe simples em C++}]
+\begin {algorithm}
+\label{lst:simpleclass}
+\caption{Definição de uma classe simples em C++}
+\begin{lstlisting}[]
 class Pessoa {
 	private:
 		string nome;
@@ -26,6 +29,7 @@ class Pessoa {
 		string nomeCompleto() { return this->nome + this->sobrenome; }
 }
 \end{lstlisting}
+\end{algorithm}
 
 As características citadas anteriormente são as mais comumente encontradas nas linguagens consideradas como orientadas a objeto. Existem mecanismos mais avançados que permitem uma melhoria na definição do comportamento das classes e auxiliam também no reaproveitamento de código. Algumas destas características são o suporte à \textbf{herança} e ao \textbf{polimorfismo}. A herança consiste na capacidade de uma classe estender a estrutura de uma classe já definida. Isso significa que a nova classe criada mantém a interface da  anterior e tem a capacidade de adicionar novos atributos e métodos a ela. Algumas linguagens oferecem somente suporte para herança simples, onde uma classe pode herdar de somente uma outra classe, porém geralmente definem mecanismos alternativos de extensão. Um exemplo é a linguagem JAVA. Outras linguagens oferecem suporte para herança múltipla, onde uma classe pode estender as funcionalidades de uma ou mais classes já definidas. Um exemplo de linguagem com esta característica é a linguagem C++ \cite{oopSurvey}.
 
@@ -128,8 +132,11 @@ Mesmo quando temos um cenário onde o mapeamento é simples, precisamos gerar códi
 \end{enumerate}
 
 No trecho de código \ref{lst:qtsql_mapclasse} temos um esboço de como estas etapas são realizadas utilizando a linguagem C++ em conjunto com o módulo QtSql do framework Qt (ver seção \ref{sec:qt}) e comunicando com o SGBD PostgreSQL (ver seção \ref{sec:postgresql}).
-
-\lstinputlisting[label={lst:qtsql_mapclasse}, caption={Exemplo de comunicação com SGBD utilizando o módulo QtSql}]{codigos/qtsql_mapclasse.cpp}
+\begin{algorithm}
+\caption{Exemplo de comunicação com SGBD utilizando o módulo QtSql}
+\label{lst:qtsql_mapclasse}
+\lstinputlisting[]{codigos/qtsql_mapclasse.cpp}
+\end{algorithm}
 
 A utilização deste tipo de código se torna repetitiva, visto que temos que executar estes passos para todas as classes que armazenam dados utilizando SGBDs. Este tipo de comportamento é indesejado, pois diminui a produtividade do desenvolvimento, e tarefas repetitivas tem grande potencial de gerarem erros. Outro grande problema que encontramos é que os comandos em linguagem SQL variam entre os SGBDs, portanto ao mudar o SGBD utilizado pelo programa, temos de reescrever os comandos SQL utilizados. Este é outro fator com grande potencial de geração de erros, além de diminuir a flexibilidade do software. Em alguns casos a mudança de SGBD pode se tornar inviável \cite{ormPaper}.
 

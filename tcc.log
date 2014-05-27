@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.5.2)  23 MAY 2014 19:31
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2014.5.10)  27 MAY 2014 20:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -535,22 +535,22 @@ File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
 ) (./tcc.aux)
 \openout1 = `tcc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
-LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
 \AtBeginShipoutBox=\box67
-Package hyperref Info: Link coloring OFF on input line 85.
+Package hyperref Info: Link coloring OFF on input line 86.
 
 (c:/texlive/2013/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -560,9 +560,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count148
 )
-LaTeX Info: Redefining \ref on input line 85.
-LaTeX Info: Redefining \pageref on input line 85.
-LaTeX Info: Redefining \nameref on input line 85.
+LaTeX Info: Redefining \ref on input line 86.
+LaTeX Info: Redefining \pageref on input line 86.
+LaTeX Info: Redefining \nameref on input line 86.
 
 (./tcc.out) (./tcc.out)
 \@outlinefile=\write3
@@ -686,9 +686,9 @@ Package babel Info: Redefining portuges shorthand "|
 
 ] (./tcc.toc
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 15.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 17.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 15.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 17.
 )
 \tf@toc=\write4
 \openout4 = `tcc.toc'.
@@ -721,10 +721,20 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 98.
  [9
 
+] (./tcc.loa)
+\tf@loa=\write7
+\openout7 = `tcc.loa'.
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 99.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 99.
+ [10
+
 ])
 Cap\'{\i }tulo 1.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 105.
+(babel)             in language append on input line 106.
 (./01_introducao.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 10.
@@ -735,13 +745,13 @@ Package babel Info: Redefining portuges shorthand "|
 
 ])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 111.
+(babel)             in language append on input line 112.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 111.
+(babel)             in language append on input line 112.
  [2]
 Cap\'{\i }tulo 2.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 111.
+(babel)             in language append on input line 112.
 (./02_segundo_capitulo.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 4.
@@ -758,90 +768,106 @@ Package babel Info: Redefining portuges shorthand "|
 [3
 
 ]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 20.
+
+Package caption Warning: \label without proper \caption on input line 21.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `lst:simpleclass' on page 4 undefined on input line 18
+.
+
+Package hyperref Info: bookmark level for unknown algocf defaults to 0 on input
+ line 22.
+
+Overfull \hbox (19.91684pt too wide) detected at line 32
+[][]
+ []
+
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 26.
+(babel)             in language append on input line 35.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 26.
- [4]
+(babel)             in language append on input line 35.
+[4]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 39.
+(babel)             in language append on input line 43.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 39.
+(babel)             in language append on input line 43.
  [5]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 41.
+(babel)             in language append on input line 45.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 52.
+(babel)             in language append on input line 56.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 52.
+(babel)             in language append on input line 56.
  [6]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 53.
- <imagens/windowLinux.png, id=226, 296.307pt x 319.4334pt>
+(babel)             in language append on input line 57.
+ <imagens/windowLinux.png, id=246, 296.307pt x 319.4334pt>
 File: imagens/windowLinux.png Graphic file (type png)
 
 <use imagens/windowLinux.png>
-Package pdftex.def Info: imagens/windowLinux.png used on input line 61.
+Package pdftex.def Info: imagens/windowLinux.png used on input line 65.
 (pdftex.def)             Requested size: 296.30627pt x 319.4326pt.
 
-<imagens/windowWindows.png, id=228, 409.53pt x 448.67625pt>
+<imagens/windowWindows.png, id=248, 409.53pt x 448.67625pt>
 File: imagens/windowWindows.png Graphic file (type png)
 
 <use imagens/windowWindows.png>
-Package pdftex.def Info: imagens/windowWindows.png used on input line 67.
+Package pdftex.def Info: imagens/windowWindows.png used on input line 71.
 (pdftex.def)             Requested size: 327.62444pt x 358.94148pt.
 
-<imagens/windowMac.png, id=229, 401.5pt x 438.63875pt>
+<imagens/windowMac.png, id=249, 401.5pt x 438.63875pt>
 File: imagens/windowMac.png Graphic file (type png)
 
 <use imagens/windowMac.png>
-Package pdftex.def Info: imagens/windowMac.png used on input line 73.
+Package pdftex.def Info: imagens/windowMac.png used on input line 77.
 (pdftex.def)             Requested size: 321.20042pt x 350.91147pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 82.
+(babel)             in language append on input line 86.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 82.
+(babel)             in language append on input line 86.
  [7]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 86.
+(babel)             in language append on input line 90.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 86.
+(babel)             in language append on input line 90.
  [8 <./imagens/windowLinux.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 87.
+(babel)             in language append on input line 91.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 94.
+(babel)             in language append on input line 98.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 94.
+(babel)             in language append on input line 98.
  [9 <./imagens/windowWindows.png (PNG copy)>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 96.
+(babel)             in language append on input line 100.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 96.
- [10 <./imagens/windowMac.png>]
-<imagens/modeloRelacional.png, id=262, 410.2828pt x 184.43906pt>
+(babel)             in language append on input line 100.
+pdfTeX warning (ext4): destination with the same identifier (name{page.10}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.100 
+       [10 <./imagens/windowMac.png>]
+<imagens/modeloRelacional.png, id=281, 410.2828pt x 184.43906pt>
 File: imagens/modeloRelacional.png Graphic file (type png)
 
 <use imagens/modeloRelacional.png>
-Package pdftex.def Info: imagens/modeloRelacional.png used on input line 99.
+Package pdftex.def Info: imagens/modeloRelacional.png used on input line 103.
 (pdftex.def)             Requested size: 410.2818pt x 184.4386pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 106.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 111.
+(babel)             in language append on input line 110.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 115.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 115.
+(babel)             in language append on input line 119.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 119.
  [11 <./imagens/modeloRelacional.png>]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 131.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 131.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 138.
 
-[12] (./codigos/qtsql_mapclasse.cpp
+(./codigos/qtsql_mapclasse.cpp
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 5.
 
 (c:/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
@@ -850,128 +876,160 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
 )
-Overfull \hbox (22.43106pt too wide) in paragraph at lines 139--139
+Overfull \hbox (19.91684pt too wide) detected at line 139
+[][]
+ []
+
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 140.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 140.
+[12]
+Overfull \hbox (22.43106pt too wide) in paragraph at lines 146--146
 []\T1/cmr/bx/n/17.28 Bibliotecas de Ma-pe-a-mento Ob-jeto Re-la-ci-o-nal (ORM) 
 
  []
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 139.
+(babel)             in language append on input line 146.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 149.
+(babel)             in language append on input line 156.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 149.
+(babel)             in language append on input line 156.
 [13]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 163.
+(babel)             in language append on input line 170.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 163.
+(babel)             in language append on input line 170.
  [14])
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 116.
+(babel)             in language append on input line 117.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 116.
+(babel)             in language append on input line 117.
  [15]
 Cap\'{\i }tulo 3.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 116.
-(./03_terceiro_capitulo.tex)
+(babel)             in language append on input line 117.
+(./03_terceiro_capitulo.tex
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 121.
+(babel)             in language append on input line 3.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 121.
+(babel)             in language append on input line 13.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 13.
  [16
 
 ]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 22.
+)
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 120.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 120.
+ [17]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 122.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 122.
+ [18]
 Cap\'{\i }tulo 4.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 121.
+(babel)             in language append on input line 122.
 (./04_quarto_capitulo.tex)
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 126.
+(babel)             in language append on input line 127.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 126.
- [17
+(babel)             in language append on input line 127.
+ [19
 
 ]
 Cap\'{\i }tulo 5.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 126.
+(babel)             in language append on input line 127.
 (./05_quinto_capitulo.tex)
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 131.
+(babel)             in language append on input line 132.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 131.
- [18
+(babel)             in language append on input line 132.
+ [20
 
 ]
 Cap\'{\i }tulo 6.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 131.
+(babel)             in language append on input line 132.
 (./06_sexto_capitulo.tex)
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 137.
+(babel)             in language append on input line 138.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 137.
- [19
+(babel)             in language append on input line 138.
+ [21
 
 ]
 Apendice A.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 137.
+(babel)             in language append on input line 138.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 137.
+(hyperref)                removing `math shift' on input line 138.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                \kern -1.95827pt
-(hyperref)                removed on input line 137.
+(hyperref)                removed on input line 138.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 137.
+(hyperref)                removing `math shift' on input line 138.
 
 (./07_apendice.tex)
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 146.
+(babel)             in language append on input line 147.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 146.
- [20
+(babel)             in language append on input line 147.
+ [22
 
 ] (./tcc.bbl
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 1.
-)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 35.
+
+(c:/texlive/2013/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+))
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
 +-------------------------------------------------------------------+
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 150.
+(babel)             in language append on input line 151.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 150.
-[21
+(babel)             in language append on input line 151.
+[23
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
  (./tcc.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 150.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 150.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 151.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
 Package rerunfilecheck Info: File `tcc.out' has not changed.
-(rerunfilecheck)             Checksum: 467E8A2C02E9024F16A075E87D91502A;1014.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 150.
+(rerunfilecheck)             Checksum: 04B474C61420B449DC8DAB3A7A3C5CA1;1179.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
  ) 
 Here is how much of TeX's memory you used:
- 12221 strings out of 493308
- 174734 string characters out of 6141368
- 355692 words of memory out of 5000000
- 15317 multiletter control sequences out of 15000+600000
- 32683 words of font info for 91 fonts, out of 8000000 for 9000
+ 12268 strings out of 493308
+ 175665 string characters out of 6141367
+ 349819 words of memory out of 5000000
+ 15346 multiletter control sequences out of 15000+600000
+ 32996 words of font info for 92 fonts, out of 8000000 for 9000
  958 hyphenation exceptions out of 8191
- 37i,11n,58p,1181b,1846s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,10n,58p,1181b,1479s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texl
 ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2013/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2013/texmf-dis
@@ -989,11 +1047,12 @@ frm1000.pfb><c:/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pf
 b><c:/texlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texl
 ive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2013/t
 exmf-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2013/texmf-dist/
-fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on tcc.pdf (32 pages, 460780 bytes).
+fonts/type1/public/cm-super/sfti1200.pfb><c:/texlive/2013/texmf-dist/fonts/type
+1/public/cm-super/sftt1200.pfb>
+Output written on tcc.pdf (35 pages, 494370 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 370 compressed objects within 4 object streams
- 90 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 475 PDF objects out of 1000 (max. 8388607)
+ 407 compressed objects within 5 object streams
+ 101 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

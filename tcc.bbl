@@ -29,6 +29,11 @@ Lhotka, R. (2009).
 \newblock {\em Expert C\# 2008 Business Objects}, volume~1.
 \newblock Apress.
 
+\bibitem[Marty, 2014]{qxorm}
+Marty, L. (2014).
+\newblock Qxorm - c++ object relational mapping library.
+\newblock \url{http://www.qxorm.com/doxygen/html/index.html}.
+
 \bibitem[Nierstrasz, 1989]{oopSurvey}
 Nierstrasz, O. (1989).
 \newblock A survey of object-oriented concepts.
@@ -41,5 +46,11 @@ PostgreSQL, T. G. D.~G. (2014).
 Thelin, J. (2007).
 \newblock {\em Foundations of Qt development}, volume~7.
 \newblock Springer.
+
+\bibitem[Zhang, 2004]{xiaobingZhang}
+Zhang, X. (2004).
+\newblock {\em A framework for object-relational mapping with an example in
+  C++}.
+\newblock PhD thesis, Concordia University.
 
 \end{thebibliography}

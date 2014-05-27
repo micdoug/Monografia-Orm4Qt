@@ -5,45 +5,45 @@ The style file: apalike.bst
 Database file #1: referencias.bib
 Warning--empty journal in ormPaper
 Warning--empty publisher in postgresqlDoc
-You've used 9 entries,
+You've used 11 entries,
             1935 wiz_defined-function locations,
-            521 strings with 4550 characters,
-and the built_in function-call counts, 2559 in all, are:
-= -- 235
-> -- 81
-< -- 12
-+ -- 26
-- -- 24
-* -- 180
-:= -- 476
-add.period$ -- 23
-call.type$ -- 9
-change.case$ -- 51
-chr.to.int$ -- 9
-cite$ -- 11
-duplicate$ -- 117
-empty$ -- 189
-format.name$ -- 39
-if$ -- 488
+            531 strings with 4792 characters,
+and the built_in function-call counts, 3071 in all, are:
+= -- 288
+> -- 95
+< -- 14
++ -- 32
+- -- 28
+* -- 213
+:= -- 578
+add.period$ -- 29
+call.type$ -- 11
+change.case$ -- 62
+chr.to.int$ -- 11
+cite$ -- 13
+duplicate$ -- 139
+empty$ -- 221
+format.name$ -- 45
+if$ -- 581
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 13
-newline$ -- 44
-num.names$ -- 27
-pop$ -- 64
+newline$ -- 54
+num.names$ -- 33
+pop$ -- 71
 preamble$ -- 1
-purify$ -- 57
+purify$ -- 69
 quote$ -- 0
-skip$ -- 93
+skip$ -- 112
 stack$ -- 0
-substring$ -- 110
-swap$ -- 9
+substring$ -- 136
+swap$ -- 10
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 42
+type$ -- 54
 warning$ -- 2
-while$ -- 18
+while$ -- 22
 width$ -- 0
-write$ -- 105
+write$ -- 130
 (There were 2 warnings)

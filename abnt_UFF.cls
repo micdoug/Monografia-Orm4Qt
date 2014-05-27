@@ -477,7 +477,7 @@
    \let\ABNToldnewcounter\newcounter\relax
    \def\ABNTeatbrackets[#1]{\relax}
    \renewcommand{\newcounter}[1]%
-     {\ifthenelse{\equal{#1}{figure}\or\equal{#1}{table}}%
+     {\ifthenelse{\equal{#1}{figure}\or\equal{#1}{table}\or\equal{#1}{algorithm}}%
         {\ABNToldnewcounter{#1}\@ifnextchar[{\ABNTeatbrackets}{}}%
         {\ABNToldnewcounter{#1}}%
      }
@@ -494,6 +494,7 @@
   \let\newcounter\ABNToldnewcounter\relax
   \renewcommand{\thefigure}{\arabic{figure}}
   \renewcommand{\thetable}{\arabic{table}}
+  \renewcommand{\thealgorithm}{\arabic{algorithm}}
  }
  {}
 
@@ -1557,6 +1558,21 @@ Para mais informacoes, leia o manual da classe.\MessageBreak%
 }%
 
 \let\listadefiguras\listoffigures\relax
+
+% ====  \listofalgorithm  ====
+% Same comments in \listoffigures
+\newcommand\listofalgorithm{%
+  \ifthenelse{\boolean{@twocolumn}}%
+    {\setboolean{ABNTrestorecol}{true}\onecolumn}%
+    {\setboolean{ABNTrestorecol}{false}}%
+  \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{listofalgorithms.}}{}
+  \pretextualchapter{\listalgorithmname}
+  \ifthenelse{\boolean{ABNThypertoc}}{\renewcommand{\chaptertype}{}}{}
+  \@starttoc{lot}%
+  \ifthenelse{\boolean{ABNTrestorecol}}{\twocolumn}{}%
+}%
+
+\let\listadealgoritmos\listofalgorithm\relax
 
 % ====  \listoftables  ====
 % Same comments in \listoffigures
