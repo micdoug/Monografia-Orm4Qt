@@ -16,7 +16,5 @@
 \contentsline {section}{\numberline {4.2}Camada de Objeto}{21}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Quebrando o encapsulamento das classes}{22}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Inserindo metadados através de anotações}{24}{subsection.4.2.2}
-\contentsline {chapter}{\numberline {5}Quinto Capítulo}{25}{chapter.5}
-\contentsline {chapter}{\numberline {6}Sexto Capítulo}{26}{chapter.6}
-\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Nome do Apêndice}{27}{appendix.A}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{28}{appendix*.18}
+\contentsline {section}{\numberline {4.3}Camada de Armazenamento}{26}{section.4.3}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{27}{chapter*.16}
