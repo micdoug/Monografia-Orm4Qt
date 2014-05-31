@@ -1,1 +1,75 @@
-Descrever a proposta de desenvolvimento da biblioteca ORM4Qt especificando sua classificaÃ§Ã£o de acordo com os conceitos inseridos no capÃ­tulo de fundamentaÃ§Ã£o teÃ³rica.
+Desenvolver aplicativos multiplataforma utilizando a linguagem C++ é uma tarefa muito difícil, devido à reduzida biblioteca padrão da linguagem, e aos diversos componentes específicos desenvolvidos para cada plataforma. Esta complexidade pode ser minimizada a partir do uso de \textit{frameworks} multiplataforma, como o  Qt, para compor nosso ambiente de desenvolvimento. Porém, em comparação com ambientes oferecidos por linguagens mais recentes, este apresenta poucos mecanismos de automatização de tarefas diversas, ou os que existem apresentam interfaces complexas para utilização. É o que acontece por exemplo com as bibliotecas de mapeamento objeto relacional ou ORM.
+
+Analisando o ambiente de desenvolvimento oferecido a partir da combinação da linguagem C++ com o \textit{framework} Qt, encontramos algumas implementações de bibliotecas ORM, destacando-se o QxOrm. Estas bibliotecas, devido ao pouco suporte a reflexão oferecido pela linguagem C++, em sua maioria apresentam interfaces de configuração complexas. Além de usarem mecanismos como herança e \textbf{"classes \textit{friend}"}\footnote{Este recurso permite que uma classe ou método global externo acesse os componentes privados de uma classe.} para quebra de encapsulamento das classes a serem mapeadas, o que é indesejável por aumentar o nível de acoplamento do código.
+
+Neste trabalho é proposto o desenvolvimento de uma biblioteca ORM intitulada ORM4Qt para ser utilizada neste ambiente de desenvolvimento. A biblioteca utilizará o paradigma orientado a aplicação e a abordagem transparente para definição das classes mapeadas. A interface de configuração do mapeamento será feita através de um mecanismo de anotações desenvolvido especificamente para a biblioteca. Para a quebra de encapsulamento das classes será utilizada a manipulação de ponteiros de funções através do uso de estruturas de alto nível oferecidos pela linguagem C++. A biblioteca desenvolvida será capaz de mapear somente classes simples, ou seja, que contém somente atributos escalares e não utilize herança. Posteriormente, ela poderá ser estendida para suportar o mapeamento de classes que utilizem mecanismos mais avançados de orientação a objetos.
+
+Das bibliotecas ORM existentes para o cenário abordado, a QxOrm é a que mais se aproxima das características citadas, portanto ela será utilizada em testes ao final do desenvolvimento. Os testes deverão comparar a configuração do ambiente de desenvolvimento para utilização das bibliotecas, a facilidade em utilização dos mecanismos de configuração de mapeamento e a facilidade em migração de código legado.
+
+Nas próximas seções serão detalhados os mecanismos utilizados para o desenvolvimento, bem como a arquitetura utilizada.
+
+\section{Arquitetura em camadas}
+\label{sec:layersArch}
+
+O desenvolvimento da biblioteca é estruturado em duas camadas, a camada de Objeto ou \textit{\textbf{"Object Layer"}} e a camada de Armazenamento ou \textit{\textbf{"Storage Layer"}}, seguindo a nomenclatura utilizada no trabalho desenvolvido por \textit{Zhang Xiaobing} \cite{xiaobingZhang}. As duas camadas oferecem interfaces acessíveis diretamente pelo desenvolvedor e cooperam entre si através de troca de informações. 
+
+A camada de Objeto tem como objetivo prover uma interface transparente para o desenvolvedor que permita a configuração das classes a serem mapeadas e prover uma interface para a camada de Armazenamento que permita o acesso aos metadados bem como à estrutura interna das classes sendo mapeadas. Esta camada é a mais complexa de ser desenvolvida devido ao uso intenso de estruturas de baixo nível da linguagem para quebra de encapsulamento e criação do mecanismo de anotações. 
+
+A camada de Armazenamento tem como objetivo prover uma interface para o desenvolvedor que permita executar tarefas relacionadas com a persistência de objetos no banco de dados, além de definir uma interface comum de geração de código SQL que possa ser implementada para diferentes SGBDs. Inicialmente esta interface será implementada para o SGBD PostgreSQL, e utilizará os mecanismos oferecidos pelo módulo QtSql para se comunicar com ele.
+
+Na imagem \ref{fig:camadas} temos uma representação de alto nível da interação entre os módulos, o desenvolvedor, o banco de dados e as classes a serem mapeadas durante o funcionamento da biblioteca. Nas próximas seções as duas camadas serão detalhadas juntamente com os mecanismos específicos envolvidos no desenvolvimento de cada uma.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{imagens/camadas.png}
+\caption{Interação entre componentes do software e desenvolvedor}
+\label{fig:camadas}
+
+\end{figure}
+
+\section{Camada de Objeto}
+\label{sec:objectLayer}
+
+Para que seja possível realizar o mapeamento, a biblioteca ORM deve ser capaz de conhecer e acessar a estrutura interna das classes a serem mapeadas. Existem basicamente dois limitadores que dificultam alcançar este cenário na linguagem C++. O primeiro deles consiste na possibilidade de o desenvolvedor limitar o acesso à estrutura interna através das diretivas de proteção oferecidas pela linguagem durante a definição das classes. A biblioteca ORM precisa ter acesso de leitura e escrita nos atributos das classes sendo mapeadas, porém em geral eles são mantidos com permissão de acesso privado, onde somente podem ser acessados diretamente de dentro da classe.
+
+O segundo deles é o baixo suporte da linguagem a mecanismos de reflexão. Antes de acessar os atributos das classes a biblioteca deve saber quais são os atributos que a classe contém, entretanto em seu atual estado, a linguagem oferece somente informações básicas sobre os objetos, como por exemplo o nome de sua classe. No trecho de código \ref{lst:reflectionexample} temos um exemplo da obtenção do nome da classe de um objeto em tempo de execução. Na linha 1 é criado um objeto da classe Pessoa, e na linha 2 é capturado o nome da classe deste objeto e exibido no console. A saída gerada por este programa quando compilado no compilador que acompanha o Visual Studio 2013 é o texto \textit{"class Pessoa"}.
+
+\begin{algorithm}
+\caption{Obtendo o nome da classe de um objeto em tempo de execução}
+\label{lst:reflectionexample}
+\lstinputlisting[]{codigos/reflectionExample.cpp}
+\end{algorithm}
+
+A camada Objeto utiliza dois mecanismos para contornar estes limitadores, os quais serão descritos nas seções a seguir.
+
+\subsection{Quebrando o encapsulamento das classes}
+\label{sec:quebraEncapsulamento}
+
+Quando os atributos das classes são declarados com acesso público, a biblioteca ORM pode acessá-los diretamente, porém este cenário não é normalmente utilizado pelos desenvolvedores e a utilização da biblioteca impor tal cenário é uma característica indesejável e que poderia diminuir sua aceitação no mercado. Para resolver este problema então partimos do pressuposto de que todos os atributos a serem acessados nas classes a serem mapeadas estarão com acesso privado, ou seja, só podem ser acessados de dentro das classes. Com isso em mente podemos também definir que somente poderemos acessar os atributos das classes através do uso de um intermediador que componha a estrutura da classe, ou mais precisamente um método que compõe a interface da classe.
+
+A primeira ideia que vem em mente é utilizar métodos acessadores, popularmente conhecidos como métodos \textit{\textbf{"get"}} e \textit{\textbf{"set"}}, porém temos alguns limitadores que dificultam a sua utilização. Um deles é que não podemos assumir que para todo atributo existem métodos acessadores, pois podem existir atributos somente leitura ou cujo valor é controlado internamente na classe. Outro limitador é a não padronização do protótipo dos métodos acessadores. Estes métodos podem ser definidos com uma quantidade variável de parâmetros, e ainda a linguagem C++ permite a criação de variações através da modificação do tipo de parâmetro e/ou retorno (ponteiro, referência ou por valor), além do uso do modificador \textbf{\textit{"const"}}\footnote{Métodos declarados com este modificador não podem modificar o valor dos atributos da classe durante sua execução. Esta especificação permite ao compilador efetuar otimizações no código gerado.} na declaração de métodos de leitura.
+
+Devido a estas características, o uso de ponteiros genéricos para métodos, por exemplo, não poderia ser utilizado, pois teríamos que variar a definição dos ponteiros de acordo com o protótipo dos métodos utilizados. No trecho de código \ref{lst:prototypeVariant} temos por exemplo as possíveis variações de declarações de métodos acessadores para um atributo do tipo inteiro.
+
+\begin{algorithm}
+\caption{Exemplo de variações na declaração de métodos acessadores para atributos tipo inteiro}
+\label{lst:prototypeVariant}
+\lstinputlisting[]{codigos/prototypeVariant.cpp}
+\end{algorithm}
+
+Já que não podemos utilizar os métodos acessadores, a solução proposta é a inserção de métodos intermediadores na definição das classes a serem mapeadas. Dessa maneira podemos criar os métodos seguindo protótipos pré-definidos, o que nos permite manipulá-los mais facilmente através de ponteiros. Porém esta solução ainda tem um problema. Se formos criar um método para cada atributo da classe, a quantidade destes pode se tornar muito grande, o que causaria uma modificação extrema da interface original da classe mapeada, o que é indesejável. Para diminuir os efeitos deste problema é proposto a utilização de \textbf{expressões lambda}.
+
+As expressões lambda são estruturas que permitem a criação de métodos anônimos, ou seja, que não têm um nome ou marcador de referência, o que implica em eles não fazerem parte de interfaces de classes ou até mesmo do escopo global. Estas estruturas são manipuladas de maneira semelhante aos ponteiros de funções, porém possuem um tipo de dado padrão para seu armazenamento, o \textit{\textbf{"std::function"}}. Desta maneira podemos inserir somente um método na classe a ser mapeada e dentro deste criar expressões lambda para manipular os atributos. As expressões criadas podem ser então agrupadas em uma estrutura de lista e retornadas. Como as expressões foram criadas dentro da classe sendo manipulada, elas têm acesso aos atributos privados normalmente, além de poderem ser transportadas como variáveis comuns. 
+
+\begin{algorithm}
+\caption{Retornando uma expressão lambda para acesso de atributo privado}
+\label{lst:lambdaExample}
+\lstinputlisting[]{codigos/lambdaExample.cpp}
+\end{algorithm}
+
+No trecho de código \ref{lst:lambdaExample} temos um exemplo de uma classe com um atributo privado do tipo inteiro, e uma função que retorna uma expressão lambda capaz de acessar este atributo. Na linha 4 temos a definição do método que retorna a expressão lambda e na linha 6 a sua criação e retorno. A sintaxe de criação de expressões lambda pode parecer estranha inicialmente, porém com o decorrer do seu uso ela se torna prática e simples. O método criado pela biblioteca não retorna uma simples lista de expressões lambda, mas um objeto que além de armazenar as expressões, armazena metadados, como veremos no próximo tópico.
+
+\subsection{Inserindo metadados através de anotações}
+\label{sec:anotacoes}
+
+
