@@ -18,8 +18,8 @@ O conjunto de atributos e métodos de uma classe define o que chamamos de \textbf
 Em algumas linguagens este mecanismo se baseia no endereçamento de memória ocupado pela instância do objeto, como é o caso da linguagem C++. Já em outras linguagens existem mecanismos que permitem a criação de uma função de comparação pelo desenvolvedor, o que acontece por exemplo na linguagem \textbf{\textit{JAVA}} onde podemos definir o método \textbf{\textit{"equals"}} das classes criadas. Um exemplo de definição de uma classe utilizando a linguagem C++ é apresentado no trecho de código  \ref{lst:simpleclass}, para demonstrar os conceitos explicados anteriormente. No código é definida a estrutura de uma classe que representa uma pessoa. A classe foi definida com o identificador Pessoa (linha 1), possui dois atributos internos para armazenar o nome e sobrenome (linhas 3 e 4) e um método que retorna o nome completo de uma pessoa através da combinação do seu nome e sobrenome (linha 6). Os atributos não são acessíveis externamente devido ao modificador de acesso \textit{"private"} utilizado na linha 2. Já o método é acessível devido ao modificador de acesso \textit{"public"} utilizado na linha 5.
 
 \begin {algorithm}
-\label{lst:simpleclass}
 \caption{Definição de uma classe simples em C++}
+\label{lst:simpleclass}
 \begin{lstlisting}[]
 class Pessoa {
 	private:
