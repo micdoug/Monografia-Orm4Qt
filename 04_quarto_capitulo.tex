@@ -98,3 +98,20 @@ Com este mecanismo definido, as responsabilidades da camada Objeto já podem ser 
 \section{Camada de Armazenamento}
 \label{sec:storageLayer}
 
+O objetivo principal de uma biblioteca ORM é abstrair do desenvolvedor a criação dos comandos SQL para executar as tarefas de persistência, bem como a comunicação com o banco de dados. A camada de armazenamento alcança este cenário a partir da utilização de duas classes. A primeira é a \textbf{\textit{"Repository"}}, que disponibiliza em sua interface métodos para salvar, atualizar, deletar e carregar registros de objetos no banco de dados. Esta classe oferece a possibilidade do uso de transações para garantir que um grupo de operações seja executado de forma atômica. Ela também tem a responsabilidade de gerenciar a comunicação com o banco de dados, o que é feito através da utilização da API disponibilizada pelo módulo QtSQL oferecido pelo framework Qt.
+
+A segunda classe é a \textbf{\textit{"SQLProvider"}} que define uma interface para geração de comandos em linguagem SQL para a execução das tarefas de persistência de objetos. Ela utiliza os objetos de reflexão disponibilizados pela camada Objeto para construir sentenças de acordo com a instância de objeto a ser persistida. Esta interface deve ser implementada para cada tipo de SGBD que se deseja utilizar, desta forma a adição de suporte da biblioteca para diversos SGBDs se torna uma tarefa mais simples. A classe \textit{"Repository"} utiliza uma implementação desta interface para gerar os comandos necessários para execução de suas tarefas. 
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.7]{imagens/storageDiagram.png}
+\caption{Diagrama de classes simplificado da camada de armazenamento}
+\label{fig:storageDiagram}
+\end{figure}
+
+Na figura \ref{fig:storageDiagram} temos um esboço do diagrama de classes da camada de Armazenamento, onde temos a representação de duas possíveis implementações da interface \textit{"SQLProvider"}, uma que daria suporte ao SGBD PostgreSQL e outra ao MySQL. A camada de Armazenamento é menos complexa pelo fato de utilizar a própria camada Objeto e o módulo QtSql para facilitar sua implementação, porém ela também é responsável por tratar os erros que podem ocorrer durante a comunicação com o banco de dados ou execução de comandos SQL. Ela deve retornar mensagens bem formatadas descrevendo os erros e oferecer mecanismos para geração de logs. 
+
+Com a definição desta camada terminamos a especificação da biblioteca. A seguir será apresentado o cronograma da etapa de desenvolvimento.
+
+\section{Cronograma}
+\label{sec:cronograma}

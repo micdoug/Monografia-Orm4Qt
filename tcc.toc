@@ -17,4 +17,5 @@
 \contentsline {subsection}{\numberline {4.2.1}Quebrando o encapsulamento das classes}{22}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Inserindo metadados através de anotações}{24}{subsection.4.2.2}
 \contentsline {section}{\numberline {4.3}Camada de Armazenamento}{26}{section.4.3}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{27}{chapter*.16}
+\contentsline {section}{\numberline {4.4}Cronograma}{28}{section.4.4}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{29}{chapter*.17}
