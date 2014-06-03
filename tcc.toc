@@ -6,7 +6,7 @@
 \contentsline {section}{\numberline {2.3}O Framework Qt}{7}{section.2.3}
 \contentsline {section}{\numberline {2.4}Sistemas Gerenciadores de Bancos de Dados Relacionais}{9}{section.2.4}
 \contentsline {section}{\numberline {2.5}O PostgreSQL}{11}{section.2.5}
-\contentsline {section}{\numberline {2.6}A combinação SGBDs com Linguagens Orientadas a Objetos}{12}{section.2.6}
+\contentsline {section}{\numberline {2.6}A combinação SGBDs com Linguagens Orientadas a Objeto}{12}{section.2.6}
 \contentsline {section}{\numberline {2.7}Bibliotecas de Mapeamento Objeto Relacional (ORM)}{13}{section.2.7}
 \contentsline {chapter}{\numberline {3}Trabalhos relacionados}{16}{chapter.3}
 \contentsline {section}{\numberline {3.1}Um framework de mapeamento objeto-relacional com um exemplo em C++}{16}{section.3.1}
@@ -17,5 +17,6 @@
 \contentsline {subsection}{\numberline {4.2.1}Quebrando o encapsulamento das classes}{22}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Inserindo metadados através de anotações}{24}{subsection.4.2.2}
 \contentsline {section}{\numberline {4.3}Camada de Armazenamento}{26}{section.4.3}
-\contentsline {section}{\numberline {4.4}Cronograma}{28}{section.4.4}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{29}{chapter*.17}
+\contentsline {chapter}{\numberline {5}Cronograma de Atividades}{28}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusão}{29}{chapter.6}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{30}{chapter*.20}

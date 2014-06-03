@@ -1,3 +1,9 @@
-abstract...
+The Object Oriented Languages together with the Relational Database Management Systems (RDBMs) are recognized as a pattern in Enterprise Information Systems development. Although the use of both technologies together presents satisfactory results, is difficult to perform the information transition between their contexts of data representation.
 
-{\bf{Keywords}}: UIT, LATEX, Computer Science
+To perform the information transition it is necessary to develop specific software components for each class that represents data who needs to be persisted in the database, task that shows itself repetitive and error prone. With the goal of ease this problem, were created the Object Relational Mapping (ORM) libraries, that are software components capable of automate the process of data transition between the two contexts.
+
+Due to limitations on the resources of reflection and insertion of metadata offered by the C++ language, the implementation of ORM solutions for this language shows itself a very complex task. The major solutions implemented presents complex configuration interfaces, besides using language resources who promote the increase of the coupling level of code.
+
+In this paper is proposed the development of a ORM library for the C++ language, where are implemented own mechanisms of reflection and insertion of metadata. The library uses many components offered by the Qt framework to help in tasks like communication with the database and extension of native types.
+
+{\bf{Keywords}}: Object Oriented, RDBMS, C++, ORM

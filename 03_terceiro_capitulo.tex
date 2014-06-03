@@ -1,4 +1,4 @@
-Neste capítulo será descrito um trabalho semelhante a este, que também propôs o desenvolvimento de uma biblioteca ORM para C++ e que é utilizado como base para o desenvolvimento deste trabalho. Também será descrita uma biblioteca ORM presente no mercado, que é bastante utilizada em conjunto com o framework Qt no desenvolvimento de aplicativos comerciais. Esta biblioteca será utilizada na realização de testes comparativos ao final do trabalho.
+Neste capítulo será descrito um trabalho correlato, que também propôs o desenvolvimento de uma biblioteca ORM para C++ e que é utilizado como base para o desenvolvimento deste trabalho. Também será descrita uma biblioteca ORM presente no mercado, que é bastante utilizada em conjunto com o framework Qt no desenvolvimento de aplicativos comerciais. Esta biblioteca será utilizada na realização de testes comparativos ao final do trabalho.
 
 \section{Um framework de mapeamento objeto-relacional com um exemplo em C++}
 \label{sec:zhangXiaobing}
@@ -8,10 +8,10 @@ Em seu trabalho intitulado "Um framework de mapeamento objeto-relacional com um 
 Seu modelo define uma biblioteca ORM que segue o paradigma orientado a aplicação, onde o desenvolvedor ficará responsável por definir toda a parte do código relacionado a criação dos objetos a serem mapeados. Todo objeto a ser mapeado deve herdar de uma classe específica, e o desenvolvedor deve reimplementar determinados métodos de modo a informar para a biblioteca metadados que definem o mapeamento. Devido a esse comportamento dizemos que a biblioteca não é transparente. O modelo ainda define uma arquitetura de desenvolvimento em duas camadas:
 
 \begin{description}
-\item[Camada de objetos (\textit{\textbf{Object Layer}})]
+\item[1) Camada de objetos (\textit{\textbf{Object Layer}})]
 Camada responsável por prover uma interface simples para definição de classes a serem mapeadas e seus metadados, além de trafegar dados entre os objetos mapeados e a camada de persistência. Esta camada é a única acessível diretamente pelo desenvolvedor.
 
-\item[Camada de persistência (\textit{\textbf{Storage Layer}})]
+\item[2) Camada de persistência (\textit{\textbf{Storage Layer}})]
 Camada responsável por abstrair a comunicação com o SGBD, provendo rotinas de persistência, concorrência, recuperação de erros e execuções de pesquisas no banco de dados. Esta camada não é diretamente acessível pelo desenvolvedor.
 \end{description}
 

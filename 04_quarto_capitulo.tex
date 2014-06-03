@@ -110,8 +110,3 @@ A segunda classe é a \textbf{\textit{"SQLProvider"}} que define uma interface pa
 \end{figure}
 
 Na figura \ref{fig:storageDiagram} temos um esboço do diagrama de classes da camada de Armazenamento, onde temos a representação de duas possíveis implementações da interface \textit{"SQLProvider"}, uma que daria suporte ao SGBD PostgreSQL e outra ao MySQL. A camada de Armazenamento é menos complexa pelo fato de utilizar a própria camada Objeto e o módulo QtSql para facilitar sua implementação, porém ela também é responsável por tratar os erros que podem ocorrer durante a comunicação com o banco de dados ou execução de comandos SQL. Ela deve retornar mensagens bem formatadas descrevendo os erros e oferecer mecanismos para geração de logs. 
-
-Com a definição desta camada terminamos a especificação da biblioteca. A seguir será apresentado o cronograma da etapa de desenvolvimento.
-
-\section{Cronograma}
-\label{sec:cronograma}

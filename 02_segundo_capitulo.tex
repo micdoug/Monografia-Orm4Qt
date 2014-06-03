@@ -1,11 +1,11 @@
-Neste capítulo iremos inserir alguns conceitos básicos utilizados ao longo do trabalho, situando-os dentro do problema a ser resolvido.
+Neste capítulo são apresentados os conceitos básicos utilizados ao longo do trabalho, situando-os dentro do problema a ser resolvido.
 
 %--- Inserir os conceitos de orientação a objetos
 \section{Orientação a Objetos}
 \label{sec:oop}
-Um conceito bastante difundido tanto no meio acadêmico quanto no mercado são as \textbf{Linguagens Orientadas a Objetos}. São linguagens de programação que utilizam um paradigma ou padrão de estruturação de código que permite ao desenvolvedor criar abstrações no contexto do software para modelar objetos ou entidades do mundo real[\cite{oopSurvey}].
+Um conceito bastante difundido tanto no meio acadêmico quanto no mercado são as \textbf{Linguagens Orientadas a Objeto}, que são linguagens de programação que utilizam um paradigma ou padrão de estruturação de código, de modo a permitir que o desenvolvedor crie abstrações no contexto do software para modelar objetos ou entidades do mundo real[\cite{oopSurvey}].
 
-Não existe uma definição universal que diga quais são as características ou funcionalidades que uma linguagem de programação deve apresentar para ser considerada orientada a objetos \cite{oopSurvey}. Porém de maneira geral, elas possuem mecanismos que permitem agrupar dentro de uma unidade de software, estruturas para prover informações de \textbf{estado}, \textbf{comportamento} e \textbf{identidade} \cite{ormPaper}. Este agrupamento de estruturas dentro de uma unidade é conhecido como \textbf{encapsulamento}.
+Não existe uma definição universal que diga quais são as características ou funcionalidades que uma linguagem de programação deve apresentar para ser considerada orientada a objetos \cite{oopSurvey}. Porém, de maneira geral, elas possuem mecanismos que permitem agrupar dentro de uma unidade de software, estruturas para prover informações de \textbf{estado}, \textbf{comportamento} e \textbf{identidade} \cite{ormPaper}. Este agrupamento de estruturas dentro de uma unidade é conhecido como \textbf{encapsulamento}.
 
 Esta unidade de software que representa o estado, comportamento e identidade de uma entidade do software é conhecida como \textbf{objeto}. Um objeto é criado a partir de um modelo pré-estabelecido que define todas as estruturas internas que o compõe. Este modelo é conhecido como \textbf{classe} \cite{oopSurvey}. 
 
@@ -13,7 +13,7 @@ Algumas linguagens não oferecem mecanismos explícitos para criação de classes, p
 
 Algumas linguagens permitem a adição de objetos como atributos de uma classe, como é o caso da linguagem C++. Este comportamento é conhecido como \textbf{composição}. O comportamento de um objeto é definido a partir da adição de funções em sua estrutura interna. Elas são utilizadas para efetuar operações sobre os atributos que o objeto contém. Estas funções são conhecidas como \textbf{métodos} de uma classe \cite{oopSurvey}.
 
-O conjunto de atributos e métodos de uma classe define o que chamamos de \textbf{interface}. Algumas linguagens permitem reduzir a interface de um objeto de forma que nem todas as estruturas internas sejam acessíveis externamente. Um exemplo é a linguagem C++, que nos permite utilizar os modificadores \textbf{"private"} (estruturas não acessíveis externamente) e \textbf{"public"} (estruturas acessíveis externamente). A identidade de um objeto se refere à capacidade de se referenciar instâncias de objetos de maneira unívoca, ou seja, se refere à capacidade de se distinguir diversas instâncias de objetos entre si através de algum mecanismo de comparação \cite{oopSurvey}. 
+O conjunto de atributos e métodos de uma classe define o que chamamos de \textbf{interface}. Algumas linguagens permitem reduzir a interface de um objeto de forma que nem todas as estruturas internas sejam acessíveis externamente. Um exemplo é a linguagem C++, que nos permite utilizar os modificadores \textit{\textbf{"private"}} (estruturas não acessíveis externamente) e \textit{\textbf{"public"}} (estruturas acessíveis externamente). A identidade de um objeto se refere à capacidade de se referenciar instâncias de objetos de maneira unívoca, ou seja, se refere à capacidade de se distinguir diversas instâncias de objetos entre si através de algum mecanismo de comparação \cite{oopSurvey}. 
 
 Em algumas linguagens este mecanismo se baseia no endereçamento de memória ocupado pela instância do objeto, como é o caso da linguagem C++. Já em outras linguagens existem mecanismos que permitem a criação de uma função de comparação pelo desenvolvedor, o que acontece por exemplo na linguagem \textbf{\textit{JAVA}} onde podemos definir o método \textbf{\textit{"equals"}} das classes criadas. Um exemplo de definição de uma classe utilizando a linguagem C++ é apresentado no trecho de código  \ref{lst:simpleclass}, para demonstrar os conceitos explicados anteriormente. No código é definida a estrutura de uma classe que representa uma pessoa. A classe foi definida com o identificador Pessoa (linha 1), possui dois atributos internos para armazenar o nome e sobrenome (linhas 3 e 4) e um método que retorna o nome completo de uma pessoa através da combinação do seu nome e sobrenome (linha 6). Os atributos não são acessíveis externamente devido ao modificador de acesso \textit{"private"} utilizado na linha 2. Já o método é acessível devido ao modificador de acesso \textit{"public"} utilizado na linha 5.
 
@@ -48,7 +48,7 @@ A linguagem \textbf{C++} é uma linguagem orientada a objetos criada em 1980 por 
 
 As linguagens compiladas se caracterizam por gerar aplicativos com melhor desempenho em momento de execução. Isso se deve ao fato da geração de código nativo, que pode ser executado sem intervenção externa\cite{bueno2002apostila}. Porém esta característica também implica em a linguagem oferecer poucos mecanismos de \textbf{reflexão} ou \textbf{introspecção}, que nos permitem conhecer em momento de execução as estruturas dos objetos sendo utilizados\cite{ormPaper}.
 
-C++ foi construída com base na linguagem \textbf{C}. Inicialmente o código escrito em C++ era traduzido para C e compilado com compiladores desta linguagem. Com o aumento da complexidade de implementação das características e funcionalidades que foram surgindo na linguagem ao longo de sua existência, surgiram compiladores específicos para C++\cite{cppAnnotations}.
+A C++ foi construída com base na linguagem \textbf{C}. Inicialmente o código escrito em C++ era traduzido para C e compilado com compiladores desta linguagem. Com o aumento da complexidade de implementação das características e funcionalidades que foram surgindo na linguagem ao longo de sua existência, surgiram compiladores específicos para C++\cite{cppAnnotations}.
 
 Dentre as características da linguagem estão a capacidade de definição de classes, utilização de herança múltipla, utilização de polimorfismo explicitamente, gerenciamento de memória controlado pelo desenvolvedor e compatibilidade com códigos escritos em C. Outra importante característica da linguagem é a sua não portabilidade, ou seja, o código gerado para uma plataforma (sistema operacional e/ou hardware específico) geralmente não é compatível com outras plataformas. Devido a isso, a linguagem possui uma biblioteca padrão bem reduzida, não oferecendo por exemplo bibliotecas de comunicação em rede e utilização de banco de dados \cite{bueno2002apostila}.
 
@@ -112,12 +112,12 @@ Uma das funcionalidades mais importantes apresentada pelos SGBDs é a capacidade 
 O PostgreSQL é um SGBD de código aberto, e com licença de uso gratuita para qualquer pessoa sobre qualquer propósito. Ele pode ser utilizado, modificado e redistribuído livremente. Este SGBD é derivado do projeto \textbf{POSTGRES} desenvolvido na Universidade de Berkeley na Califórnia no ano de 1986. Por ser um software de código aberto desenvolvido em comunidade, ele é conhecido por ser pioneiro na adição de novas funcionalidades, e se mantém sempre atualizado em relação aos conceitos e especificações da linguagem SQL \cite{postgresqlDoc}.
 
 
-\section{A combinação SGBDs com Linguagens Orientadas a Objetos}
+\section{A combinação SGBDs com Linguagens Orientadas a Objeto}
 \label{sec:sgbdWithOop}
 
 Os programas trabalham com dados em memória principal, que é volátil. Portanto ao desligarmos o equipamento todos os dados são perdidos. Devido a isso necessitamos de algum mecanismo de persistência, ou seja, que permita a gravação de dados importantes em memória secundária não volátil \cite{ormPaper}. 
 
-A combinação mais comumente utilizada para alcançar este cenário é o uso de linguagens orientadas a objetos para desenvolver o software, e o uso de SGBDs para armazenar os dados gerados pelo software \cite{hibernateInAction}. Porém os dados no contexto orientado a objetos e no contexto relacional são estruturados de maneira diferente (ver seções \ref{sec:oop} e \ref{sec:sgbd}), portanto precisamos realizar uma conversão ou mapeamento dos dados durante a transição de contextos.
+A combinação mais comumente utilizada para alcançar este cenário é o uso de linguagens orientadas a objeto para desenvolver o software, e o uso de SGBDs para armazenar os dados gerados pelo software \cite{hibernateInAction}. Porém os dados no contexto orientado a objetos e no contexto relacional são estruturados de maneira diferente (ver seções \ref{sec:oop} e \ref{sec:sgbd}), portanto precisamos realizar uma conversão ou mapeamento dos dados durante a transição de contextos.
 
 Quando estamos trabalhando com classes simples (não compostas por membros de outras classes), o mapeamento segue uma lógica simples. Podemos criar uma correspondência entre a classe para uma tabela, onde os atributos da classe são mapeados para colunas de uma tabela. Porém quando começamos a utilizar mecanismos mais avançados de orientação a objetos como herança e composição, o mapeamento entre os contextos se torna mais complexo \cite{ormPaper}.
 
@@ -149,11 +149,11 @@ Para otimizar a combinação do uso de linguagens de programação orientadas a obje
 As bibliotecas ORM têm como objetivo principal automatizar as tarefas relacionadas com a transição de informações entre os contextos orientado a objetos e o relacional. Não existe um conceito universal que defina quais são as funcionalidades que uma biblioteca ORM deve oferecer \cite{ormPaper}, porém as três funcionalidades mais comumente encontradas são:
 
 \begin{description}
-\item[Definição de mapeamento] 
+\item[1) Definição de mapeamento] 
 As bibliotecas ORM permitem a definição explícita da correspondência entre entidades no contexto orientado a objetos (classes) e entidades no contexto relacional (tabelas). Os mecanismos de definição deste mapeamento variam entre as implementações;
-\item[Geração de banco de dados]
+\item[2) Geração de banco de dados]
 As bibliotecas ORM geralmente permitem a geração automática do banco de dados equivalente às estruturas do contexto orientado a objetos;
-\item[Definição de uma API]
+\item[3) Definição de uma API]
 Geralmente as bibliotecas ORM disponibilizam interfaces padronizadas para realização de tarefas que envolvam a transição de dados entre os dois contextos. Operações como salvar, deletar ou pesquisar registros são encapsuladas em classes de propósito geral, ou seja, que conseguem trabalhar sobre qualquer entidade mapeada.
 \end{description}
 
@@ -162,13 +162,13 @@ Nem todas as bibliotecas existentes oferecem as três funcionalidades descritas, 
 As bibliotecas ORM divergem bastante na forma de implementação e funcionalidades disponibilizadas. Isso se deve principalmente ao fato da divergência de recursos entre as próprias linguagens de programação em que são implementadas. Porém uma decisão comum a ser tomada no desenvolvimento de uma biblioteca ORM em qualquer linguagem, é a definição do ponto de partida para obtenção das informações de mapeamento \cite{ormPaper}. Os paradigmas mais utilizados são:
 
 \begin{description}
-\item[Orientado a metadados]
+\item[1) Orientado a metadados]
 Neste paradigma, o desenvolvedor informa a estrutura das entidades envolvidas no software que devem ser mapeadas através de alguma fonte externa, como um arquivo XML. Neste arquivo são informados metadados sobre as entidades nos dois contextos, o que permite a biblioteca ORM criar o código de definição das classes e do código de mapeamento. Neste modelo podemos utilizar um banco de dados já existente, ou a biblioteca ORM pode construí-lo a partir da análise dos metadados. A vantagem deste paradigma é a abstração total da geração de código de manipulação do banco de dados, e sua grande desvantagem é a limitação de edição do código gerado pela biblioteca. Os códigos das classes mapeadas serão gerados automaticamente pela biblioteca e não poderão ser editados pelo desenvolvedor \cite{ormPaper}.
 
-\item[Orientado a aplicação]
+\item[2) Orientado a aplicação]
 Neste paradigma o desenvolvedor deve escrever o código das classes de todo o programa normalmente, porém sem se preocupar com as operações de persistência. Após a definição das classes, a biblioteca ORM através da análise do código e opcionalmente metadados, consegue criar o código de persistência. É possível utilizar um banco de dados existente ou a biblioteca pode construí-lo. A vantagem deste paradigma é a total abstração da geração de código de manipulação do banco de dados, e sua grande desvantagem é a alta complexidade de desenvolver o mecanismo de análise do código escrito pelo desenvolvedor para inferir informações de mapeamento. A definição deste mecanismo pode influenciar bastante no desempenho final da aplicação que utiliza a biblioteca ORM \cite{ormPaper}.
 
-\item[Orientado ao banco de dados]
+\item[3) Orientado ao banco de dados]
 Neste paradigma o desenvolvedor deve primeiramente criar o banco de dados. Então a biblioteca ORM auxiliada por metadados consegue gerar o código das classes a serem mapeadas e das operações de persistência. A grande desvantagem deste paradigma é a não abstração do conhecimento de banco de dados, visto que o desenvolvedor deve primeiramente definir a estrutura da base de dados a ser utilizada. Outra desvantagem é o desenvolvedor não ter a permissão de modificar o código das classes mapeadas pela biblioteca ORM. Sua vantagem consiste no melhor controle da definição da estrutura da base de dados sendo utilizada\cite{ormPaper}.
 \end{description}
 
