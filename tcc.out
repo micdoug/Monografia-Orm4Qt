@@ -13,8 +13,8 @@
 \BOOKMARK [1][-]{section.2.3}{O Framework Qt}{chapter.2}% 13
 \BOOKMARK [1][-]{section.2.4}{Sistemas Gerenciadores de Bancos de Dados Relacionais}{chapter.2}% 14
 \BOOKMARK [1][-]{section.2.5}{O PostgreSQL}{chapter.2}% 15
-\BOOKMARK [1][-]{section.2.6}{A combinação SGBDs com Linguagens Orientadas a Objeto}{chapter.2}% 16
-\BOOKMARK [1][-]{section.2.7}{Bibliotecas de Mapeamento Objeto Relacional \(ORM\)}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.6}{A combinação de SGBDs com Linguagens Orientadas a Objetos}{chapter.2}% 16
+\BOOKMARK [1][-]{section.2.7}{Bibliotecas de Mapeamento Objeto Relacional}{chapter.2}% 17
 \BOOKMARK [0][-]{chapter.3}{Trabalhos relacionados}{}% 18
 \BOOKMARK [1][-]{section.3.1}{Um framework de mapeamento objeto-relacional com um exemplo em C++}{chapter.3}% 19
 \BOOKMARK [1][-]{section.3.2}{QxORM}{chapter.3}% 20
@@ -26,4 +26,4 @@
 \BOOKMARK [1][-]{section.4.3}{Camada de Armazenamento}{chapter.4}% 26
 \BOOKMARK [0][-]{chapter.5}{Cronograma de Atividades}{}% 27
 \BOOKMARK [0][-]{chapter.6}{Conclusão}{}% 28
-\BOOKMARK [0][-]{chapter*.32}{Refer\352ncias Bibliogr\341ficas}{}% 29
+\BOOKMARK [0][-]{chapter*.35}{Refer\352ncias Bibliogr\341ficas}{}% 29

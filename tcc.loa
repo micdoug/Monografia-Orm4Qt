@@ -4,14 +4,16 @@
 \contentsline {algocf}{\numberline {4}{\ignorespaces Acesso sequencial via iteradores\relax }}{11}{algocf.caption.10}
 \contentsline {algocf}{\numberline {5}{\ignorespaces Acesso sequencial com nova sintaxe (C++11)\relax }}{12}{algocf.caption.11}
 \contentsline {algocf}{\numberline {6}{\ignorespaces Novo identificador para ponteiros nulos\relax }}{13}{algocf.caption.12}
-\contentsline {algocf}{\numberline {7}{\ignorespaces Trecho de declaração longo\relax }}{13}{algocf.caption.13}
+\contentsline {algocf}{\numberline {7}{\ignorespaces Trecho de declaração longo\relax }}{14}{algocf.caption.13}
 \contentsline {algocf}{\numberline {8}{\ignorespaces Trecho de declaração curto usando \textbf {\mathversion {bold}``auto''}\relax }}{14}{algocf.caption.14}
-\contentsline {algocf}{\numberline {9}{\ignorespaces Particularidade do uso da palavra-chave \textbf {\mathversion {bold}``auto''}\relax }}{14}{algocf.caption.15}
+\contentsline {algocf}{\numberline {9}{\ignorespaces Particularidade do uso da palavra-chave \textbf {\mathversion {bold}``auto''}\relax }}{15}{algocf.caption.15}
 \contentsline {algocf}{\numberline {10}{\ignorespaces Dedução de tipo com o uso da palavra-chave \textbf {\mathversion {bold}``decltype''}\relax }}{15}{algocf.caption.16}
-\contentsline {algocf}{\numberline {11}{\ignorespaces Sintaxe para utilização de ponteiros para funções e métodos\relax }}{16}{algocf.caption.17}
-\contentsline {algocf}{\numberline {12}{\ignorespaces Unificação da representação de ponteiros para métodos e funções\relax }}{17}{algocf.caption.18}
-\contentsline {algocf}{\numberline {13}{\ignorespaces Exemplo de comunicação com SGBD utilizando o módulo QtSql\relax }}{23}{algocf.caption.23}
-\contentsline {algocf}{\numberline {14}{\ignorespaces Obtendo o nome da classe de um objeto em tempo de execução\relax }}{33}{algocf.caption.25}
-\contentsline {algocf}{\numberline {15}{\ignorespaces Exemplo de variações na declaração de métodos acessadores para atributos tipo inteiro\relax }}{34}{algocf.caption.26}
-\contentsline {algocf}{\numberline {16}{\ignorespaces Retornando uma expressão lambda para acesso de atributo privado\relax }}{35}{algocf.caption.27}
-\contentsline {algocf}{\numberline {17}{\ignorespaces Esboço da utilização de macros para registro de metainformação\relax }}{37}{algocf.caption.29}
+\contentsline {algocf}{\numberline {11}{\ignorespaces Sintaxe para utilização de ponteiros para funções e métodos\relax }}{17}{algocf.caption.17}
+\contentsline {algocf}{\numberline {12}{\ignorespaces Unificação da representação de ponteiros para métodos e funções\relax }}{18}{algocf.caption.18}
+\contentsline {algocf}{\numberline {13}{\ignorespaces Exemplo de definição de uma expressão lambda\relax }}{20}{algocf.caption.20}
+\contentsline {algocf}{\numberline {14}{\ignorespaces Utilizando \textit {smart pointers}\relax }}{21}{algocf.caption.21}
+\contentsline {algocf}{\numberline {15}{\ignorespaces Exemplo de comunicação com SGBD utilizando o módulo QtSql\relax }}{27}{algocf.caption.26}
+\contentsline {algocf}{\numberline {16}{\ignorespaces Obtendo o nome da classe de um objeto em tempo de execução\relax }}{37}{algocf.caption.28}
+\contentsline {algocf}{\numberline {17}{\ignorespaces Exemplo de variações na declaração de métodos acessadores para atributos tipo inteiro\relax }}{38}{algocf.caption.29}
+\contentsline {algocf}{\numberline {18}{\ignorespaces Retornando uma expressão lambda para acesso de atributo privado\relax }}{39}{algocf.caption.30}
+\contentsline {algocf}{\numberline {19}{\ignorespaces Esboço da utilização de macros para registro de metainformação\relax }}{41}{algocf.caption.32}
