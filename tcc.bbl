@@ -24,6 +24,16 @@ Brokken, F.~B. and Kubat, K. (2008).
 Bueno, A. (2002).
 \newblock Apostila de programa{\c{c}}{\~a}o orientada a objeto em c++.
 
+\bibitem[Clugston, 2004]{fastDelegates}
+Clugston, D. (2004).
+\newblock Member function pointers and the fastest possible c++ delegates.
+\newblock {\em Online Article}.
+
+\bibitem[Gregoire, 2014]{professionalCpp}
+Gregoire, M. (2014).
+\newblock {\em Professional C++}, volume~3.
+\newblock WROX.
+
 \bibitem[Lhotka, 2009]{expertCSharpObjects}
 Lhotka, R. (2009).
 \newblock {\em Expert C\# 2008 Business Objects}, volume~1.

@@ -1,49 +1,49 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/W32TeX)
+This is BibTeX, Version 0.99d (TeX Live 2014/W32TeX)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tcc.aux
 The style file: apalike.bst
 Database file #1: referencias.bib
 Warning--empty journal in ormPaper
 Warning--empty publisher in postgresqlDoc
-You've used 11 entries,
+You've used 13 entries,
             1935 wiz_defined-function locations,
-            531 strings with 4792 characters,
-and the built_in function-call counts, 3071 in all, are:
-= -- 288
-> -- 95
-< -- 14
-+ -- 32
-- -- 28
-* -- 213
-:= -- 578
-add.period$ -- 29
-call.type$ -- 11
-change.case$ -- 62
-chr.to.int$ -- 11
-cite$ -- 13
-duplicate$ -- 139
-empty$ -- 221
-format.name$ -- 45
-if$ -- 581
+            541 strings with 4972 characters,
+and the built_in function-call counts, 3627 in all, are:
+= -- 340
+> -- 109
+< -- 17
++ -- 36
+- -- 32
+* -- 250
+:= -- 682
+add.period$ -- 35
+call.type$ -- 13
+change.case$ -- 73
+chr.to.int$ -- 13
+cite$ -- 15
+duplicate$ -- 166
+empty$ -- 264
+format.name$ -- 51
+if$ -- 688
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 13
-newline$ -- 54
-num.names$ -- 33
-pop$ -- 71
+missing$ -- 16
+newline$ -- 64
+num.names$ -- 39
+pop$ -- 83
 preamble$ -- 1
-purify$ -- 69
+purify$ -- 81
 quote$ -- 0
-skip$ -- 112
+skip$ -- 134
 stack$ -- 0
-substring$ -- 136
-swap$ -- 10
-text.length$ -- 3
+substring$ -- 160
+swap$ -- 13
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 54
+type$ -- 64
 warning$ -- 2
-while$ -- 22
+while$ -- 26
 width$ -- 0
-write$ -- 130
+write$ -- 155
 (There were 2 warnings)

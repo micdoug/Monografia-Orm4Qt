@@ -3,19 +3,21 @@ Neste capítulo são apresentados os conceitos básicos utilizados ao longo do trab
 %--- Inserir os conceitos de orientação a objetos
 \section{Orientação a Objetos}
 \label{sec:oop}
-Um conceito bastante difundido tanto no meio acadêmico quanto no mercado são as \textbf{Linguagens Orientadas a Objeto}, que são linguagens de programação que utilizam um paradigma ou padrão de estruturação de código, de modo a permitir que o desenvolvedor crie abstrações no contexto do software para modelar objetos ou entidades do mundo real[\cite{oopSurvey}].
+Um conceito bastante difundido tanto no meio acadêmico quanto no mercado são as \textbf{Linguagens Orientadas a Objetos}, que são linguagens de programação que utilizam um paradigma ou padrão de estruturação de código que permite que o desenvolvedor crie abstrações no contexto do software para modelar objetos ou entidades do mundo real \cite{oopSurvey}.
 
-Não existe uma definição universal que diga quais são as características ou funcionalidades que uma linguagem de programação deve apresentar para ser considerada orientada a objetos \cite{oopSurvey}. Porém, de maneira geral, elas possuem mecanismos que permitem agrupar dentro de uma unidade de software, estruturas para prover informações de \textbf{estado}, \textbf{comportamento} e \textbf{identidade} \cite{ormPaper}. Este agrupamento de estruturas dentro de uma unidade é conhecido como \textbf{encapsulamento}.
+Não existe uma definição universal que diga quais são as características ou funcionalidades que uma linguagem de programação deve apresentar para ser considerada orientada a objetos \cite{oopSurvey}. Porém, de maneira geral, elas possuem mecanismos que permitem agrupar dentro de uma unidade de software, estruturas para prover informações de \textbf{estado}, \textbf{comportamento} e \textbf{identidade}, mecanismo conhecido como \textbf{encapsulamento} \cite{ormPaper}.
 
-Esta unidade de software que representa o estado, comportamento e identidade de uma entidade do software é conhecida como \textbf{objeto}. Um objeto é criado a partir de um modelo pré-estabelecido que define todas as estruturas internas que o compõe. Este modelo é conhecido como \textbf{classe} \cite{oopSurvey}. 
+Esta unidade de software que representa o estado, comportamento e identidade de uma entidade do software é conhecida como \textbf{objeto}. Um objeto é criado a partir de um modelo preestabelecido que define todas as estruturas internas que o compõe. Este modelo é conhecido como \textbf{classe} \cite{oopSurvey}. Algumas linguagens não oferecem mecanismos explícitos para criação de classes, porém oferecem suporte à instanciação de objetos. Um exemplo de linguagem que apresenta esta característica é a linguagem \textbf{\textit{Javascript}}\footnote{Linguagem interpretada com tipagem dinâmica baseada em \textit{scripts} muito utilizada em programação para a WEB e como complemento para interfaces com linguagens e/ou programas complexos.}. 
 
-Algumas linguagens não oferecem mecanismos explícitos para criação de classes, porém oferecem suporte à instanciação de objetos. Um exemplo de linguagem que apresenta esta característica é a linguagem \textbf{\textit{Javascript}}\footnote{Linguagem de script dinâmica utilizada em programação para a WEB.}. Outras linguagens oferecem mecanismos avançados para definição de classes, permitindo por exemplo que uma classe seja composta por objetos de outras classes. Um exemplo de linguagem com esta característica é a linguagem \textbf{\textit{C++}}. O estado de um objeto é definido a partir da adição de variáveis em sua estrutura interna para armazenamento de valores unitários. Estas variáveis são conhecidas como \textbf{atributos} ou \textbf{propriedades} de uma classe \cite{oopSurvey}. 
+O estado de um objeto é definido a partir da adição de variáveis em sua estrutura interna para armazenamento de valores. Estes valores podem ser unitários (onde são armazenados dados do tipo texto ou numérico, por exemplo), ou podem ser compostos (onde são utilizados outros objetos para compor a estrutura interna). As variáveis internas de um objeto são conhecidas como \textbf{atributos} ou \textbf{propriedades} e a utilização de valores compostos na definição da estrutura de uma classe é um mecanismo conhecido como \textbf{composição} \cite{oopSurvey}. 
 
-Algumas linguagens permitem a adição de objetos como atributos de uma classe, como é o caso da linguagem C++. Este comportamento é conhecido como \textbf{composição}. O comportamento de um objeto é definido a partir da adição de funções em sua estrutura interna. Elas são utilizadas para efetuar operações sobre os atributos que o objeto contém. Estas funções são conhecidas como \textbf{métodos} de uma classe \cite{oopSurvey}.
+O comportamento de um objeto é definido a partir da adição de funções em sua estrutura interna. Elas são utilizadas para efetuar operações sobre os atributos que o objeto contém, ou para efetuar processamento de dados baseados no estado ou objetivo do objeto ao qual ela pertence. Estas funções são conhecidas como \textbf{métodos} \cite{oopSurvey}.
 
-O conjunto de atributos e métodos de uma classe define o que chamamos de \textbf{interface}. Algumas linguagens permitem reduzir a interface de um objeto de forma que nem todas as estruturas internas sejam acessíveis externamente. Um exemplo é a linguagem C++, que nos permite utilizar os modificadores \textit{\textbf{"private"}} (estruturas não acessíveis externamente) e \textit{\textbf{"public"}} (estruturas acessíveis externamente). A identidade de um objeto se refere à capacidade de se referenciar instâncias de objetos de maneira unívoca, ou seja, se refere à capacidade de se distinguir diversas instâncias de objetos entre si através de algum mecanismo de comparação \cite{oopSurvey}. 
+O conjunto de atributos e métodos de uma classe define o que chamamos de \textbf{interface}. Algumas linguagens permitem reduzir a interface de um objeto de forma que nem todas as estruturas internas sejam acessíveis externamente. Um exemplo é a linguagem C++, que nos permite utilizar os modificadores \textit{\textbf{"private"}} (estruturas não acessíveis externamente) e \textit{\textbf{"public"}} (estruturas acessíveis externamente). 
 
-Em algumas linguagens este mecanismo se baseia no endereçamento de memória ocupado pela instância do objeto, como é o caso da linguagem C++. Já em outras linguagens existem mecanismos que permitem a criação de uma função de comparação pelo desenvolvedor, o que acontece por exemplo na linguagem \textbf{\textit{JAVA}} onde podemos definir o método \textbf{\textit{"equals"}} das classes criadas. Um exemplo de definição de uma classe utilizando a linguagem C++ é apresentado no trecho de código  \ref{lst:simpleclass}, para demonstrar os conceitos explicados anteriormente. No código é definida a estrutura de uma classe que representa uma pessoa. A classe foi definida com o identificador Pessoa (linha 1), possui dois atributos internos para armazenar o nome e sobrenome (linhas 3 e 4) e um método que retorna o nome completo de uma pessoa através da combinação do seu nome e sobrenome (linha 6). Os atributos não são acessíveis externamente devido ao modificador de acesso \textit{"private"} utilizado na linha 2. Já o método é acessível devido ao modificador de acesso \textit{"public"} utilizado na linha 5.
+A identidade de um objeto se refere à capacidade de se referenciar instâncias de objetos de maneira unívoca, ou seja, se refere à capacidade de se distinguir diversas instâncias de objetos entre si através de algum mecanismo de comparação \cite{oopSurvey}. Em algumas linguagens este mecanismo se baseia no endereçamento de memória ocupado pela instância do objeto, como é o caso da linguagem C++. Já em outras linguagens existem mecanismos que permitem a criação de funções de comparação, como acontece por exemplo na linguagem \textbf{\textit{JAVA}} onde podemos definir o método \textbf{\textit{"equals"}} das classes criadas. 
+
+Um exemplo de definição de uma classe utilizando a linguagem C++ é apresentado no trecho de código  \ref{lst:simpleclass}, para demonstrar os conceitos explicados anteriormente. No código é definida a estrutura de uma classe que representa uma pessoa. A classe foi definida com o identificador Pessoa (linha 1), possui dois atributos internos para armazenar o nome e sobrenome (linhas 3 e 4) e um método que retorna o nome completo de uma pessoa através da combinação do seu nome e sobrenome (linha 6). Os atributos não são acessíveis externamente devido ao modificador de acesso \textit{"private"} utilizado na linha 2. Já o método é acessível devido ao modificador de acesso \textit{"public"} utilizado na linha 5.
 
 \begin {algorithm}
 \caption{Definição de uma classe simples em C++}
@@ -23,36 +25,209 @@ Em algumas linguagens este mecanismo se baseia no endereçamento de memória ocupa
 \begin{lstlisting}[]
 class Pessoa {
 	private:
-		string nome;
-		string sobrenome;
+		string m_nome;
+		string m_sobrenome;
 	public:
-		string nomeCompleto() { return this->nome + this->sobrenome; }
+		string nomeCompleto() { return m_nome + m_sobrenome; }
 }
 \end{lstlisting}
 \end{algorithm}
 
-As características citadas anteriormente são as mais comumente encontradas nas linguagens consideradas como orientadas a objeto. Existem mecanismos mais avançados que permitem uma melhoria na definição do comportamento das classes e auxiliam também no reaproveitamento de código. Algumas destas características são o suporte à \textbf{herança} e ao \textbf{polimorfismo}. A herança consiste na capacidade de uma classe estender a estrutura de uma classe já definida. Isso significa que a nova classe criada mantém a interface da  anterior e tem a capacidade de adicionar novos atributos e métodos a ela. Algumas linguagens oferecem somente suporte para herança simples, onde uma classe pode herdar de somente uma outra classe, porém geralmente definem mecanismos alternativos de extensão. Um exemplo é a linguagem JAVA. Outras linguagens oferecem suporte para herança múltipla, onde uma classe pode estender as funcionalidades de uma ou mais classes já definidas. Um exemplo de linguagem com esta característica é a linguagem C++ \cite{oopSurvey}.
+Mecanismos de encapsulamento (métodos, atributos e restrição de interface), definição de classes e instanciação de objetos são as características mais comumente encontradas nas linguagens consideradas como orientadas a objetos. Porém, existem mecanismos mais avançados que permitem uma melhoria na definição do comportamento das classes e promovem reaproveitamento de código. Entre os principais estão a \textbf{herança} e o \textbf{polimorfismo} \cite{oopSurvey}. 
 
-Quando criamos uma classe "B" que herda de uma classe "A", dizemos que "A" é a classe \textbf{base} ou \textbf{pai}, enquanto a "B" é uma classe \textbf{especializada} ou \textbf{filha}. Uma característica importante a observar é que ao declararmos um objeto da classe "B", este objeto poderá ser utilizado em contextos onde é esperado um objeto da classe "A" \cite{oopSurvey}.
+A herança consiste na capacidade de uma classe estender a estrutura de uma classe já definida. Isso significa que a nova classe mantém a interface da  anterior e tem a capacidade de adicionar novos atributos e métodos a ela \cite{oopSurvey}. Algumas linguagens oferecem somente suporte para herança simples, onde uma classe pode herdar de somente uma outra classe, porém geralmente definem mecanismos alternativos de extensão. Um exemplo é a linguagem JAVA. Outras linguagens oferecem suporte para herança múltipla, onde uma classe pode estender as funcionalidades de uma ou mais classes já definidas. Um exemplo de linguagem com esta característica é a linguagem C++.
 
-Ao utilizar o mecanismo de herança, algumas linguagens permitem a modificação de um método existente na classe base. Este mecanismo é utilizado para especializar o comportamento herdado na nova classe, mantendo um mesmo padrão de interface. Quando isto acontece temos um impasse a ser resolvido. Quando um objeto de uma classe filha com métodos especializados for utilizado em um contexto como um objeto da classe pai, ao chamar este método, deverá ser executada a implementação da classe pai ou da classe filha? Quando desejamos que a implementação da classe filha seja utilizada, surge o conceito de polimorfismo, onde o comportamento de um objeto é mantido consistente em relação à sua definição ou declaração não importa em qual contexto ele seja utilizado\cite{oopSurvey}. 
+Algumas notações são utilizadas para demonstrar a utilização do mecanismo de herança. Por exemplo, quando criamos uma classe ``B'' que herda de uma classe ``A'', dizemos que ``A'' é a classe \textbf{base} ou \textbf{pai}, enquanto a ``B'' é uma classe \textbf{especializada} ou \textbf{filha}. Uma característica importante a observar é que ao declararmos um objeto da classe ``B'', este objeto poderá ser utilizado em contextos onde é esperado um objeto da classe ``A'' \cite{oopSurvey}.
+
+Ao utilizar o mecanismo de herança, algumas linguagens permitem a modificação de um método existente na classe base. Este mecanismo é utilizado para especializar o comportamento herdado na nova classe, mantendo um mesmo padrão de interface. Quando isto acontece temos um impasse a ser resolvido. Quando um objeto de uma classe filha com métodos especializados for utilizado em um contexto como um objeto da classe pai, ao chamar este método, deverá ser executada a implementação da classe pai ou da classe filha? Quando desejamos que a implementação da classe filha seja utilizada, surge o conceito de polimorfismo, onde o comportamento de um objeto é mantido consistente em relação à sua definição não importa em qual contexto ele seja utilizado \cite{oopSurvey}. 
 
 Em algumas linguagens como JAVA o polimorfismo é implícito, ou seja, na pergunta anterior se desejássemos que a implementação da classe pai fosse executada, isso não seria possível. Já em outras linguagens como C++, o polimorfismo é definido explicitamente através do uso de palavras-chave da linguagem.
 
-Ao analisar todas estas características citadas, percebemos que as linguagens orientadas a objeto promovem a criação de entidades de software bem descritivas. Isto facilita sua utilização por arquitetos e engenheiros de software, que podem visualizar os elementos envolvidos no desenvolvimento com uma visão de mais alto nível. Talvez esta seja a razão da vasta aceitação e utilização destas linguagens. Neste trabalho é utilizada a linguagem orientada a objetos C++, a qual é detalhada na seção \ref{sec:cpp}. 
+Ao analisar todas estas características citadas, percebemos que as linguagens orientadas a objetos promovem a criação de entidades de \textit{software} bem descritivas. Isto facilita sua utilização por arquitetos e engenheiros de \textit{software}, que podem visualizar os elementos envolvidos no desenvolvimento com uma visão de mais alto nível. Talvez esta seja a razão da vasta aceitação e utilização destas linguagens. Neste trabalho é utilizada a linguagem orientada a objetos C++, a qual é detalhada na seção \ref{sec:cpp}.
 
 %--- Introduzindo a linguagem C++
 \section{A Linguagem de Programação C++}
 \label{sec:cpp}
 A linguagem \textbf{C++} é uma linguagem orientada a objetos criada em 1980 por \textit{Bjarne Stroustrup}. É uma linguagem compilada, ou seja, o código criado pelo desenvolvedor é convertido através de um programa denominado \textbf{compilador} para uma linguagem nativa de uma plataforma alvo, gerando um ou mais arquivos executáveis. Estes arquivos são passíveis de execução direta na plataforma sem a intervenção de ferramentas externas \cite{bueno2002apostila}.
 
-As linguagens compiladas se caracterizam por gerar aplicativos com melhor desempenho em momento de execução. Isso se deve ao fato da geração de código nativo, que pode ser executado sem intervenção externa\cite{bueno2002apostila}. Porém esta característica também implica em a linguagem oferecer poucos mecanismos de \textbf{reflexão} ou \textbf{introspecção}, que nos permitem conhecer em momento de execução as estruturas dos objetos sendo utilizados\cite{ormPaper}.
+A linguagem C++ foi construída com base na linguagem \textbf{C}. Inicialmente o código escrito em C++ era traduzido para C e compilado com compiladores desta linguagem. Com o aumento da complexidade de implementação das características e funcionalidades que foram surgindo na linguagem ao longo de sua existência, surgiram compiladores específicos para C++\cite{cppAnnotations}.
 
-A C++ foi construída com base na linguagem \textbf{C}. Inicialmente o código escrito em C++ era traduzido para C e compilado com compiladores desta linguagem. Com o aumento da complexidade de implementação das características e funcionalidades que foram surgindo na linguagem ao longo de sua existência, surgiram compiladores específicos para C++\cite{cppAnnotations}.
-
-Dentre as características da linguagem estão a capacidade de definição de classes, utilização de herança múltipla, utilização de polimorfismo explicitamente, gerenciamento de memória controlado pelo desenvolvedor e compatibilidade com códigos escritos em C. Outra importante característica da linguagem é a sua não portabilidade, ou seja, o código gerado para uma plataforma (sistema operacional e/ou hardware específico) geralmente não é compatível com outras plataformas. Devido a isso, a linguagem possui uma biblioteca padrão bem reduzida, não oferecendo por exemplo bibliotecas de comunicação em rede e utilização de banco de dados \cite{bueno2002apostila}.
+Dentre as características da linguagem estão a capacidade de definição de classes, utilização de herança múltipla, utilização de polimorfismo, gerenciamento de memória controlado pelo desenvolvedor e compatibilidade com códigos escritos em C. Outra importante característica da linguagem é a sua não portabilidade, ou seja, o código gerado para uma plataforma (sistema operacional e/ou hardware específico) geralmente não é compatível com outras plataformas. Devido a isso, a linguagem possui uma biblioteca padrão bem reduzida, não oferecendo por exemplo bibliotecas de comunicação em rede e utilização de banco de dados \cite{bueno2002apostila}.
 
 Existe uma grande dificuldade em se desenvolver programas voltados para diversas plataformas utilizando a linguagem, pois quando começamos a utilizar funcionalidades um pouco mais avançadas temos que utilizar implementações específicas para cada plataforma. Como tentativa de diminuir esta dificuldade foram criadas bibliotecas e \textit{frameworks}\footnote{Um conjunto de bibliotecas que implementam funcionalidades frequentemente utilizadas no desenvolvimento de softwares, como por exemplo, acesso a banco de dados e comunicação em redes.} multiplataformas para a linguagem \cite{qtFoundations}. Neste trabalho é utilizado o \textbf{Framework Qt} que será descrito na seção \ref{sec:qt}.
+
+A seguir são descritas características da linguagem presentes em contextos bem específicos e que interferiram bastante no desenvolvimento da biblioteca ORM proposta neste trabalho. Também é descrito o modelo de projeção do processo evolutivo da linguagem, onde são ressaltados mecanismos introduzidos na especificação \textbf{C++11} e \textbf{C++14} que contribuíram para eliminar ou amenizar algumas limitações da linguagem.
+
+\subsection{Reflexão ou Introspecção}
+\label{sec:reflexaoIntrospeccao}
+
+Algumas vezes nos deparamos com a tarefa de desenvolver rotinas que dependem do conhecimento da estrutura de um objeto qualquer. Problemas como ``escreva uma função que mostre o nome dos atributos de um objeto'' ou ``escreva uma função que armazene em um arquivo o valor de todos os atributos de um objeto'' são alguns exemplos de rotinas deste tipo. É nestes momentos que a utilização de mecanismos de \textbf{introspecção} ou \textbf{reflexão} se torna útil.
+
+Estes mecanismos consistem na disponibilização por parte da linguagem de programação de estruturas que permitem analisar a especificação de um objeto e acessar seus recursos, tudo em tempo de execução. Desta forma podemos escrever rotinas genéricas, que podem trabalhar com qualquer tipo de objeto para executar diversos tipos de tarefas, como listar os atributos de um objeto, acessar e alterar o valor destes atributos, listar os métodos de um objeto e até mesmo executá-los \cite{expertCSharpObjects}.
+
+Geralmente as linguagens híbridas e as interpretadas oferecem métodos de reflexão completos, pois as informações da estrutura dos objetos são utilizadas pelas próprias máquinas virtuais e pelos interpretadores em tempo de execução. Neste caso, já que a informação já está presente e formatada durante a execução, basta a linguagem criar mecanismos de disponibilização dos mesmos \cite{expertCSharpObjects}. 
+
+Já no cenário das linguagens compiladas a situação é bem diferente. Não há a necessidade de geração de informações sobre estruturas de objetos para o código ser executado, visto que o programa é gerado em código nativo \cite{professionalCpp}. A linguagem C++ é do tipo compilada, portanto, também sofre com a falta de mecanismos de reflexão nativos. 
+
+\subsection{Processo evolutivo da linguagem}
+\label{sec:processoEvolutivoCpp}
+
+A linguagem C++ foi criada para ser uma linguagem de propósito geral, com o objetivo principal de apresentar mecanismos para programação com alto nível de abstração, porém, ao mesmo tempo sem privar o desenvolvedor da capacidade de acessar rotinas e recursos de baixo nível. Sendo assim é possível obter programas de alto desempenho em diversas plataformas diferentes \cite{cppAnnotations}.
+
+Para a linguagem ser utilizada em múltiplas plataformas é necessário que exista um compilador que suporte a criação de programas a partir da análise de código fonte em C++ para cada plataforma. Para evitar variações na implementação destes compiladores existe uma especificação oficial de todo o conjunto de recursos oferecidos pela linguagem bem como sua sintaxe \cite{cppAnnotations}. Esta especificação é mantida pela \textbf{ISO} (\textit{International Organization for Standardization}).
+
+As linguagens de programação evoluem com a passar do tempo. Em alguns momentos é preciso acrescentar novos recursos para alinhar a linguagem com os padrões atuais, outras vezes é necessário melhorar recursos existentes ou até mesmo corrigir erros na especificação \cite{cppAnnotations}. 
+
+A especificação da linguagem C++ passou por uma grande atualização em 1998 (conhecida como \textbf{C++98}), seguida de algumas correções em 2003 (especificação conhecida como \textbf{C++03}). Desde então a especificação não sofria alterações significativas, o que levou a linguagem a ficar um pouco desatualizada de acordo com os conceitos que foram surgindo ao longo dos anos. Até que em meados de 2011 um comitê de especialistas começou a agir com o intuito de trazer novos recursos para a linguagem. Isso levou à publicação da especificação \textbf{C++11} no final do ano de 2011 e à projeção de atualizações da linguagem para os anos de 2014 e 2017, especificações conhecidas como \textbf{C++14} e \textbf{C++17} \cite{cppAnnotations}. 
+
+A figura \ref{fig:evolucaoCpp} mostra a linha do tempo da evolução da especificação da linguagem C++. Nela é possível perceber a grande concentração de tarefas previstas para os anos entre 2014 e 2017. Durante a finalização deste trabalho (novembro de 2014) a publicação da especificação C++14 está prevista para ser publicada em breve\footnote{Para mais informações acesse o site https://isocpp.org/std/status.}.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/evolucaoCpp.png}
+	\caption{Linha do tempo: evolução da especificação da linguagem C++}
+	\label{fig:evolucaoCpp}
+\end{figure}
+
+Muitos recursos adicionados na linguagem pelas especificações C++11 e C++14 foram utilizados no desenvolvimento deste trabalho. Nas seções seguintes serão descritos alguns destes recursos, e como eles contribuem para melhorar algumas limitações que eram impostas pela linguagem.
+
+\subsubsection{Listas de Inicialização}
+\label{sec:listasInicializacao}
+
+Um recurso simples e ao mesmo tempo bastante útil, as \textbf{listas de inicialização} foram criadas com o objetivo de facilitar a instanciação de estruturas do tipo \textit{container} (lista, pilha, fila, tabelas \textit{hash}, etc) com um conjunto de elementos adicionados. É importante ressaltar que a linguagem na especificação C++98 já permitia a inicialização de vetores com uma lista de elementos \cite{professionalCpp}.
+
+Este recurso se baseia na utilização de uma nova classe chamada \textit{\textbf{initializer\_list}} definida dentro do \textit{namespace} ``\textit{std}''. Esta classe implementa um \textit{container} de dados simples, que suporta o acesso aos seus elementos através do uso de \textbf{iteradores}.  Quando o compilador encontra algum trecho de código com o padrão ``\{x, y, z\}'' onde ``x'', ``y'' e ``z'' são valores literais ou variáveis que podem ser convertidas para um tipo de dado ``T'' comum de forma implícita, ele constrói um objeto do tipo ``\textit{initializer\_list<T>}''. Sendo assim, para que um objeto possa ser construído com uma lista de inicialização, basta que sua classe contenha um construtor que recebe como parâmetro um objeto do tipo ``\textit{initializer\_list<T>}'' \cite{cppAnnotations}.
+
+No trecho de código \ref{lst:initializerListExample} é demonstrado a utilização das listas de inicialização. Primeiramente temos a inicialização de um vetor de números inteiros (linha 2) utilizando a sintaxe já suportada pela linguagem na especificação C++98. Em seguida temos a inicialização de um objeto do tipo \textit{\textbf{vector\footnote{Classe presente na biblioteca padrão de C++, e que implementa uma estrutura de lista de elementos utilizando áreas de memória contíguas.}}} (linha 4) utilizando o novo recurso adicionado na especificação C++11. Por último, temos a definição de uma classe projetada para suportar o recurso de listas de inicialização (linhas 7 a 9) e em seguida a inicialização de um objeto desta classe (linha 13).
+
+\begin{algorithm}
+\caption{Inicialização de vetores e estruturas \textit{container}}
+\label{lst:initializerListExample}
+\lstinputlisting[]{codigos/initializerListExample.cpp}
+\end{algorithm}
+
+\subsubsection{Navegação em grupos de elementos}
+\label{sec:forRangeBasedLoop}
+
+Quando precisamos acessar sequencialmente os elementos de um vetor ou de alguma estrutura do tipo \textit{container} utilizando a linguagem C++, temos basicamente duas opções: 
+
+\begin{description}
+\item[1)Acesso sequencial via índice]
+Utilizamos um laço de repetição para gerar valores numéricos sequenciais dentro do intervalo de posições ou índices dos elementos que desejamos acessar na estrutura. De posse dos índices, podemos acessar os elementos utilizando a sintaxe ``estrutura[índice]''. Esta técnica pode ser utilizada em vetores e em estruturas \textit{container} que implementam o operador ``[]'' \cite{professionalCpp}. Um exemplo da utilização desta técnica é apresentado no trecho de código \ref{lst:acessoSeqIndice}.
+
+\begin{algorithm}
+	\caption{Acesso sequencial via índice}
+	\label{lst:acessoSeqIndice}
+	\lstinputlisting[]{codigos/acessoSeqIndiceExample.cpp}
+\end{algorithm}
+
+\item[2)Acesso sequencial via iteradores]
+As estruturas \textit{container} presentes na linguagem C++ disponibilizam o acesso a um ponteiro especial que permite navegar entre os elementos que ele contém. Estes ponteiros são chamados de \textbf{iteradores} e podem ser de dois tipos: constantes e não constantes. Os iteradores constantes permitem acessar os elementos em modo somente leitura. Enquanto os não constantes permitem a modificação dos valores destes elementos \cite{professionalCpp}. Um exemplo da utilização desta técnica é apresentado no trecho de código \ref{lst:acessoSeqIterador}.
+
+\begin{algorithm}
+	\caption{Acesso sequencial via iteradores}
+	\label{lst:acessoSeqIterador}
+	\lstinputlisting[]{codigos/acessoSeqIteradorExample.cpp}
+\end{algorithm}
+\end{description}
+
+Na especificação C++11 foi adicionada uma variação do laço de repetição \textit{\textbf{``for''}} que é basicamente uma simplificação das técnicas 1 e 2 descritas anteriormente. Considerando que temos um grupo de elementos do tipo ``T'' armazenados em uma estrutura (vetor ou \textit{container}) com uma instância chamada ``elementos'', podemos navegar sobre os elementos desta instância utilizando um trecho de código no formato ``for (T e : elementos) \{...\}''. Neste caso, o código contido entre as chaves será executado uma vez para cada elemento contido em ``elementos'', onde a variável ``e'' assume o valor de cada um destes elementos \cite{professionalCpp}.
+
+Esta nova variação pode ser utilizada tanto com vetores quanto com estruturas do tipo \textit{container}, e também é possível navegar sobre os elementos em modo somente leitura. No trecho de código \ref{lst:forNovaSintaxe} é demonstrada a utilização desta nova sintaxe de diferentes formas.
+
+\begin{algorithm}
+	\caption{Acesso sequencial com nova sintaxe (C++11)}
+	\label{lst:forNovaSintaxe}
+	\lstinputlisting[]{codigos/forNovaSintaxe.cpp}
+\end{algorithm}
+
+\subsubsection{Novo identificador para ponteiros nulos}
+\label{sec:nullptr}
+
+A linguagem C++ permite a manipulação direta de memória a partir da utilização de \textbf{ponteiros}, variáveis estas que armazenam o endereço inicial da porção de memória em que uma estrutura de dados está sendo armazenada durante a execução de um programa \cite{professionalCpp}. 
+
+A manipulação de ponteiros é uma tarefa complexa, que deve ser feita com muito cuidado. Uma tentativa de acesso a uma região de memória inválida pode gerar problemas graves durante a execução do programa. Para evitar este tipo de problema, uma boa prática consiste em invalidar ou anular ponteiros durante a sua inicialização e quando o seu uso chegou ao fim (o que acontece por exemplo quando desalocamos a região de memória apontada por ele) \cite{professionalCpp}.
+
+Para anular um ponteiro simplesmente atribuímos a ele o valor 0. Porém, na maioria dos ambientes de desenvolvimento, temos a presença de uma macro chamada ``NULL'' que é utilizada no local do valor 0 durante a anulação de um ponteiro para fins de legibilidade. 
+
+Esta metodologia pode levar a comportamentos inesperados do código durante a execução, visto que a macro é expandida para o valor inteiro 0 durante a compilação. Se temos duas funções com o mesmo nome, onde uma recebe um ponteiro como parâmetro e a outra recebe um número inteiro, ao executar esta função passando a macro ``NULL'', a versão que recebe o número inteiro será executada, gerando assim um comportamento inesperado. 
+
+Com o objetivo de resolver este problema a especificação C++11 prevê a existência do identificador \textbf{``nullptr''} para ser utilizado com o significado de ponteiro nulo. Então se no mesmo problema citado executássemos a função passando ``nullptr'' como parâmetro, a versão que recebe o ponteiro será executada \cite{professionalCpp}. O exemplo citado pode ser observado no trecho de código \ref{lst:nullptr}.
+
+\begin{algorithm}
+	\caption{Novo identificador para ponteiros nulos}
+	\label{lst:nullptr}
+	\lstinputlisting[]{codigos/nullptr.cpp}
+\end{algorithm}
+
+\subsubsection{Inferência de tipos}
+\label{sec:inferenciaTipos}
+
+A linguagem C++ é uma linguagem de tipagem estática, ou seja, todas as variáveis declaradas no código devem ter seu tipo de dado especificado em momento de compilação \cite{cppAnnotations}. Esta característica acaba em certas situações deixando o código de declaração de variáveis muito grande. Veja por exemplo o trecho de código \ref{lst:declaracaoGrande}, onde são declarados um \textit{container} para uma lista de inteiros e um iterador para esta lista.
+
+\begin{algorithm}
+	\caption{Trecho de declaração longo}
+	\label{lst:declaracaoGrande}
+	\lstinputlisting[]{codigos/declaracaoLonga.cpp}
+\end{algorithm}
+
+Com a finalidade de reduzir estes trechos de código, a especificação C++11 introduziu um mecanismo de inferência ou detecção automática de tipos de variáveis através do uso das palavras-chave \textbf{``auto''} e \textbf{``decltype''} \cite{professionalCpp}. 
+
+A primeira é utilizada durante a atribuição de valores que já tem um tipo de dado definido por outro mecanismo, como por exemplo, pelo retorno de uma função ou pelo uso do operador de instanciação \textit{\textbf{``new''}}. O trecho de código \ref{lst:declaracaoGrande} poderia ser simplificado para o código em \ref{lst:declaracaoPequena}.
+
+\begin{algorithm}
+	\caption{Trecho de declaração curto usando \textbf{``auto''}}
+	\label{lst:declaracaoPequena}
+	\lstinputlisting[]{codigos/declaracaoCurta.cpp}
+\end{algorithm}
+
+O uso da palavra-chave ``auto'' tem uma particularidade importante que deve ser levada em consideração durante o seu uso. O tipo deduzido é o resultado do tipo do valor atribuído à variável após a remoção do modificador \textbf{``const''}\footnote{Utilizado para declarar variáveis constantes, ou seja, que não podem ser usadas para modificar valores.} e do modificador \textbf{``\&''}\footnote{Neste contexto se refere ao modificador para declaração de variáveis do tipo referência na linguagem C++.} \cite{professionalCpp}. Esta particularidade pode levar a resultados inesperados, como o que pode ser observado no trecho de código \ref{lst:autoParticularidade} na linha 10, onde a dedução de tipo irá levar a criação de uma variável do tipo inteiro com o valor copiado do retorno da função ``constRef'', enquanto que o valor atribuído originalmente é de uma referência para um valor inteiro constante.
+
+\begin{algorithm}
+	\caption{Particularidade do uso da palavra-chave \textbf{``auto''}}
+	\label{lst:autoParticularidade}
+	\lstinputlisting[]{codigos/autoParticularidade.cpp}
+\end{algorithm}
+
+Nestas situações podemos utilizar a palavra-chave ``decltype'' para alcançar o comportamento requerido. A função desta palavra-chave é avaliar o tipo de dado do resultado de uma expressão qualquer \cite{professionalCpp}. Ela pode ser utilizada em qualquer lugar do código onde se espera a especificação de um tipo de dado, como por exemplo em declarações de variáveis e como parâmetros para estruturas genéricas (que utilizam o mecanismo de \textbf{``templates''}\footnote{Mecanismo presente na linguagem C++ que permite o desenvolvimento de código que pode trabalhar com diferentes tipos de dados. É muito utilizado na construção de estruturas do tipo \textit{container}.}). 
+
+No trecho de código \ref{lst:decltype} podemos ver a utilização desta palavra-chave. Neste caso a variável ``numero'' (linha 10) irá ser deduzida como uma referência para um valor inteiro constante, que é exatamente o tipo retornado pela função ``constRef''. Porém o código gerado para a dedução não é tão simplificado, o que levou a proposta da adição da construção \textbf{``decltype(auto)''} (linha 12) pela especificação C++14, que tem o mesmo resultado neste caso \cite{professionalCpp}.
+
+\begin{algorithm}
+	\caption{Dedução de tipo com o uso da palavra-chave \textbf{``decltype''}}
+	\label{lst:decltype}
+	\lstinputlisting[]{codigos/decltype.cpp}
+\end{algorithm}
+
+\subsubsection{Programação funcional}
+\label{sec:programacaoFuncional}
+
+O conceito de programação funcional propõe que funções e métodos sejam tratados de forma igualitária com variáveis e objetos, no aspecto de poderem ser transportados entre contextos de execução, ser armazenados em estruturas específicas e ser utilizados como parâmetros para outras funções e/ou métodos \cite{fastDelegates}.
+
+A maneira tradicional utilizada para manipular funções e métodos na linguagem C++ consiste do uso de ponteiros. Porém esta metodologia utiliza uma sintaxe bem difícil e existem vários problemas ou limitadores em relação à conversão destes ponteiros. Um grande problema encontrado é que ponteiros para funções (declaradas no contexto global) e métodos (declarados dentro de classes, exceto os estáticos neste caso) possuem sintaxe de declaração diferentes e não são convertíveis entre si \cite{fastDelegates}.
+
+No trecho de código \ref{lst:ponteiroFuncoesMetodos} é demonstrada a sintaxe do uso de ponteiros para funções e métodos. Na linha 16 é declarado um ponteiro para a função ``getTexto'', e na linha 18 é declarado um para o método de mesmo nome presente na classe ``Exemplo''. Note que apesar da função e do método possuírem o mesmo protótipo (tipo de retorno e parâmetro) a sintaxe para declaração de seus ponteiros é diferente e eles não podem ser convertidos entre si.
+
+\begin{algorithm}
+	\caption{Sintaxe para utilização de ponteiros para funções e métodos}
+	\label{lst:ponteiroFuncoesMetodos}
+	\lstinputlisting[]{codigos/ponteiroFuncoesMetodos.cpp}
+\end{algorithm}
+
+A especificação C++11 propõe a unificação da representação destes ponteiros como instâncias da classe \textbf{``function''} que é definida dentro do \textit{namespace} ``std''. Esta classe consegue representar ponteiros para funções, métodos e referências para \textit{\textit{``function objects''}}\footnote{Instâncias de classes que reimplementam a função do operador parênteses.} \cite{professionalCpp}.
+
+O trecho de código \ref{lst:ponteiroFuncoesMetodos} pode ser reescrito com o uso desta classe conforme o exemplo \ref{lst:stdFunction}. Note que para atribuir um ponteiro para método é preciso utilizar a função \textbf{``bind''} para associar um objeto com o método a ser apontado (linha 22). Com esta nova sintaxe apontadores para métodos e funções com o mesmo protótipo podem ser convertidos entre si.
+
+\begin{algorithm}
+	\caption{Unificação da representação de ponteiros para métodos e funções}
+	\label{lst:stdFunction}
+	\lstinputlisting[]{codigos/stdFunction.cpp}
+\end{algorithm}
+
+Outra funcionalidade adicionada pela especificação C++11 foi o suporte a definição de métodos anônimos, também conhecidos como \textbf{\textit{expressões lambda}}. Esta funcionalidade consiste em declarar pequenas funções durante blocos de execução do programa. Expressões lambda também podem ser armazenadas em instâncias da classe \textit{``function''} \cite{professionalCpp}.
+
+\subsubsection{Ponteiros inteligentes (\textit{Smart Pointers})}
+\label{sec:ponteirosInteligentes}
 
 \section{O Framework Qt}
 \label{sec:qt}

@@ -1,12 +1,12 @@
-As Linguagens Orientadas a Objeto em conjunto com os Sistemas Gerenciadores de Bancos de Dados Relacionais (SGBDs) são considerados padrões no desenvolvimento de Sistemas de Informação Empresarial. Embora o uso destas duas tecnologias em conjunto mostre resultados satisfatórios, encontra-se dificuldade em efetuar a transição de informações entre os seus contextos de representação de dados.
+As Linguagens Orientadas a Objetos em conjunto com os Sistemas Gerenciadores de Bancos de Dados Relacionais (SGBDs) são considerados padrões no desenvolvimento de Sistemas de Informação Empresarial. Embora o uso destas duas tecnologias em conjunto mostre resultados satisfatórios, encontra-se dificuldade em efetuar a transição de informações entre os seus contextos de representação de dados.
 
-Para efetuar a transição de informações é necessário desenvolver componentes de software específicos para cada classe que represente dados que necessitam ser persistidos no banco de dados, o que se mostra uma tarefa repetitiva e propensa a erros.
-Com o objetivo de amenizar este problema, foram criadas as Bibliotecas de Mapeamento Objeto Relacional (ORMs), que são componentes de software capazes de automatizar o processo de transição de dados entre os dois contextos.
+Para efetuar a transição de informações é necessário desenvolver componentes de \textit{software} específicos para cada classe que represente dados que necessitam ser persistidos no banco de dados, o que se mostra uma tarefa repetitiva e propensa a erros.
+Com o objetivo de amenizar este problema, foram criadas as Bibliotecas de Mapeamento Objeto Relacional (ORMs), que são componentes de \textit{software} capazes de automatizar o processo de transição de dados entre os dois contextos.
 
-Devido a limitações nos recursos de reflexão e inserção de metadados oferecidos pela linguagem C++, a implementação de soluções ORM para esta linguagem se mostra uma tarefa bastante complexa. A maioria das soluções implementadas apresenta interfaces de configuração complexas, além de utilizar recursos da linguagem que promovem o aumento do nível de acoplamento do código.
+Devido a limitações nos recursos de reflexão e inserção de metadados oferecidos pela linguagem C++, o desenvolvimento de soluções ORM para esta linguagem se mostra uma tarefa bastante complexa. A maioria das soluções implementadas apresenta interfaces de configuração complexas, além de utilizar recursos da linguagem que promovem o aumento do nível de acoplamento do código.
 
-Neste trabalho é proposto o desenvolvimento de uma biblioteca ORM para a linguagem C++, onde são implementados mecanismos próprios de reflexão e inserção de metadados. A biblioteca utiliza vários componentes oferecidos pelo framework Qt para auxiliar em tarefas como comunicação com banco de dados e extensão de tipos nativos.
+Este trabalho propõe o desenvolvimento de uma biblioteca ORM para a linguagem C++, onde são implementados mecanismos próprios de reflexão e inserção de metadados a partir da utilização dos novos recursos propostos pela especificação \textit{C++11}. A biblioteca utiliza vários componentes oferecidos pelo \textit{framework} Qt para auxiliar em tarefas como comunicação com banco de dados e extensão de tipos nativos. 
 
 
-{\bf{Palavras-chave}}: Orientação a Objeto, SGBD, C++, ORM
+{\bf{Palavras-chave}}: Orientação a Objetos, SGBD, C++, ORM
 
