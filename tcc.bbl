@@ -52,6 +52,10 @@ Nierstrasz, O. (1989).
 PostgreSQL, T. G. D.~G. (2014).
 \newblock {\em PostgreSQL 9.3.4 Documentation}.
 
+\bibitem[Synthesis, 2013]{objectPersistenceODB}
+Synthesis, C. (2013).
+\newblock {\em C++ Object Persistence with ODB}.
+
 \bibitem[Thelin, 2007]{qtFoundations}
 Thelin, J. (2007).
 \newblock {\em Foundations of Qt development}, volume~7.

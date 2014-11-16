@@ -69,7 +69,7 @@ Geralmente as linguagens híbridas e as interpretadas oferecem métodos de reflexã
 
 Já no cenário das linguagens compiladas a situação é bem diferente. Não há a necessidade de geração de informações sobre estruturas de objetos para o código ser executado, visto que o programa é gerado em código nativo \cite{professionalCpp}. A linguagem C++ é do tipo compilada, portanto, também sofre com a falta de mecanismos de reflexão nativos. 
 
-\subsection{Processo evolutivo da linguagem}
+\subsection{Processo Evolutivo da Linguagem}
 \label{sec:processoEvolutivoCpp}
 
 A linguagem C++ foi criada para ser uma linguagem de propósito geral, com o objetivo principal de apresentar mecanismos para programação com alto nível de abstração, porém, ao mesmo tempo sem privar o desenvolvedor da capacidade de acessar rotinas e recursos de baixo nível. Sendo assim é possível obter programas de alto desempenho em diversas plataformas diferentes \cite{cppAnnotations}.
@@ -106,7 +106,7 @@ No trecho de código \ref{lst:initializerListExample} é demonstrado a utilização 
 \lstinputlisting[]{codigos/initializerListExample.cpp}
 \end{algorithm}
 
-\subsubsection{Navegação em grupos de elementos}
+\subsubsection{Navegação em Grupos de Elementos}
 \label{sec:forRangeBasedLoop}
 
 Quando precisamos acessar sequencialmente os elementos de um vetor ou de alguma estrutura do tipo \textit{container} utilizando a linguagem C++, temos basicamente duas opções: 
@@ -141,7 +141,7 @@ Esta nova variação pode ser utilizada tanto com vetores quanto com estruturas do
 	\lstinputlisting[]{codigos/forNovaSintaxe.cpp}
 \end{algorithm}
 
-\subsubsection{Novo identificador para ponteiros nulos}
+\subsubsection{Novo Identificador para Ponteiros Nulos}
 \label{sec:nullptr}
 
 A linguagem C++ permite a manipulação direta de memória a partir da utilização de \textbf{ponteiros}, variáveis estas que armazenam o endereço inicial da porção de memória em que uma estrutura de dados está sendo armazenada durante a execução de um programa \cite{professionalCpp}. 
@@ -160,7 +160,7 @@ Com o objetivo de resolver este problema a especificação C++11 prevê a existênci
 	\lstinputlisting[]{codigos/nullptr.cpp}
 \end{algorithm}
 
-\subsubsection{Inferência de tipos}
+\subsubsection{Inferência de Tipos}
 \label{sec:inferenciaTipos}
 
 A linguagem C++ é uma linguagem de tipagem estática, ou seja, todas as variáveis declaradas no código devem ter seu tipo de dado especificado em momento de compilação \cite{cppAnnotations}. Esta característica acaba em certas situações deixando o código de declaração de variáveis muito grande. Veja por exemplo o trecho de código \ref{lst:declaracaoGrande}, onde são declarados um \textit{container} para uma lista de inteiros e um iterador para esta lista.
@@ -199,7 +199,7 @@ No trecho de código \ref{lst:decltype} podemos ver a utilização desta palavra-ch
 	\lstinputlisting[]{codigos/decltype.cpp}
 \end{algorithm}
 
-\subsubsection{Programação funcional}
+\subsubsection{Programação Funcional}
 \label{sec:programacaoFuncional}
 
 O conceito de programação funcional propõe que funções e métodos sejam tratados de forma igualitária com variáveis e objetos, no aspecto de poderem ser transportados entre contextos de execução, ser armazenados em estruturas específicas, ser criados sob demanda e ser utilizados como parâmetros para outras funções e/ou métodos \cite{fastDelegates}.
@@ -263,7 +263,7 @@ No trecho de código \ref{lst:lambdaExpression} temos um exemplo de definição de 
 \end{algorithm}
 
 
-\subsubsection{Ponteiros inteligentes (\textit{Smart Pointers})}
+\subsubsection{Ponteiros Inteligentes (\textit{Smart Pointers})}
 \label{sec:ponteirosInteligentes}
 
 Um dos maiores desafios enfrentados por desenvolvedores que utilizam a linguagem C++ consiste na garantia da liberação de blocos de memória alocados dinamicamente a partir do uso de ponteiros. Sempre que alocamos uma região de memória a partir do uso do operador \textbf{\textit{``new''}}, temos que garantir que em algum ponto do código aquela região será liberada, tarefa que deve ser realizada explicitamente com o uso do operador \textbf{\textit{``delete''}} \cite{cppAnnotations}.
