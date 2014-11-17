@@ -1,0 +1,144 @@
+Neste apêndice são descritos os passos necessários para a instalação e configuração dos componentes de \textit{software} que compõem o ambiente de desenvolvimento com a linguagem C++ (utilizando elementos da especificação C++11) e o \textit{framework} Qt na versão 5.3 no sistema operacional Ubuntu versão 14.04. Estes passos podem ser utilizados tanto na versão 64 bits quanto na versão 32 bits do Ubuntu 14.04.
+
+A montagem do ambiente de desenvolvimento nesta plataforma é dividida nas seguintes etapas:
+
+\begin{enumerate}
+\item Instalação de um compilador e de um depurador compatíveis com a especificação C++11.
+\item Instalação de bibliotecas gráficas utilizadas pelo \textit{framework} Qt para execução de rotinas básicas para geração de elementos gráficos na tela.
+\item Instalação do \textit{framework} Qt, que compreende a instalação de um conjunto de bibliotecas pré-compiladas e um ambiente de desenvolvimento integrado.
+\item Instalação do sistema de controle de versões GIT.
+\item Instalação do SGBD PostgreSQL.
+\end{enumerate}
+
+\section{Instalando um Compilador e um Depurador}
+\label{sec:ubuntuCompiladorDepurador}
+
+Neste trabalho foram utilizados o compilador \textbf{G++} versão 4.8.2 e o depurador GDB versão 7.7, pois ambos suportam a especificação C++11 e alguns elementos da especificação C++14. Para a instalação, é necessário acessar um terminal e assumir o usuário ``root''\footnote{Isso pode ser feito no Ubuntu através do uso do comando ``sudo su'' seguido da informação da senha do usuário atual.}. Sendo assim, os passos a seguir assumem que você o tenha feito.
+
+No Ubuntu existe um meta-pacote chamado ``build-essential'' que automaticamente instala o compilador e o depurador alvo, configurando assim o ambiente básico para desenvolvimento em C++. É importante lembrar que a versão 14.04 já inclui as versões citadas anteriormente. Para instalar este meta-pacote basta executar o comando:
+
+\begin{verbatim}
+apt-get update && apt-get -y install build-essential
+\end{verbatim} 
+
+Na imagem \ref{fig:ubuntuBuildEssential} é mostrado a tela do terminal após o fim da execução do comando e na figura \ref{fig:ubuntuCppVersion} é demonstrado a tela do terminal após a execução de dois comandos para detectar as versões dos programas ``g++'' e ``gdb''.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuBuildEssential.png}
+	\caption{Terminal após instalação do meta-pacote ``build-essential''}
+	\label{fig:ubuntuBuildEssential}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuCppVersion.png}
+	\caption{Comandos para verificar a versão dos programas ``g++'' e do ``gdb''}
+	\label{fig:ubuntuCppVersion}
+\end{figure}
+
+\section{Instalando Biblioteca Gráfica}
+\label{sec:ubuntuBibliotecaGrafica}
+
+O \textit{framework} Qt depende de bibliotecas gráficas para gerar elementos visuais para mostrar na tela. No Ubuntu estas bibliotecas são instaladas a partir do comando:
+
+\begin{verbatim}
+apt-get update && apt-get -y install libgl1-mesa-dev
+\end{verbatim}
+
+\section{Instalando o \textit{Framework} Qt}
+\label{sec:ubuntuFrameworkQt}
+
+Durante o desenvolvimento deste trabalho, não existia um pacote com a versão 5.3 do \textit{framework} Qt disponível nos repositórios oficiais do Ubuntu 14.04. Devido a isso foi utilizado um instalador disponibilizado no site do projeto. Ele pode ser baixado nos links:
+
+\begin{verbatim}
+"http://download.qt-project.org/official_releases/qt/5.3/
+5.3.2/qt-opensource-linux-x64-5.3.2.run" (versão 64 bits)
+"http://download.qt-project.org/official_releases/qt/5.3/
+5.3.2/qt-opensource-linux-x86-5.3.2.run" (versão 32 bits)
+\end{verbatim}
+
+Caso os links não estejam mais funcionando você pode acessar o site oficial do projeto em ``http://qt-project.org'' e procurar na seção de downloads os novos links. Após o download do instalador, devemos dar a permissão de execução para o arquivo. Para isso basta acessar as propriedades do arquivo baixado e marcar a caixa de permissão de execução que tem o texto``Permitir a execução do arquivo como um programa''. Na imagem \ref{fig:ubuntuInstaladorPropriedades} é mostrado a janela de propriedade do arquivo do instalador após a modificação.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuInstaladorPropriedades.png}
+	\caption{Ativando a permissão de execução do instalador do \textit{framework} Qt}
+	\label{fig:ubuntuInstaladorPropriedades}
+\end{figure}
+
+Após atribuir a permissão de execução basta executar o arquivo a partir da pasta em que foi salvo (o que pode ser feito dando dois cliques no mesmo). Será então aberta a tela inicial do instalador conforme a figura \ref{fig:ubuntuInstalador1}. Para concluir a instalação você deve seguir o fluxo do instalador informando suas opções personalizadas de instalação. Para a finalidade deste trabalho, as opções padrão foram utilizadas. Nas figuras \ref{fig:ubuntuInstalador2}, \ref{fig:ubuntuInstalador3}, \ref{fig:ubuntuInstalador4}, \ref{fig:ubuntuInstalador5}, \ref{fig:ubuntuInstalador6} e \ref{fig:ubuntuInstalador7} mostram as telas do instalador durante a instalação onde foram utilizadas todas as opções padrão.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuInstalador1.png}
+	\caption{Tela inicial do instalador do \textit{framework} Qt no Ubuntu}
+	\label{fig:ubuntuInstalador1}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuInstalador2.png}
+	\caption{Segunda tela do instalador do \textit{framework} Qt no Ubuntu}
+	\label{fig:ubuntuInstalador2}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuInstalador3.png}
+	\caption{Terceira tela do instalador do \textit{framework} Qt no Ubuntu}
+	\label{fig:ubuntuInstalador3}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuInstalador4.png}
+	\caption{Quarta tela do instalador do \textit{framework} Qt no Ubuntu}
+	\label{fig:ubuntuInstalador4}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuInstalador5.png}
+	\caption{Quinta tela do instalador do \textit{framework} Qt no Ubuntu}
+	\label{fig:ubuntuInstalador5}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuInstalador6.png}
+	\caption{Sexta tela do instalador do \textit{framework} Qt no Ubuntu}
+	\label{fig:ubuntuInstalador6}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/ubuntuInstalador7.png}
+	\caption{Tela final do instalador do \textit{framework} Qt no Ubuntu}
+	\label{fig:ubuntuInstalador7}
+\end{figure}
+
+\section{Instalando o GIT}
+\label{sec:ubuntuInstalandoGit}
+
+O GIT é um sistema de controle de versões muito utilizado para gerenciamento de repositórios de códigos de programas. Ele foi utilizado neste trabalho e sua instalação é explicada aqui para aqueles que quiserem utilizá-lo para obter a versão mais recente da ORM4QT e do programa de testes. Para instalá-lo no Ubuntu, basta executar o comando:
+
+\begin{verbatim}
+apt-get update && apt-get -y install git
+\end{verbatim}
+
+\section{Instalando o PostgreSql}
+\label{sec:ubuntuInstalandoPostgresql}
+
+Para instalar o PostgreSql junto com suas bibliotecas de desenvolvimento (utilizadas para compilação de programas que fazem conexão com ele) no Ubuntu basta executar o comando:
+
+\begin{verbatim}
+apt-get update && apt-get -y install postgresql libpq-dev
+\end{verbatim}
+
+Em seguida, para habilitar o login do usuário ``postgres'' com a senha ``postgres'' na máquina local utilizando o protocolo TCP utilizamos o comando (retire a quebra de linha e reescreva os caracteres aspas simples no terminal antes de executar):
+
+\begin{verbatim}
+su -c "psql -c \"alter user postgres with encrypted password 'postgres'\""
+ postgres
+\end{verbatim}

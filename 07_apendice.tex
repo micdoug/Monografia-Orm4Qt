@@ -1,6 +1,14 @@
-{\bf{Título}}
+Segue a sequência de comandos utilizados para criação do banco de dados utilizado pelo aplicativo de teste.
 
-{\bf{Versão 1.0}}
-
-{\bf{Autor: Fulano de Tal}}
-
+\begin{verbatim}
+create table t_documento
+(
+  c_codigo bigserial,
+  c_nome varchar(200) not null unique,
+  c_descricao varchar(1000) null,
+  c_ultimaAlteracao timestamp not null,
+  c_arquivo bytea not null,
+  c_versao smallint not null,
+  constraint t_documento_PK primary key (c_codigo)
+);
+\end{verbatim}
