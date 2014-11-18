@@ -26,13 +26,16 @@
 \BOOKMARK [2][-]{subsection.4.2.1}{Quebrando o Encapsulamento das Classes}{section.4.2}% 26
 \BOOKMARK [2][-]{subsection.4.2.2}{Inserindo Metadados Através de Anotações}{section.4.2}% 27
 \BOOKMARK [1][-]{section.4.3}{Camada de Armazenamento}{chapter.4}% 28
-\BOOKMARK [0][-]{chapter.5}{Cronograma de Atividades}{}% 29
-\BOOKMARK [0][-]{chapter.6}{Conclusão}{}% 30
-\BOOKMARK [0][-]{appendix.A}{Ap\352ndice A \205 Script Para Criação do Banco de Dados de Teste}{}% 31
-\BOOKMARK [0][-]{appendix.B}{Ap\352ndice B \205 Configuração do Ambiente de Desenvolvimento no Ubuntu 14.04}{}% 32
-\BOOKMARK [1][-]{section.B.1}{Instalando um Compilador e um Depurador}{appendix.B}% 33
-\BOOKMARK [1][-]{section.B.2}{Instalando Biblioteca Gráfica}{appendix.B}% 34
-\BOOKMARK [1][-]{section.B.3}{Instalando o Framework Qt}{appendix.B}% 35
-\BOOKMARK [1][-]{section.B.4}{Instalando o GIT}{appendix.B}% 36
-\BOOKMARK [1][-]{section.B.5}{Instalando o PostgreSql}{appendix.B}% 37
-\BOOKMARK [0][-]{appendix*.45}{Refer\352ncias Bibliogr\341ficas}{}% 38
+\BOOKMARK [0][-]{chapter.5}{Testes e Resultados}{}% 29
+\BOOKMARK [1][-]{section.5.1}{Ambiente de Testes}{chapter.5}% 30
+\BOOKMARK [2][-]{subsection.5.1.1}{Ambiente de Testes Ubuntu 14.04}{section.5.1}% 31
+\BOOKMARK [2][-]{subsection.5.1.2}{Ambiente de Testes Microsoft Windows 8.1}{section.5.1}% 32
+\BOOKMARK [0][-]{chapter.6}{Conclusão}{}% 33
+\BOOKMARK [0][-]{appendix.A}{Ap\352ndice A \205 Script Para Criação do Banco de Dados de Teste}{}% 34
+\BOOKMARK [0][-]{appendix.B}{Ap\352ndice B \205 Configuração do Ambiente de Desenvolvimento no Ubuntu 14.04}{}% 35
+\BOOKMARK [1][-]{section.B.1}{Instalando um Compilador e um Depurador}{appendix.B}% 36
+\BOOKMARK [1][-]{section.B.2}{Instalando Biblioteca Gráfica}{appendix.B}% 37
+\BOOKMARK [1][-]{section.B.3}{Instalando o Framework Qt}{appendix.B}% 38
+\BOOKMARK [1][-]{section.B.4}{Instalando o GIT}{appendix.B}% 39
+\BOOKMARK [1][-]{section.B.5}{Instalando o PostgreSql}{appendix.B}% 40
+\BOOKMARK [0][-]{appendix*.44}{Refer\352ncias Bibliogr\341ficas}{}% 41
