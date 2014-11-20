@@ -1,19 +1,17 @@
-Após a implementação da biblioteca ORM4Qt foi necessário definir um modelo de testes que pudesse ser aplicado a ela em conjunto com outras bibliotecas já existentes. O objetivo deste modelo é o de avaliar o nível de usabilidade da biblioteca sob o ponto de vista do desenvolvedor, isto é, avaliar a facilidade de uso da biblioteca no ambiente de desenvolvimento utilizado pelo programador.
+Após a implementação da biblioteca ORM4Qt foi necessário definir um modelo de testes que pudesse ser aplicado a ela em conjunto com outras bibliotecas já existentes. O objetivo deste modelo é o de avaliar o nível de usabilidade da biblioteca sob o ponto de vista do desenvolvedor, isto é, avaliar a facilidade de uso da biblioteca no ambiente de desenvolvimento utilizado.
 
-O modelo de testes escolhido foi o desenvolvimento de uma aplicação simples chamada ``Minhas Apostilas'', que consiste de um programa que permite o armazenamento de arquivos no formato PDF em uma base de dados. Além do arquivo, o aplicativo armazena um pequeno grupo de informações referentes a ele, como nome, descrição e data de alteração.
+O modelo de testes escolhido foi o desenvolvimento de uma aplicação simples chamada ``Minhas Apostilas'', que consiste de um programa que permite o armazenamento de arquivos no formato PDF em uma base de dados do SGBD PostgreSql. Além do arquivo, o aplicativo armazena um pequeno grupo de informações referentes a ele, como nome, descrição e data de alteração.
 
-Com o intuito de testar a integração das bibliotecas utilizadas com o ambiente de desenvolvimento baseado no \textit{framework} Qt com a linguagem C++, o aplicativo utiliza alguns recursos adicionais do Qt para a construção de interfaces gráficas (módulos QtGui e QtWidgets) e para realização de tarefas de forma assíncrona (módulo QtConcurrent). Além disso, o aplicativo foi desenvolvido de forma totalmente portável, sendo testado nos sistemas operacionais Ubuntu 14.04 e Microsoft Windows 8.1, ambos com a arquitetura 64 bits.
+Com o intuito de testar a integração das bibliotecas utilizadas com o ambiente de desenvolvimento baseado no \textit{framework} Qt, o aplicativo utiliza alguns recursos adicionais do \textit{framework} para a construção de uma interface gráfica (módulos \textit{QtGui} e \textit{QtWidgets}) e para realização de tarefas de forma assíncrona (módulo \textit{QtConcurrent}). Além disso, o aplicativo foi desenvolvido de forma totalmente portável, sendo testado nos sistemas operacionais Ubuntu 14.04 e Microsoft Windows 8.1, ambos com a arquitetura 64 bits.
 
-Foram escolhidas duas bibliotecas ORM existentes para serem comparadas com a biblioteca desenvolvida, sendo elas, a ODB e a QxOrm. Ambas bibliotecas foram descritas no capítulo \ref{cap_quarto}.
-
-Nas próximas seções são detalhados os ambientes de desenvolvimento utilizados para realização dos testes e o aplicativo ``Minhas Apostilas'', onde é ressaltado como cada uma de suas funcionalidades foi implementada para cada biblioteca ORM utilizada.
+Foram escolhidas duas bibliotecas ORM existentes para serem comparadas com a biblioteca desenvolvida, sendo elas, a ODB e a QxOrm. Ambas bibliotecas foram descritas no capítulo \ref{cap_quarto}. Nas próximas seções são detalhados os ambientes de desenvolvimento utilizados para realização dos testes e também são descritas as funcionalidades presentes no programa ``Minhas Apostilas''.
 
 \section{Ambiente de Testes}
 \label{sec:ambienteTestes}
 
 A biblioteca ORM4Qt foi desenvolvida utilizando somente componentes oferecidos pelo \textit{framework} Qt versão 5.3 e pela especificação C++11, portanto ela está preparada para ser utilizada em qualquer ambiente de desenvolvimento que ofereça estes componentes. Porém, neste trabalho somente foram feitos testes nas plataformas Ubuntu versão 14.04 64 bits e Microsoft Windows 8.1 também 64 bits.
 
-Nas duas próximas seções são citados os programas utilizados para compor o ambiente de desenvolvimento de cada uma destas plataformas.
+As outras duas bibliotecas utilizadas nos testes também são compatíveis com os sistemas citados. Nas duas próximas seções são citados os programas utilizados para compor o ambiente de desenvolvimento de cada uma destas plataformas.
 
 \subsection{Ambiente de Testes Ubuntu 14.04}
 \label{sec:testeUbuntu}
@@ -24,11 +22,12 @@ Nesta plataforma foram utilizados os seguintes programas para montagem do ambien
 \item [Compilador \textbf{g++} versão 4.8.2:] Consiste de um compilador compatível com a especificação C++11. Ele foi instalado a partir dos repositórios oficiais do sistema;
 \item [Bibliotecas do \textit{framework} Qt versão 5.3:] Foram instaladas a partir de um instalador obtido no site oficial do projeto Qt\footnote{http://qt-project.org};
 \item [QtCreator versão 3.2.2:] Ambiente de desenvolvimento integrado instalado em conjunto com as bibliotecas do \textit{framework} Qt;
-\item [Compilador \textbf{odb}:] Programa que compõe o a biblioteca ODB. Ele foi instalado a partir de um instalador oferecido no site oficial do projeto\footnote{http://www.codesynthesis.com/products/odb/};
-\item [Bibliotecas \textbf{libodb}, \textbf{libodb-pgsql} e \textbf{libodb-qt}:] Compõem a biblioteca ODB e são necessárias para utilizá-la em conjunto com o \textit{framework} Qt e com o SGBD PostgreSql. Estas bibliotecas foram instaladas a partir da compilação de seus códigos fontes que também são disponibilizados no site oficial do projeto;
-\item [Biblioteca \textbf{boost}:] Depêndencia necessária para utilização da biblioteca QxOrm. Foi instalada a partir dos repositórios oficiais do sistema;
+\item [Compilador \textbf{odb}:] Programa que compõe a biblioteca ODB. Ele foi instalado a partir de um instalador oferecido no site oficial do projeto\footnote{http://www.codesynthesis.com/products/odb/};
+\item [Bibliotecas \textbf{libodb}, \textbf{libodb-pgsql} e \textbf{libodb-qt}:] Compõem a biblioteca ODB e são necessárias para utilizá-la em conjunto com o \textit{framework} Qt e com o SGBD PostgreSql. Estas bibliotecas foram instaladas a partir da compilação de seus códigos fonte que também são disponibilizados no site oficial do projeto;
+\item [Biblioteca \textbf{boost}:] Dependência necessária para utilização da biblioteca QxOrm. Foi instalada a partir dos repositórios oficiais do sistema;
 \item [Biblioteca QxOrm:] Foi acoplada no projeto do programa ``Minhas Apostilas'';
-\item [Biblioteca ORM4Qt:] Também acoplada no projeto do programa ``Minhas Apostilas''.
+\item [Biblioteca ORM4Qt:] Também acoplada no projeto do programa ``Minhas Apostilas'';
+\item [SGBD PostgreSql:] Instalado a partir dos repositórios oficiais do sistema.
 \end{description}
 
 \subsection{Ambiente de Testes Microsoft Windows 8.1}
@@ -36,12 +35,123 @@ Nesta plataforma foram utilizados os seguintes programas para montagem do ambien
 
 Nesta plataforma foram utilizados os seguintes programas para montagem do ambiente de desenvolvimento:
 
-\begin{enumerate}
-\item Microsoft Visual Studio 2013 Express que inclui um compilador compatível com os elementos da especificação C++11 utilizados pelas bibliotecas;
-\item Bibliotecas pré-compiladas do \textit{framework} Qt versão 5.3;
-\item Ambiente de desenvolvimento integrado \textbf{QtCreator} versão 3.2.2;
-\item Compilador \textbf{odb} e bibliotecas \textbf{libodb}, \textbf{libodb-pgsql} e \textbf{libodb-qt};
-\item Biblioteca \textbf{boost}, necessária para utilização da biblioteca QxOrm;
-\item Biblioteca QxOrm;
-\item Biblioteca ORM4Qt.
-\end{enumerate}
+\begin{description}
+\item [Microsoft Visual Studio 2013 Express:] Ambiente de desenvolvimento oferecido pela Microsoft e que acompanha um compilador C++ compatível com as funcionalidades da especificação C++11 utilizadas neste trabalho;
+\item [Bibliotecas do \textit{framework} Qt versão 5.3:] Foram instaladas a partir de um instalador obtido no site oficial do projeto Qt;
+\item [QtCreator versão 3.2.2:] Ambiente de desenvolvimento integrado instalado em conjunto com as bibliotecas do \textit{framework} Qt;
+\item [Compilador \textbf{odb}:] Programa que compõe a biblioteca ODB. Ele foi instalado a partir de um instalador oferecido no site oficial do projeto;
+\item [Bibliotecas \textbf{libodb}, \textbf{libodb-pgsql} e \textbf{libodb-qt}:] Compõem a biblioteca ODB e são necessárias para utilizá-la em conjunto com o \textit{framework} Qt e com o SGBD PostgreSql. Estas bibliotecas foram instaladas a partir da compilação de seus códigos fonte que também são disponibilizados no site oficial do projeto;
+\item [Biblioteca \textbf{boost}:] Dependência necessária para utilização da biblioteca QxOrm. Foi compilada a partir do código fonte obtido no site oficial do projeto\footnote{http://boost.org};
+\item [Biblioteca QxOrm:] Foi acoplada no projeto do programa ``Minhas Apostilas'';
+\item [Biblioteca ORM4Qt:] Também acoplada no projeto do programa ``Minhas Apostilas'';
+\item [SGBD PostgreSql:] Instalado a partir de um instalador disponibilizado no site oficial do projeto\footnote{http://postgresql.org}.
+\end{description}
+
+\section{O Projeto ``Minhas Apostilas''}
+\label{sec:minhasApostilas}
+
+O projeto utilizado para testes foi chamado de ``Minhas Apostilas'' e consiste de um aplicativo simples que permite o cadastro de arquivos PDF com informações adicionais de descrição em uma base de dados do SGBD PostgreSql. 
+
+As principais funções presentes no programa são a inserção, edição, deleção e pesquisa de registros de documentos. A tela inicial do programa pode ser vista na imagem \ref{fig:minhasApostilasTelaInicial}.
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[scale=0.6]{imagens/minhasApostilasTelaInicial.png}
+	\caption{Tela inicial do programa Minhas Apostilas}
+	\label{fig:minhasApostilasTelaInicial}
+\end{figure}
+
+O mecanismo que permite a utilização das três bibliotecas ORM no projeto se baseia nas classes ``Documento'' e ``IRepository'' que são expostas nas seções seguintes. Após a explicação das classes são expostos os mecanismos utilizados para desenvolvimento de cada uma das funcionalidades do aplicativo.
+
+\subsection{A Classe Documento}
+\label{sec:classeDocumento}
+
+Para representar os documentos gerenciados pelo programa, foi criada uma classe chamada ``Documento'', cuja definição pode ser vista no trecho de código \ref{lst:classeDocumento}. A classe definida contém 6 atributos que armazenam os dados referentes a cada arquivo gerenciado pelo aplicativo:
+
+\begin{algorithm}
+	\caption{Definição da classe Documento}
+	\label{lst:classeDocumento}
+	\lstinputlisting[]{codigos/classeDocumento.cpp}
+\end{algorithm}
+
+\begin{description}
+	\item[Código:] Consiste de um identificador numérico único associado com cada arquivo armazenado. É armazenado internamente no atributo privado ``m\_codigo'' e é acessível através dos métodos ``codigo'' (leitura) e ``setCodigo'' (escrita);
+	\item[Nome:] Consiste de um nome para identificar o arquivo armazenado. É armazenado internamente no atributo privado ``m\_nome'' e é acessível através dos métodos ``nome'' (leitura) e ``setNome'' (escrita);
+	\item[Descrição:] Consiste de um campo de texto com uma descrição do arquivo armazenado. É armazenada internamente no atributo privado ``m\_descricao'' e é acessível através dos métodos ``descricao'' (leitura) e ``setDescricao'' (escrita);
+	\item[Última alteração:] Armazena a data e hora em que foi efetuada a última alteração no arquivo armazenado. É armazenado internamente no atributo privado ``m\_ultimaAlteracao'' e é acessível através dos métodos ``ultimaAlteracao'' (leitura) e ``setUltimaAlteracao'' (escrita);
+	\item[Versão:] Armazena o número da versão do arquivo armazenado. É armazenado internamente pelo atributo ``m\_versao'' e é acessível através dos métodos ``versao'' (leitura) e ``setVersao'' (escrita);
+	\item[Arquivo:] Armazena a sequência de \textit{bytes} em formato puro, que compõe o arquivo armazenado. É armazenado internamente no atributo privado ``m\_arquivo'' e é acessível através dos métodos ``arquivo'' (leitura) e ``setArquivo'' (escrita).
+\end{description}
+
+Esta classe foi mapeada para o banco de dados utilizando os mecanismos presentes nas três bibliotecas ORM utilizadas no teste. O mapeamento foi configurado de forma que a classe é mapeada para uma tabela com nome ``t\_documentos'', o atributo ``m\_codigo'' é mapeado para a coluna ``c\_codigo'', o atributo ``m\_nome'' para a coluna ``c\_nome'', o atributo ``m\_descricao'' para a coluna ``c\_descricao'', o atributo ``m\_ultimaAlteracao'' para a coluna ``c\_ultimaalteracao'', o atributo ``m\_versao'' para a coluna ``c\_versao'' e o atributo ``m\_arquivo'' para a coluna ``c\_arquivo''.
+
+Nas seções seguintes são apresentados os mecanismos utilizados para configuração do mapeamento com cada uma das bibliotecas testadas.
+
+\subsubsection{Mapeamento com a Biblioteca ORM4Qt}
+\label{sec:mapeamentoOrm4Qt}
+
+O mapeamento com a biblioteca ORM4Qt foi configurado através da adição de uma série de macros no final do bloco de definição da classe. O trecho de código \ref{lst:orm4qtMap} demonstra as macros utilizadas para configurar o mapeamento. 
+
+\begin{algorithm}
+	\caption{Mapeamento da classe Documento com a biblioteca ORM4Qt}
+	\label{lst:orm4qtMap}
+	\lstinputlisting[]{codigos/orm4qtMap.cpp}
+\end{algorithm}
+
+Nas linhas 2 e 11 temos as macros que definem o início e final da região de configuração do mapeamento, respectivamente. Na linha 3 temos a macro \textit{``CLASS''} que é utilizada para definir metadados relativos à classe através da especificação de tuplas no formato ``chave=valor''. Para que o mapeamento funcione, temos que informar obrigatoriamente um valor para as chaves \textit{``name''} (nome da classe) e para a chave \textit{``table''} (nome da tabela correspondente à classe no banco de dados). Neste caso também foi informada a chave \textit{``autocolumn''} que define o nome da propriedade do tipo numérico que é incrementada automaticamente pelo banco de dados durante inserção de registros, que corresponde a propriedade código neste caso.
+
+Nas linhas 4 até a 9 é utilizada a macro \textit{``PROPERTY''} que tem como objetivo inserir metadados relativos às propriedades da classe. Esta macro recebe como parâmetro o nome do atributo interno que armazena a propriedade a ser mapeada, seguida por uma lista de tuplas no formato ``chave=valor''. Para que o mapeamento funcione, temos que informar obrigatoriamente um valor para a chave \textit{``column''} (nome da coluna correspondente à propriedade mapeada na tabela no banco de dados). 
+
+Neste caso também são informados valores para as chaves \textit{``name''} (apelido para a propriedade utilizado na construção de filtros de pesquisa) e \textit{``key''} (define se a propriedade compõe a chave primária da tabela correspondente a classe). Como pode ser observado no trecho de código, a configuração do mapeamento com a biblioteca ORM4Qt é bem simples e apresenta uma sintaxe bem próxima das anotações utilizadas na linguagem JAVA, por exemplo. 
+
+\subsubsection{Mapeamento com a Biblioteca ODB}
+\label{sec:mapeamentoODB}
+
+Para realizar o mapeamento com a biblioteca ODB foi necessário incluir uma série de diretivas de pré-processamento no arquivo de definição da classe. Para o desenvolvimento do aplicativo de testes também foi necessária a definição de duas estruturas, que são utilizadas para limitar o conjunto de propriedades durante a pesquisa de registros e para calcular o número de registros presentes no banco de dados. O código para configuração do mapeamento com a biblioteca ODB é exposto no trecho de código \ref{lst:odbMap}.
+
+\begin{algorithm}
+	\caption{Mapeamento da classe Documento com a biblioteca ODB}
+	\label{lst:odbMap}
+	\lstinputlisting[]{codigos/odbMap.cpp}
+\end{algorithm}
+
+Na linha 2 é informado o nome da tabela no banco de dados equivalente a esta classe. Nas linhas 3 até 9 são informados os nomes das colunas equivalentes a cada propriedade da classe mapeada. Importante observar que na linha 3 são utilizadas as palavras chave \textit{``auto''} e \textit{``id''} para informar que a propriedade ``m\_codigo'' da classe é um campo numérico que será incrementado automaticamente pelo banco de dados durante inserções de registros, e, que este atributo define a chave primária da tabela mapeada, respectivamente.
+
+Nas linhas 12 até 17 é definida a estrutura \textit{``DocumentoInfo''} que é utilizada em funções do aplicativo que precisam recuperar do banco de dados o número de registros presentes. E, por fim, nas linhas 20 até 33 é definida a estrutura \textit{``DocumentoView''}, que é utilizada no programa para recuperar registros, ignorando o atributo arquivo ao preencher tabelas de visualização de dados (feito assim para fins de desempenho).
+
+Após esta configuração foi necessário executar o compilador odb passando como parâmetro o arquivo de definição da classe. Este compilador gerou os arquivos ``documento-odb.hxx'', ``documento-odb.ixx'' e ``documento-odb.cxx'' que contém o código para as rotinas de troca de informações com o banco de dados. Estes arquivos foram acoplados no projeto do programa, e toda vez que foi necessária a modificação da estrutura da classe ``Documento'' foi necessário executar novamente o compilador para gerar os arquivos citados.
+
+\subsubsection{Mapeamento com a Biblioteca QxOrm}
+\label{sec:mapeamentoQxOrm}
+
+Para configurar o mapeamento com a biblioteca QxOrm foi necessário incluir uma macro no bloco de definição da classe para ativar o mecanismo de ``classes friend'' da linguagem C++, permitindo à biblioteca o acesso aos atributos privados. Foi necessário também incluir uma série de macros extras no arquivo de definição da classe e implementar uma função de registro de metadados. No trecho de código \ref{lst:qxormMap} é possível observar o código utilizado para o mapeamento.
+
+\begin{algorithm}
+	\caption{Mapeamento da classe Documento com a biblioteca QxOrm}
+	\label{lst:qxormMap}
+	\lstinputlisting[]{codigos/qxormMap.cpp}
+\end{algorithm}
+
+Na linha 2 é mostrada a macro que foi inserida dentro do bloco de declaração da classe para ativação do mecanismo de ``classes friend''. Na linha 5 é utilizada uma macro para informar para a biblioteca o tipo de dado do campo de chave primária utilizado na classe. Nas linhas 6 até 12 são utilizadas macros para informar para a biblioteca que a classe ``Documento'' deve ser mapeada para o banco de dados. Note que nestas linhas foi necessário utilizar diretivas de pré-processamento para informar macros diferentes para os sistemas Ubuntu e Windows.
+
+Nas linhas 15 até 28 é demonstrada a implementação do método de registro de metadados para classes mapeadas por esta biblioteca. Dentro desta função, na linha 19 é definida a tabela equivalente a classe, e nas linhas 21 até 26 são definidas as equivalências entre atributos e colunas. 
+
+Das três bibliotecas utilizadas, esta é a que possui o sistema de configuração mais complexo. Como o aplicativo foi desenvolvido para ser utilizado nas plataformas Ubuntu e Windows, foi necessário utilizar, em certos pontos, macros de configuração diferentes para os dois sistemas, como pode ser observado.
+
+\subsection{A Classe IRepository}
+\label{sec:classeIRepository}
+
+Para possibilitar que as operações do aplicativo relacionadas com gerenciamento de dados pudessem ser efetuadas com cada uma das bibliotecas ORM utilizadas, foi criada a classe abstrata \textit{``IRepository<T>''}, que define uma interface unificada de métodos para gerenciamento de registros de objetos de uma classe qualquer no banco de dados. No trecho de código \ref{lst:classeIRepository} é demonstrada a declaração desta classe, onde são descritas as funções de cada método incluído.
+
+\begin{algorithm}
+	\caption{Definição da classe \textit{``IRepository<T>''}}
+	\label{lst:classeIRepository}
+	\lstinputlisting[]{codigos/classeIRepository.cpp}
+\end{algorithm}
+
+Todas as operações de gerenciamento de objetos da classe ``Documento'' são feitas a partir de implementações da classe \textit{``IRepository<Documento>''}. No programa foram definidas três implementações, sendo elas, a \textit{``DocumentoRepositorioOrm4Qt''} (implementação que utiliza a biblioteca ORM4Qt), a \textit{``DocumentoRepositorioODB''} (implementação que utiliza a biblioteca ODB) e \textit{``DocumentoRepositorioQxOrm''} (implementação que utiliza a biblioteca QxOrm).
+
+Quando o programa ``Minhas Apostilas'' é iniciado, é apresentado uma lista com as opções das três bibliotecas ORM. De acordo com a opção escolhida, uma instância da implementação equivalente é criada e utiliza ao longo da execução do aplicativo. Outra aspecto importante a observar, é que todas as implementações ficam exibindo no console os comandos SQL gerados pela biblioteca utilizando recursos específicos de cada uma.
+
+As implementações dos métodos da interface de ``IRepository<Documento>'' para as três bibliotecas são bem parecidas devido a similaridade entre as API apresentadas por elas para realização de operações no banco de dados. Sendo assim, estas implementações não serão comparadas.
+

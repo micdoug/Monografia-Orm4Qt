@@ -17,3 +17,8 @@
 \contentsline {algocf}{\numberline {17}{\ignorespaces Exemplo de variações na declaração de métodos acessadores para atributos tipo inteiro\relax }}{39}{algocf.caption.29}
 \contentsline {algocf}{\numberline {18}{\ignorespaces Retornando uma expressão lambda para acesso de atributo privado\relax }}{40}{algocf.caption.30}
 \contentsline {algocf}{\numberline {19}{\ignorespaces Esboço da utilização de macros para registro de metainformação\relax }}{42}{algocf.caption.32}
+\contentsline {algocf}{\numberline {20}{\ignorespaces Definição da classe Documento\relax }}{48}{algocf.caption.35}
+\contentsline {algocf}{\numberline {21}{\ignorespaces Mapeamento da classe Documento com a biblioteca ORM4Qt\relax }}{50}{algocf.caption.36}
+\contentsline {algocf}{\numberline {22}{\ignorespaces Mapeamento da classe Documento com a biblioteca ODB\relax }}{51}{algocf.caption.37}
+\contentsline {algocf}{\numberline {23}{\ignorespaces Mapeamento da classe Documento com a biblioteca QxOrm\relax }}{53}{algocf.caption.38}
+\contentsline {algocf}{\numberline {24}{\ignorespaces Definição da classe \textit {``IRepository<T>''}\relax }}{54}{algocf.caption.39}
