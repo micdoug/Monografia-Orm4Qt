@@ -11,7 +11,7 @@ Foram escolhidas duas bibliotecas ORM existentes para serem comparadas com a bib
 
 A biblioteca ORM4Qt foi desenvolvida utilizando somente componentes oferecidos pelo \textit{framework} Qt versão 5.3 e pela especificação C++11, portanto ela está preparada para ser utilizada em qualquer ambiente de desenvolvimento que ofereça estes componentes. Porém, neste trabalho somente foram feitos testes nas plataformas Ubuntu versão 14.04 64 bits e Microsoft Windows 8.1 também 64 bits.
 
-As outras duas bibliotecas utilizadas nos testes também são compatíveis com os sistemas citados. Nas duas próximas seções são citados os programas utilizados para compor o ambiente de desenvolvimento de cada uma destas plataformas.
+As outras duas bibliotecas utilizadas nos testes também são compatíveis com os sistemas citados. Nas duas próximas seções são listados os programas utilizados para compor o ambiente de desenvolvimento de cada uma destas plataformas.
 
 \subsection{Ambiente de Testes Ubuntu 14.04}
 \label{sec:testeUbuntu}
@@ -151,7 +151,7 @@ Para possibilitar que as operações do aplicativo relacionadas com gerenciamento 
 
 Todas as operações de gerenciamento de objetos da classe ``Documento'' são feitas a partir de implementações da classe \textit{``IRepository<Documento>''}. No programa foram definidas três implementações, sendo elas, a \textit{``DocumentoRepositorioOrm4Qt''} (implementação que utiliza a biblioteca ORM4Qt), a \textit{``DocumentoRepositorioODB''} (implementação que utiliza a biblioteca ODB) e \textit{``DocumentoRepositorioQxOrm''} (implementação que utiliza a biblioteca QxOrm).
 
-Quando o programa ``Minhas Apostilas'' é iniciado, é apresentado uma lista com as opções das três bibliotecas ORM. De acordo com a opção escolhida, uma instância da implementação equivalente é criada e utiliza ao longo da execução do aplicativo. Outra aspecto importante a observar, é que todas as implementações ficam exibindo no console os comandos SQL gerados pela biblioteca utilizando recursos específicos de cada uma.
+Quando o programa ``Minhas Apostilas'' é iniciado, é apresentado uma lista com as opções das três bibliotecas ORM. De acordo com a opção escolhida, uma instância da implementação equivalente é criada e utilizada ao longo da execução do aplicativo. Outra aspecto importante a observar, é que todas as implementações ficam exibindo no console os comandos SQL gerados pela biblioteca utilizando recursos específicos de cada uma.
 
-As implementações dos métodos da interface de ``IRepository<Documento>'' para as três bibliotecas são bem parecidas devido a similaridade entre as API apresentadas por elas para realização de operações no banco de dados. Sendo assim, estas implementações não serão comparadas.
+As implementações dos métodos da interface de \textit{``IRepository<Documento>''} para as três bibliotecas são bem parecidas devido a similaridade entre as API apresentadas por elas para realização de operações no banco de dados. Sendo assim, estas implementações não serão comparadas.
 
