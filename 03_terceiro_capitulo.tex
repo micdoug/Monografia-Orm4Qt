@@ -22,7 +22,7 @@ Neste trabalho o modelo de Zhang é utilizado como base para a implementação de u
 \section{QxORM}
 \label{sec:qxorm}
 
-QxORM é uma biblioteca ORM de código aberto desenvolvida para ser utilizada em conjunto com o \textit{framework} Qt. Ela utiliza vários módulos deste \textit{framework} como auxílio na execução das tarefas de mapeamento, como por exemplo, o módulo QtSql para realizar interações com os SGBDs. Ela foi criada em 2003 e é mantida pelo engenheiro de \textit{software} Lionel Marty \cite{qxorm}.
+QxORM é uma biblioteca ORM de código aberto desenvolvida para ser utilizada em conjunto com o \textit{framework} Qt. Ela utiliza vários módulos deste \textit{framework} como auxílio na execução das tarefas de mapeamento, como por exemplo, o módulo QtSql para realizar interações com os SGBDs. Foi criada em 2003 e é mantida pelo Engenheiro de \textit{software} Lionel Marty \cite{qxorm}.
 
 Esta biblioteca segue o paradigma orientado a aplicação, e é transparente, ou seja, permite o mapeamento de classes arbitrárias. Para mapear uma classe, o desenvolvedor deve inserir algumas marcações na definição da classe, e implementar um método utilizando funções específicas para registros de informações das classes e atributos a serem mapeados. Portanto, nesta biblioteca também não existe um sistema de anotações \cite{qxorm}.
 
@@ -31,23 +31,17 @@ Esta biblioteca é utilizada durante testes de usabilidade, onde é comparada a su
 \section{ODB}
 \label{sec:ODB}
 
-ODB é uma biblioteca ORM desenvolvida para ser utilizada com a linguagem C++. Também é uma biblioteca de código aberto e é mantida pela empresa ``Code Synthesis'' \cite{objectPersistenceODB}.
-
-Ao contrário da biblioteca QxOrm, a ODB não foi desenvolvida para ser utilizada especificamente em conjunto com um \textit{framework} ou outra biblioteca, mas sim com a linguagem C++ pura. Para ser utilizada em conjunto com o \textit{framework} Qt, por exemplo, a biblioteca disponibiliza um recurso chamado \textit{\textbf{``profile''}}, que atua como uma espécie de \textit{``plugin''} adicional que pode ser acoplado a biblioteca para habilitar seu uso em conjunto \cite{objectPersistenceODB}.
+ODB é uma biblioteca ORM desenvolvida para ser utilizada com a linguagem C++. É uma biblioteca de código aberto e é mantida pela empresa ``Code Synthesis''. Ao contrário da biblioteca QxOrm, a ODB não foi desenvolvida para ser utilizada especificamente em conjunto com um \textit{framework} ou outra biblioteca, mas sim com a linguagem C++ pura. Para ser utilizada em conjunto com o \textit{framework} Qt, por exemplo, a biblioteca disponibiliza um recurso chamado \textit{\textbf{``profile''}}, que atua como uma espécie de \textit{``plugin''} adicional que pode ser acoplado a biblioteca para habilitar seu uso em conjunto \cite{objectPersistenceODB}.
 
 Mesmo quando utilizada com \textit{``profiles''}, a biblioteca utiliza mecanismos próprios para acesso a banco de dados e construção de sentenças em linguagem SQL. As informações de mapeamento são especificadas através do uso de diretivas de pré-processamento \textit{\textbf{``pragma''}}\footnote{Diretiva de pré-processamento que permite ao desenvolvedor passar informações durante a compilação que são específicas de um compilador utilizado.}. Estas informações são analisadas por um compilador disponibilizado em conjunto com a biblioteca, que gera então código em C++ com os comandos para realizar tarefas de persistência \cite{objectPersistenceODB}.
 
 A biblioteca utiliza o paradigma orientado a aplicação com uma abordagem transparente, pois não obriga o desenvolvedor a implementar interfaces ou aplicar herança nas classes a serem mapeadas para o banco de dados. Seu sistema de inserção de metadados é bem parecido com o sistema de anotações, porém estes metadados somente são acessíveis pelo seu compilador externo \cite{objectPersistenceODB}.
 
-Esta biblioteca também é utilizada durante testes de usabilidade e de configuração do ambiente de desenvolvimento no capítulo \ref{cap_quinto}.
+Esta biblioteca também é utilizada durante testes de usabilidade e de configuração do ambiente de desenvolvimento no Capítulo \ref{cap_quinto}.
 
 \section{Hibernate}
 \label{sec:hibernate}
 
-Uma das bibliotecas ORM mais conhecidas atualmente, o Hibernate é uma biblioteca desenvolvida para ser utilizada com a linguagem JAVA. É um projeto de código aberto mantido pela empresa \textbf{Red Hat} \cite{hibernateInAction}.
+O Hibernate é uma das bibliotecas ORM escritas em JAVA, mais conhecidas atualmente. É um projeto de código aberto mantido e desenvolvido pela empresa \textbf{Red Hat}. Esta biblioteca é uma das bibliotecas ORM mais completas, sendo pioneira na implementação de vários mecanismos de otimização. Ela utiliza um paradigma orientado a aplicação e a inserção de metadados de mapeamento pode ser feita a partir da utilização de arquivos XML, ou a partir da utilização do mecanismo de anotações presente na linguagem JAVA \cite{hibernateInAction}.
 
-O Hibernate é uma das bibliotecas ORM mais completas, sendo pioneira na implementação de vários mecanismos de otimização. A biblioteca utiliza um paradigma orientado a aplicação e a inserção de metadados de mapeamento pode ser feita a partir da utilização de arquivos XML, ou a partir da utilização do mecanismo de anotações presente na linguagem JAVA \cite{hibernateInAction}.
-
-A biblioteca é capaz de mapear classes que utilizam mecanismos de herança e composição, além de ter a capacidade de a partir da análise das classes mapeadas e dos metadados, criar o banco de dados equivalente \cite{hibernateInAction}.  
-
-Seu mecanismo de anotações é a inspiração principal do desenvolvimento deste trabalho, pois tal mecanismo traz um nível de facilidade enorme na configuração dos dados de mapeamento, e até então poucas bibliotecas voltadas para a linguagem C++ apresentam algo semelhante.  
+A biblioteca é capaz de mapear classes que utilizam mecanismos de herança e composição, além de ter a capacidade de a partir da análise das classes mapeadas e dos metadados, criar o banco de dados equivalente.  Seu mecanismo de anotações é a inspiração principal do desenvolvimento deste trabalho, pois tal mecanismo traz um nível de facilidade enorme na configuração dos dados de mapeamento, e até então poucas bibliotecas voltadas para a linguagem C++ apresentam algo semelhante \cite{hibernateInAction}.  
