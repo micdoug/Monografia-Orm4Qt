@@ -3,7 +3,7 @@ Neste capítulo são apresentados os conceitos básicos utilizados ao longo do trab
 %--- Inserir os conceitos de orientação a objetos
 \section{Orientação a Objetos}
 \label{sec:oop}
-Um conceito bastante difundido tanto no meio acadêmico quanto no mercado são as \textbf{Linguagens Orientadas a Objetos}, que são linguagens de programação que utilizam um paradigma ou padrão de estruturação de código que permite que o desenvolvedor crie abstrações no contexto do software para modelar objetos ou entidades do mundo real \cite{oopSurvey}.
+Um conceito bastante difundido tanto no meio acadêmico quanto no mercado são as \textbf{Linguagens Orientadas a Objetos}. Essas são linguagens de programação que utilizam um paradigma ou padrão de estruturação de código que permite que o desenvolvedor crie abstrações no contexto do software para modelar objetos ou entidades do mundo real \cite{oopSurvey}.
 
 Não existe uma definição universal que diga quais são as características ou funcionalidades que uma linguagem de programação deve apresentar para ser considerada orientada a objetos \cite{oopSurvey}. Porém, de maneira geral, elas possuem mecanismos que permitem agrupar dentro de uma unidade de \textit{software}, estruturas para prover informações de \textbf{estado}, \textbf{comportamento} e \textbf{identidade} \cite{ormPaper}. Este agrupamento de estruturas dentro de uma unidade é conhecido como \textbf{encapsulamento}.
 
@@ -13,7 +13,7 @@ O estado de um objeto é definido a partir da adição de variáveis em sua estrutur
 
 O comportamento de um objeto é definido a partir da adição de funções em sua estrutura interna. Elas são utilizadas para efetuar operações sobre os atributos que o objeto contém, ou para efetuar processamento de dados baseados no estado ou objetivo do objeto ao qual ela pertence. Estas funções são conhecidas como \textbf{métodos} \cite{oopSurvey}.
 
-O conjunto de atributos e métodos de uma classe define o que chamamos de \textbf{interface}. Algumas linguagens permitem reduzir a interface de um objeto de forma que nem todas as estruturas internas sejam acessíveis externamente. Um exemplo é a linguagem C++, que nos permite utilizar os modificadores \textit{\textbf{"private"}} (estruturas não acessíveis externamente) e \textit{\textbf{"public"}} (estruturas acessíveis externamente). 
+O conjunto de atributos e métodos de uma classe define o que chamamos de \textbf{interface}. Algumas linguagens permitem reduzir a interface de um objeto de forma que nem todas as estruturas internas sejam acessíveis externamente. Um exemplo é a linguagem C++, que nos permite utilizar os modificadores \textit{\textbf{``private''}} (estruturas não acessíveis externamente) e \textit{\textbf{``public''}} (estruturas acessíveis externamente). Nesse caso a interface será formada apenas pelos atributos e métodos marcados com o modificador ``\textit{public}''
 
 A identidade de um objeto se refere à capacidade de se referenciar instâncias de objetos de maneira unívoca, ou seja, se refere à capacidade de se distinguir diversas instâncias de objetos entre si através de algum mecanismo de comparação \cite{oopSurvey}. Em algumas linguagens este mecanismo se baseia no endereçamento de memória ocupado pela instância do objeto, como é o caso da linguagem C++. Já em outras linguagens existem mecanismos que permitem a criação de funções de comparação, como acontece por exemplo na linguagem \textbf{\textit{JAVA}} onde podemos definir o método \textbf{\textit{"equals"}} das classes criadas. 
 
@@ -37,7 +37,7 @@ Mecanismos de encapsulamento (métodos, atributos e restrição de interface), defi
 
 A herança consiste na capacidade de uma classe estender a estrutura de uma classe já definida. Isso significa que a nova classe mantém a interface da  anterior e tem a capacidade de adicionar novos atributos e métodos a ela \cite{oopSurvey}. Algumas linguagens oferecem somente suporte para herança simples, onde uma classe pode herdar de somente uma outra classe, porém geralmente definem mecanismos alternativos de extensão. Um exemplo é a linguagem JAVA. Outras linguagens oferecem suporte para herança múltipla, onde uma classe pode estender as funcionalidades de uma ou mais classes já definidas. Um exemplo de linguagem com esta característica é a linguagem C++.
 
-Algumas notações são utilizadas para demonstrar a utilização do mecanismo de herança. Por exemplo, quando criamos uma classe ``B'' que herda de uma classe ``A'', dizemos que ``A'' é a classe \textbf{base} ou \textbf{pai}, enquanto a ``B'' é uma classe \textbf{especializada} ou \textbf{filha}. Uma característica importante a observar é que ao declararmos um objeto da classe ``B'', este objeto poderá ser utilizado em contextos onde é esperado um objeto da classe ``A'' \cite{oopSurvey}.
+Algumas notações são utilizadas para demonstrar a utilização do mecanismo de herança. Por exemplo, quando criamos uma classe ``B'' que herda de uma classe ``A'', dizemos que ``A'' é a classe \textbf{base} ou \textbf{pai}, enquanto a ``B'' é uma classe \textbf{derivada} ou \textbf{filha}. Uma característica importante a observar é que ao declararmos um objeto da classe ``B'', este objeto poderá ser utilizado em contextos onde é esperado um objeto da classe ``A'', esse mecanismo é conhecido como \textbf{\textit{upcasting}} \cite{oopSurvey}.
 
 Ao utilizar o mecanismo de herança, algumas linguagens permitem a modificação de um método existente na classe base. Este mecanismo é utilizado para especializar o comportamento herdado na nova classe, mantendo um mesmo padrão de interface. Quando isto acontece temos um impasse a ser resolvido. Quando um objeto de uma classe filha com métodos especializados for utilizado em um contexto como um objeto da classe pai, ao chamar este método, deverá ser executada a implementação da classe pai ou da classe filha? Quando desejamos que a implementação da classe filha seja utilizada, surge o conceito de polimorfismo, onde o comportamento de um objeto é mantido consistente em relação à sua definição não importa em qual contexto ele seja utilizado \cite{oopSurvey}. 
 
@@ -52,35 +52,35 @@ A linguagem \textbf{C++} é uma linguagem orientada a objetos criada em 1980 por 
 
 A linguagem C++ foi construída com base na linguagem \textbf{C}. Inicialmente o código escrito em C++ era traduzido para C e compilado com compiladores desta linguagem. Com o aumento da complexidade de implementação das características e funcionalidades que foram surgindo na linguagem ao longo de sua existência, surgiram compiladores específicos para C++ \cite{cppAnnotations}.
 
-Dentre as características da linguagem estão a capacidade de definição de classes, utilização de herança múltipla, utilização de polimorfismo, gerenciamento de memória controlado pelo desenvolvedor e compatibilidade com códigos escritos em C. Outra importante característica da linguagem é a sua não portabilidade, ou seja, o código gerado para uma plataforma (sistema operacional e/ou hardware específico) geralmente não é compatível com outras plataformas. Devido a isso, a linguagem possui uma biblioteca padrão bem reduzida, não oferecendo por exemplo bibliotecas de comunicação em rede e utilização de banco de dados \cite{bueno2002apostila}.
+Dentre as características da linguagem estão a capacidade de definição de classes, utilização de herança múltipla, utilização de polimorfismo, gerenciamento de memória controlado pelo desenvolvedor e compatibilidade com códigos escritos em C. Outra importante característica da linguagem é a sua não portabilidade, ou seja, o código gerado para uma plataforma (sistema operacional e/ou hardware específico) geralmente não é compatível com outras plataformas. Devido a isso, a linguagem possui uma biblioteca padrão bem reduzida, não oferecendo, por exemplo, bibliotecas de comunicação em rede e utilização de banco de dados \cite{bueno2002apostila}.
 
 Existe uma grande dificuldade em se desenvolver programas voltados para diversas plataformas utilizando a linguagem, pois quando começamos a utilizar funcionalidades um pouco mais avançadas temos que utilizar implementações específicas para cada plataforma. Como tentativa de diminuir esta dificuldade foram criadas bibliotecas e \textit{frameworks}\footnote{Um conjunto de bibliotecas que implementam funcionalidades frequentemente utilizadas no desenvolvimento de \textit{software}, como por exemplo, acesso a banco de dados e comunicação em redes.} multiplataformas para a linguagem \cite{qtFoundations}. Neste trabalho é utilizado o \textbf{\textit{Framework} Qt} que será descrito na seção \ref{sec:qt}.
 
-A seguir são descritas características da linguagem presentes em contextos bem específicos e que interferiram bastante no desenvolvimento da biblioteca ORM proposta neste trabalho. Também é descrito o modelo de projeção do processo evolutivo da linguagem, onde são ressaltados mecanismos introduzidos na especificação \textbf{C++11} e \textbf{C++14} que contribuíram para eliminar ou amenizar algumas limitações da linguagem.
+A seguir são descritas características da linguagem presentes em contextos bem específicos e que interferiram bastante no desenvolvimento da biblioteca ORM proposta neste trabalho. Também é descrito o modelo de projeção do processo evolutivo da linguagem, onde são ressaltados mecanismos introduzidos na especificação \textbf{C++11} que contribuíram para eliminar ou amenizar algumas limitações da linguagem.
 
 \subsection{Reflexão ou Introspecção}
 \label{sec:reflexaoIntrospeccao}
 
-Algumas vezes nos deparamos com a tarefa de desenvolver rotinas que dependem do conhecimento da estrutura de um objeto qualquer. Problemas como ``escreva uma função que mostre o nome dos atributos de um objeto'' ou ``escreva uma função que armazene em um arquivo o valor de todos os atributos de um objeto'' são alguns exemplos de rotinas deste tipo. É nestes momentos que a utilização de mecanismos de \textbf{introspecção} ou \textbf{reflexão} se torna útil.
+Algumas vezes nos deparamos com a tarefa de desenvolver rotinas que dependem do conhecimento da estrutura de um objeto qualquer. Problemas como ``escreva uma função que mostre o nome dos atributos de um objeto'' ou ``escreva uma função que armazene em um arquivo o valor de todos os atributos de um objeto'' são alguns exemplos de rotinas deste tipo. São nestes momentos que a utilização de mecanismos de \textbf{introspecção} ou \textbf{reflexão} se torna útil.
 
-Estes mecanismos consistem na disponibilização por parte da linguagem de programação de estruturas que permitem analisar a especificação de um objeto e acessar seus recursos, tudo em tempo de execução. Desta forma podemos escrever rotinas genéricas que podem trabalhar com qualquer tipo de objeto para executar diversos tipos de tarefas, como listar os atributos de um objeto, acessar e alterar o valor destes atributos, listar os métodos de um objeto e até mesmo executá-los \cite{expertCSharpObjects}.
+Estes mecanismos consistem na disponibilização, por parte da linguagem de programação, de estruturas que permitem analisar a especificação de um objeto e acessar seus recursos; tudo em tempo de execução. Desta forma podemos escrever rotinas genéricas que podem trabalhar com qualquer tipo de objeto para executar diversos tipos de tarefas, como listar os atributos de um objeto, acessar e alterar o valor destes atributos, listar os métodos de um objeto e até mesmo executá-los \cite{expertCSharpObjects}.
 
-Geralmente as linguagens híbridas e as interpretadas oferecem métodos de reflexão completos, pois as informações da estrutura dos objetos são utilizadas pelas próprias máquinas virtuais e pelos interpretadores em tempo de execução. Neste caso, já que a informação já está presente e formatada durante a execução, basta a linguagem criar mecanismos de disponibilização dos mesmos \cite{expertCSharpObjects}. 
+Geralmente as linguagens híbridas e as interpretadas oferecem métodos de reflexão completos, pois as informações da estrutura dos objetos são utilizadas pelas próprias máquinas virtuais e pelos interpretadores em tempo de execução. Neste caso, uma vez que a informação já está presente e formatada durante a execução, basta a linguagem criar mecanismos de disponibilização dos mesmos \cite{expertCSharpObjects}. 
 
-Já no cenário das linguagens compiladas a situação é bem diferente. Não há a necessidade de geração de informações sobre estruturas de objetos para o código ser executado, visto que o programa é gerado em código nativo \cite{professionalCpp}. A linguagem C++ é do tipo compilada, portanto, também sofre com a falta de mecanismos de reflexão nativos. 
+Já no cenário das linguagens compiladas, a situação é bem diferente. Não há a necessidade de geração de informações sobre estruturas de objetos para o código ser executado, visto que o programa é gerado em código nativo \cite{professionalCpp}. A linguagem C++ é do tipo compilada, portanto, também sofre com a falta de mecanismos de reflexão nativos. 
 
 \subsection{Processo Evolutivo da Linguagem}
 \label{sec:processoEvolutivoCpp}
 
 A linguagem C++ foi criada para ser uma linguagem de propósito geral, com o objetivo principal de apresentar mecanismos para programação com alto nível de abstração, porém, ao mesmo tempo sem privar o desenvolvedor da capacidade de acessar rotinas e recursos de baixo nível. Sendo assim é possível obter programas de alto desempenho em diversas plataformas diferentes \cite{cppAnnotations}.
 
-Para a linguagem ser utilizada em múltiplas plataformas é necessário que exista um compilador que suporte a criação de programas a partir da análise de código fonte em C++ para cada plataforma. Para evitar variações na implementação destes compiladores existe uma especificação oficial de todo o conjunto de recursos oferecidos pela linguagem bem como sua sintaxe \cite{cppAnnotations}. Esta especificação é mantida pela \textbf{ISO} (\textit{International Organization for Standardization}).
+Para a linguagem ser utilizada em múltiplas plataformas é necessário que exista um compilador que suporte a criação de programas a partir da análise de código fonte em C++ para cada plataforma. Para evitar variações na implementação destes compiladores existe uma especificação oficial de todo o conjunto de recursos oferecidos pela linguagem bem como sua sintaxe \cite{cppAnnotations}. Esta especificação é mantida pela \textit{\textbf{International Organization for Standardization}} (\textbf{ISO}).
 
 As linguagens de programação evoluem com a passar do tempo. Em alguns momentos é preciso acrescentar novos recursos para alinhar a linguagem com os padrões atuais, outras vezes é necessário melhorar recursos existentes ou até mesmo corrigir erros na especificação \cite{cppAnnotations}. 
 
 A especificação da linguagem C++ passou por uma grande atualização em 1998 (conhecida como \textbf{C++98}), seguida de algumas correções em 2003 (especificação conhecida como \textbf{C++03}). Desde então a especificação não sofria alterações significativas, o que levou a linguagem a ficar um pouco desatualizada de acordo com os conceitos que foram surgindo ao longo dos anos. Até que em meados de 2011 um comitê de especialistas começou a agir com o intuito de trazer novos recursos para a linguagem. Isso levou à publicação da especificação \textbf{C++11} no final do ano de 2011 e à projeção de atualizações da linguagem para os anos de 2014 e 2017, especificações conhecidas como \textbf{C++14} e \textbf{C++17} \cite{cppAnnotations}. 
 
-A figura \ref{fig:evolucaoCpp} mostra a linha do tempo da evolução da especificação da linguagem C++. Nela é possível perceber a grande concentração de tarefas previstas para os anos entre 2014 e 2017. Durante a finalização deste trabalho (novembro de 2014) a especificação C++14 está prevista para ser publicada em breve\footnote{Para mais informações acesse o site https://isocpp.org/std/status.}.
+A figura \ref{fig:evolucaoCpp} mostra a linha do tempo da evolução da especificação da linguagem C++. Nela é possível perceber a grande concentração de tarefas previstas para os anos entre 2014 e 2017. Durante a finalização deste trabalho (novembro de 2014) a especificação C++14 estava prevista para ser publicada em breve\footnote{Para mais informações acesse o site https://isocpp.org/std/status.}.
 
 \begin{figure}[!htb]
 	\centering
@@ -94,7 +94,7 @@ Muitos recursos adicionados na linguagem pelas especificações C++11 e C++14 fora
 \subsubsection{Listas de Inicialização}
 \label{sec:listasInicializacao}
 
-Um recurso simples e ao mesmo tempo bastante útil, as \textbf{listas de inicialização} foram criadas com o objetivo de facilitar a instanciação de estruturas do tipo \textit{container} (lista, pilha, fila, tabelas \textit{hash}, etc) com um conjunto de elementos adicionados. É importante ressaltar que a linguagem na especificação C++98 já permitia a inicialização de vetores com uma lista de elementos \cite{professionalCpp}.
+Um recurso simples e ao mesmo tempo bastante útil, as \textbf{listas de inicialização} foram criadas com o objetivo de facilitar a instanciação de estruturas do tipo \textit{container} (lista, pilha, fila, tabelas \textit{hash}, etc.) com um conjunto de elementos adicionados. É importante ressaltar que a linguagem na especificação C++98 já permitia a inicialização de vetores com uma lista de elementos \cite{professionalCpp}.
 
 Este recurso se baseia na utilização de uma nova classe chamada \textit{\textbf{``initializer\_list''}} definida dentro do \textit{namespace}\footnote{Mecanismo presente na linguagem C++ que permite agrupar estruturas dentro de um espaço de resolução de nomes comum. É utilizado para evitar conflitos de nomes entre estruturas.} ``\textit{std}''. Esta classe implementa um \textit{container} de dados simples, que suporta o acesso aos seus elementos através do uso de \textbf{iteradores}.  Quando o compilador encontra algum trecho de código com o padrão ``\{x, y, z\}'' onde ``x'', ``y'' e ``z'' são valores literais ou variáveis que podem ser convertidas para um tipo de dado ``T'' comum de forma implícita, ele constrói um objeto do tipo ``\textit{initializer\_list<T>}''. Sendo assim, para que um objeto possa ser construído com uma lista de inicialização, basta que sua classe contenha um construtor que recebe como parâmetro um objeto do tipo ``\textit{initializer\_list<T>}'' \cite{cppAnnotations}.
 
@@ -109,7 +109,7 @@ No trecho de código \ref{lst:initializerListExample} é demonstrado a utilização 
 \subsubsection{Navegação em Grupos de Elementos}
 \label{sec:forRangeBasedLoop}
 
-Quando precisamos acessar sequencialmente os elementos de um vetor ou de alguma estrutura do tipo \textit{container} utilizando a linguagem C++, temos basicamente duas opções: 
+Quando precisamos acessar os elementos de um vetor ou de alguma estrutura do tipo \textit{container} utilizando a linguagem C++, temos basicamente duas opções: 
 
 \begin{description}
 \item[1)Acesso sequencial via índice:]
@@ -148,7 +148,7 @@ A linguagem C++ permite a manipulação direta de memória a partir da utilização d
 
 A manipulação de ponteiros é uma tarefa complexa, que deve ser feita com muito cuidado. Uma tentativa de acesso a uma região de memória inválida pode gerar problemas graves durante a execução do programa. Para evitar este tipo de problema, uma boa prática consiste em invalidar ou anular ponteiros durante a sua inicialização e quando o seu uso chegou ao fim (o que acontece por exemplo quando desalocamos a região de memória apontada por ele) \cite{professionalCpp}.
 
-Para anular um ponteiro simplesmente atribuímos a ele o valor 0. Porém, na maioria dos ambientes de desenvolvimento, temos a presença de uma macro chamada ``NULL'' que é utilizada no local do valor 0 durante a anulação de um ponteiro para fins de legibilidade. 
+Para anular um ponteiro, simplesmente atribuímos a ele o valor 0. Porém, na maioria dos ambientes de desenvolvimento, temos a presença de uma macro chamada ``NULL'' que é utilizada no local do valor 0 durante a anulação de um ponteiro para fins de legibilidade. 
 
 Esta metodologia pode levar a comportamentos inesperados do código durante a execução, visto que a macro é expandida para o valor inteiro 0 durante a compilação. Se temos duas funções com o mesmo nome, onde uma recebe um ponteiro como parâmetro e a outra recebe um número inteiro, ao executar esta função passando a macro ``NULL'', a versão que recebe o número inteiro será executada, gerando assim um comportamento inesperado. 
 
@@ -163,7 +163,7 @@ Com o objetivo de resolver este problema a especificação C++11 prevê a existênci
 \subsubsection{Inferência de Tipos}
 \label{sec:inferenciaTipos}
 
-A linguagem C++ é uma linguagem de tipagem estática, ou seja, todas as variáveis declaradas no código devem ter seu tipo de dado especificado em momento de compilação \cite{cppAnnotations}. Esta característica acaba em certas situações deixando o código de declaração de variáveis muito grande. Veja por exemplo o trecho de código \ref{lst:declaracaoGrande}, onde são declarados um \textit{container} para uma lista de inteiros e um iterador para esta lista.
+A linguagem C++ é uma linguagem de tipagem estática, ou seja, todas as variáveis declaradas no código devem ter seu tipo de dado especificado em momento de compilação \cite{cppAnnotations}. Esta característica acaba, em certas situações, deixando o código de declaração de variáveis muito grande. Veja por exemplo o trecho de código \ref{lst:declaracaoGrande}, onde são declarados um \textit{container} para uma lista de inteiros e um iterador para esta lista.
 
 \begin{algorithm}
 	\caption{Trecho de declaração longo}
@@ -181,7 +181,7 @@ A primeira é utilizada durante a atribuição de valores que já tem um tipo de dad
 	\lstinputlisting[]{codigos/declaracaoCurta.cpp}
 \end{algorithm}
 
-O uso da palavra-chave ``auto'' tem uma particularidade importante que deve ser levada em consideração durante o seu uso. O tipo deduzido é o resultado do tipo do valor atribuído à variável após a remoção do modificador \textbf{``const''}\footnote{Utilizado para declarar variáveis constantes, ou seja, que não podem ser usadas para modificar valores.} e do modificador \textbf{``\&''}\footnote{Neste contexto se refere ao modificador para declaração de variáveis do tipo referência na linguagem C++.} \cite{professionalCpp}. Esta particularidade pode levar a resultados inesperados, como o que pode ser observado no trecho de código \ref{lst:autoParticularidade} na linha 10, onde a dedução de tipo irá levar a criação de uma variável do tipo inteiro com o valor copiado do retorno da função ``constRef'', enquanto que o valor atribuído originalmente é de uma referência para um valor inteiro constante.
+O uso da palavra-chave ``auto'' tem uma particularidade importante que deve ser levada em consideração durante o seu uso. O tipo deduzido é o resultado do tipo do valor atribuído à variável após a remoção do modificador \textbf{``const''}\footnote{Utilizado para declarar constantes, ou seja, que não podem ser usadas para modificar valores.} e do modificador \textbf{``\&''}\footnote{Neste contexto se refere ao modificador para declaração de variáveis do tipo referência na linguagem C++.} \cite{professionalCpp}. Esta particularidade pode levar a resultados inesperados, como o que pode ser observado no trecho de código \ref{lst:autoParticularidade} na linha 10, onde a dedução de tipo irá levar a criação de uma variável do tipo inteiro com o valor copiado do retorno da função ``constRef'', enquanto que o valor atribuído originalmente é de uma referência para um valor inteiro constante.
 
 \begin{algorithm}
 	\caption{Particularidade do uso da palavra-chave \textbf{``auto''}}
@@ -204,7 +204,7 @@ No trecho de código \ref{lst:decltype} podemos ver a utilização desta palavra-ch
 
 O conceito de programação funcional propõe que funções e métodos sejam tratados de forma igualitária com variáveis e objetos, no aspecto de poderem ser transportados entre contextos de execução, ser armazenados em estruturas específicas, ser criados sob demanda e ser utilizados como parâmetros para outras funções e/ou métodos \cite{fastDelegates}.
 
-A maneira tradicional utilizada para manipular funções e métodos na linguagem C++ consiste do uso de ponteiros. Porém esta metodologia utiliza uma sintaxe bem difícil e existem vários problemas ou limitadores em relação à conversão destes ponteiros. Um grande problema encontrado é que ponteiros para funções (declaradas no contexto global) e métodos (declarados dentro de classes, exceto os estáticos neste caso) possuem sintaxe de declaração diferentes e não são convertíveis entre si \cite{fastDelegates}.
+A maneira tradicional utilizada para manipular funções e métodos na linguagem C++ consiste no uso de ponteiros. Porém esta metodologia utiliza uma sintaxe bem difícil e existem vários problemas ou limitadores em relação à conversão destes ponteiros. Um grande problema encontrado é que ponteiros para funções (declaradas no contexto global) e métodos (declarados dentro de classes, exceto os estáticos neste caso) possuem sintaxe de declaração diferentes e não são convertíveis entre si \cite{fastDelegates}.
 
 No trecho de código \ref{lst:ponteiroFuncoesMetodos} é demonstrada a sintaxe do uso de ponteiros para funções e métodos. Na linha 16 é declarado um ponteiro para a função ``getTexto'', e na linha 18 é declarado um para o método de mesmo nome presente na classe ``Exemplo''. Note que apesar da função e do método possuírem o mesmo protótipo (tipo de retorno e parâmetro) a sintaxe para declaração de seus ponteiros é diferente e eles não podem ser convertidos entre si.
 
@@ -216,7 +216,7 @@ No trecho de código \ref{lst:ponteiroFuncoesMetodos} é demonstrada a sintaxe do 
 
 A especificação C++11 propõe a unificação da representação destes ponteiros como instâncias da classe \textbf{``function''} que é definida dentro do \textit{namespace} ``std''. Esta classe consegue representar ponteiros para funções, métodos e referências para \textit{\textit{``function objects''}}\footnote{Instâncias de classes que reimplementam a função do operador parênteses.} \cite{professionalCpp}.
 
-O trecho de código \ref{lst:ponteiroFuncoesMetodos} pode ser reescrito com o uso desta classe conforme o exemplo \ref{lst:stdFunction}. Note que para atribuir um ponteiro para método é preciso utilizar a função \textbf{``bind''} para associar um objeto com o método a ser apontado (linha 22). Com esta nova sintaxe apontadores para métodos e funções com o mesmo protótipo podem ser convertidos entre si.
+O trecho de código \ref{lst:ponteiroFuncoesMetodos} pode ser reescrito com o uso desta classe conforme o exemplo \ref{lst:stdFunction}. Note que para atribuir um ponteiro para método é preciso utilizar a função \textbf{``bind''} para associar um objeto com o método a ser apontado (linha 22). Com esta nova sintaxe, apontadores para métodos e funções com o mesmo protótipo podem ser convertidos entre si.
 
 \begin{algorithm}
 	\caption{Unificação da representação de ponteiros para métodos e funções}
@@ -224,7 +224,9 @@ O trecho de código \ref{lst:ponteiroFuncoesMetodos} pode ser reescrito com o uso
 	\lstinputlisting[]{codigos/stdFunction.cpp}
 \end{algorithm}
 
-Outra funcionalidade adicionada pela especificação C++11 foi o suporte a definição de métodos anônimos, também conhecidos como \textbf{expressões lambda}. Esta funcionalidade consiste na capacidade de criar funções sob demanda durante blocos de execução do programa. Expressões lambda também podem ser armazenadas em instâncias da classe \textit{``function''} \cite{professionalCpp}. 
+Outra funcionalidade adicionada pela especificação C++11 foi o suporte à definição de métodos anônimos, também conhecidos como \textbf{expressões lambda}. Esta funcionalidade consiste na capacidade de criar funções sob demanda durante blocos de execução do programa. Expressões lambda também podem ser armazenadas em instâncias da classe \textit{``function''} \cite{professionalCpp}. 
+
+A sintaxe básica para utilização de expressões lambda é demonstrada na figura \ref{fig:lambdaExpression}. Os blocos presentes nesta construção são explicados em seguida:
 
 \begin{figure}[!htb]
 \centering
@@ -232,8 +234,6 @@ Outra funcionalidade adicionada pela especificação C++11 foi o suporte a definiç
 \caption{Sintaxe básica das expressões lambda}
 \label{fig:lambdaExpression}
 \end{figure}
-
-A sintaxe básica para utilização de expressões lambda é demonstrada na imagem \ref{fig:lambdaExpression}. Os blocos presentes nesta construção são explicados em seguida:
 
 \begin{description}
 \item[1) Área de captura (\textit{Capture specification}):]
@@ -243,7 +243,7 @@ Neste último caso é importante garantir que as variáveis capturadas existem no m
 \item[2) Lista de parâmetros (\textit{Parameter specification}):]
 É onde é especificada a lista de parâmetros que a expressão lambda recebe. A sintaxe é a mesma utilizada na definição de protótipos de funções e métodos. Por exemplo no trecho ``(int a, char b)'' dizemos que a expressão recebe um número inteiro que será referenciado no corpo da expressão como ``a'' e também recebe um caractere que será referenciado como ``b'' \cite{cppAnnotations}.
 
-\item[3) \textit{Mutable specification}:]
+\item[3) Especificação \textit{Mutable} (\textit{Mutable specification}):]
 Por padrão, variáveis capturadas por valor são tratadas dentro do bloco de execução da expressão como do tipo constante, ou seja, não podemos modificar seus valores. Caso utilizemos o modificador \textbf{``mutable''} elas não serão mais tratadas como do tipo constante, então poderemos manipular os valores copiados no bloco de execução da expressão \cite{cppAnnotations}.
 
 \item[4) Especificação do tipo de retorno (\textit{Return type specification}):]
@@ -268,7 +268,7 @@ No trecho de código \ref{lst:lambdaExpression} temos um exemplo de definição de 
 
 Um dos maiores desafios enfrentados por desenvolvedores que utilizam a linguagem C++ consiste na garantia da liberação de blocos de memória alocados dinamicamente a partir do uso de ponteiros. Sempre que alocamos uma região de memória a partir do uso do operador \textbf{\textit{``new''}}, temos que garantir que em algum ponto do código aquela região será liberada, tarefa que deve ser realizada explicitamente com o uso do operador \textbf{\textit{``delete''}} \cite{cppAnnotations}.
 
-Regiões de memória alocada que não são liberadas, irão persistir marcadas como utilizadas durante todo o fluxo de execução do programa, causando assim um efeito de utilização extra de memória indevida também conhecido como \textbf{\textit{``memory leak''}} \cite{professionalCpp}. 
+Regiões de memória alocada que não são liberadas, irão persistir marcadas como utilizadas durante todo o fluxo de execução do programa, causando assim um efeito de utilização extra de memória indevida conhecido como \textbf{\textit{``memory leak''}}, ou vazamento de memória \cite{professionalCpp}. 
 
 Com o objetivo de evitar este tipo de problema, a especificação C++11 prevê a criação de ponteiros inteligentes ou \textit{``smart pointers''}, que são basicamente estruturas que simulam o funcionamento de um ponteiro comum, porém adicionando mecanismos de gerenciamento de memória. Do ponto de vista de padrões de projeto, um \textit{smart pointer} seria um \textit{proxy} para a interface de ponteiros comuns \cite{cppAnnotations}.
 
@@ -295,7 +295,7 @@ O trecho de código \ref{lst:smartPointer} demonstra a utilização dos três tipos 
 \label{sec:qt}
 Qt é um \textit{framework} multiplataforma voltado para a criação de aplicativos com interface gráfica utilizando a linguagem C++. Sua primeira versão foi lançada em 1995 pelos seus criadores \textit{Haavard Nord} e \textit{Eirik Chambe-Eng} em sua empresa chamada \textit{Trolltech} \cite{qtGuiProgramming}.
 
-O objetivo do \textit{framework} é basicamente prover uma interface de programação padrão para executar tarefas como criação de interface gráfica, programação paralela e acesso a banco de dados, para todas as plataformas suportadas. Esse comportamento é alcançado através do direcionamento da execução das tarefas para implementações específicas existentes na plataforma alvo \cite{qtGuiProgramming}. Uma característica interessante do \textit{framework} é a adaptação da interface gráfica criada ao seu ambiente de execução. Uma janela executada em um sistema operacional suportado assume a aparência nativa do mesmo, como é possível verificar nas figuras \ref{fig:windowLinux}, \ref{fig:windowWindows} e \ref{fig:windowMac}, onde temos uma janela de um programa sendo exibida nos três sistemas suportados da plataforma \textit{desktop}.
+O objetivo do \textit{framework} é basicamente prover uma interface de programação padrão para executar tarefas como criação de interface gráfica, programação paralela e acesso a banco de dados, para todas as plataformas suportadas. Esse comportamento é alcançado através do direcionamento da execução das tarefas para implementações específicas existentes na plataforma alvo \cite{qtGuiProgramming}. Uma característica interessante do \textit{framework} é a adaptação da interface gráfica criada ao seu ambiente de execução. Uma janela executada em um sistema operacional suportado assume a aparência nativa do mesmo, como é possível verificar nas figuras \ref{fig:windowLinux}, \ref{fig:windowWindows} e \ref{fig:windowMac}, onde temos uma janela de um programa sendo exibida nos três sistemas suportados da plataforma \textit{desktop}: Linux, Microsoft Windows e Mac OS, respectivamente.
 
 \begin{figure}[!htb]
 \centering
@@ -318,12 +318,12 @@ O objetivo do \textit{framework} é basicamente prover uma interface de programaç
 
 Inicialmente o \textit{framework} era totalmente focado na padronização do processo de criação de interface gráfica entre diferentes plataformas, porém ao longo de sua existência foram sendo adicionadas novas funções voltadas para tarefas rotineiras no desenvolvimento de \textit{software}, como por exemplo acesso a banco de dados, programação paralela e manipulação de arquivos multimídia (vídeos e imagens). Com a adição destes novos componentes, o \textit{framework} acabou crescendo muito, o que levou aos desenvolvedores o reestruturarem em forma de módulos de forma que o desenvolvedor possa adicionar em seu projeto somente os módulos que pretende utilizar, diminuindo o tamanho final do executável gerado para distribuição de seu aplicativo \cite{qtGuiProgramming}.
 
-Neste trabalho são utilizados basicamente três dos módulos existentes no \textit{framework}, sendo eles o \textbf{QtSql}, o \textbf{QtTest} e o \textbf{QtCore}. O QtSql é um módulo voltado para utilização de \textbf{Sistemas Gerenciadores de Bancos de Dados Relacionais} (ver seção \ref{sec:sgbd}) como forma de persistência dos dados gerados pelo aplicativo. Ele provê suporte para utilização dos sistemas mais populares, como \textbf{MySQL}, \textbf{Oracle}, \textbf{PostgreSQL},
+Neste trabalho são utilizados basicamente três dos módulos existentes no \textit{framework}: \textbf{QtSql}, \textbf{QtTest} e  \textbf{QtCore}. O QtSql é um módulo voltado para utilização de \textbf{Sistemas Gerenciadores de Bancos de Dados Relacionais} (ver seção \ref{sec:sgbd}) como forma de persistência dos dados gerados pelo aplicativo. Ele provê suporte para utilização dos sistemas mais populares, como \textbf{MySQL}, \textbf{Oracle}, \textbf{PostgreSQL},
 \textbf{Sybase}, \textbf{DB2}, \textbf{SQLite}, \textbf{Interbase} e \textbf{ODBC} \cite{qtFoundations}. Esse módulo será utilizado como apoio para utilização de bancos de dados relacionais nas plataformas \textbf{Microsoft Windows} e \textbf{GNU/Linux}. 
 
 O QtTest é um módulo voltado para a criação de testes unitários. Os testes são utilizados para validar o funcionamento do \textit{software} desenvolvido ao longo de sua existência. Geralmente são executados quando é feita alguma modificação no código, como por exemplo adição de novos componentes. E, por fim, QtCore é o módulo principal do \textit{framework}. Ele é responsável por prover rotinas para programação paralela, conversão de tipos, além de adicionar tipos de dados muito importantes na utilização de bancos de dados, como o \textbf{\textit{QDateTime}}\footnote{Tipo de dado que armazena um valor de data e hora. Não existe um tipo de dado nativo em C++ para esta finalidade.} \cite{qtFoundations}. 
 
-No momento da criação deste documento, o framework está em sua versão 5.3 (versão que é utilizada no trabalho), e é compatível com os sistemas operacionais \textit{GNU/Linux}, \textit{Microsoft Windows} e \textit{Mac OS} na plataforma \textit{desktop}. Ele oferece também suporte a dispositivos embarcados com sistema operacional \textit{GNU/Linux} e para dispositivos móveis com os sistemas \textit{Android}, \textit{IOS} e \textit{Windows Phone}.
+No momento da criação deste documento, o framework estava em sua versão 5.3 (versão que é utilizada no trabalho), e é compatível com os sistemas operacionais \textit{GNU/Linux}, \textit{Microsoft Windows} e \textit{Mac OS} na plataforma \textit{desktop}. Ele oferece também suporte a dispositivos embarcados com sistema operacional \textit{GNU/Linux} e para dispositivos móveis com os sistemas \textit{Android}, \textit{IOS} e \textit{Windows Phone}.
 
 \section {Sistemas Gerenciadores de Bancos de Dados Relacionais}
 \label{sec:sgbd}
@@ -396,7 +396,7 @@ Geralmente as bibliotecas ORM disponibilizam interfaces padronizadas para realiz
 
 Nem todas as bibliotecas existentes oferecem as três funcionalidades descritas, mas o mais comum é encontrar uma combinação das três. Existem ainda bibliotecas que permitem gerar o código de mapeamento e até mesmo gerar o código das classes a partir da análise de um banco de dados existente. Esta funcionalidade é conhecida como \textbf{Mapeamento Reverso} ou \textbf{Engenharia Reversa} \cite{ormPaper}.
 
-As bibliotecas ORM divergem bastante na forma de implementação e funcionalidades disponibilizadas. Isso se deve principalmente ao fato da divergência de recursos entre as próprias linguagens de programação em que são implementadas. Porém uma decisão comum a ser tomada no desenvolvimento de uma biblioteca ORM em qualquer linguagem, é a definição do ponto de partida para obtenção das informações de mapeamento \cite{ormPaper}. Os paradigmas mais utilizados são:
+As bibliotecas ORM divergem bastante na forma de implementação e funcionalidades disponibilizadas. Isso se deve principalmente ao fato da divergência de recursos entre as próprias linguagens de programação em que são implementadas. Porém uma decisão comum a ser tomada no desenvolvimento de uma biblioteca ORM em qualquer linguagem é a definição do ponto de partida para obtenção das informações de mapeamento \cite{ormPaper}. Os paradigmas mais utilizados são:
 
 \begin{description}
 \item[1) Orientado a metadados:]

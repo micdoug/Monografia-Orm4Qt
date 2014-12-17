@@ -1,9 +1,9 @@
-The Object Oriented Languages combined with the Relational Database Management Systems (RDBMs) are considered a pattern in Enterprise Information Systems (EIS) development. Although their use show good results, is difficult to perform the information transition between their contexts of data representation.
+The Object Oriented Languages combined with the Relational Database Management Systems (RDBMs) are considered a pattern in Enterprise Information Systems (EIS) development. Although their use show good results, it is difficult to perform the information transition between their data representation contexts.
 
-To perform the information transition it is necessary to develop specific software components for each class that represents data persisted in the database, task that shows itself repetitive and error prone. With the goal of ease this problem, we created the Object Relational Mapping (ORM) libraries, software components that automates the process of data transition between the two contexts.
+To perform the information transition it is necessary to develop specific software components for each class that represents data persisted in database, task that shows itself repetitive and error prone. With the goal of minimize this problem, we created the Object Relational Mapping (ORM) libraries, software components that automates the process of data transition between the two contexts.
 
-Due to limitations in the C++ reflection and metadata insertion features, the development of ORM solutions for this language is a very complex task. The existent solutions present complex configuration interfaces, besides using language resources that increase the coupling level of code.
+Due to C++ limitations in reflection and metadata insertion features, the development of ORM solutions for this language is a very complex task. The existent solutions present complex configuration interfaces, besides using language resources that increase the code coupling level.
 
-This paper proposes the development of a ORM library for the C++ language, using own mechanisms of reflection and insertion of metadata based on the features of the C++11 specification. The library uses many components offered by the Qt framework to help in tasks like communication with the database and extension of native types.
+This paper proposes the development of a ORM library for C++ language by using own mechanisms of reflection and insertion of metadata based on the features of C++11 specification. The library uses many components offered by Qt framework to help in tasks like communication with database and extension of native types.
 
 {\bf{Keywords}}: Object Oriented, RDBMS, C++, ORM
