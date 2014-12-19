@@ -17,8 +17,11 @@
 \contentsline {algocf}{\numberline {17}{\ignorespaces Exemplo de variações na declaração de métodos acessadores para atributos tipo inteiro\relax }}{38}{algocf.caption.30}
 \contentsline {algocf}{\numberline {18}{\ignorespaces Retornando uma expressão lambda para acesso de atributo privado\relax }}{39}{algocf.caption.31}
 \contentsline {algocf}{\numberline {19}{\ignorespaces Esboço da utilização de macros para registro de metainformação\relax }}{41}{algocf.caption.33}
-\contentsline {algocf}{\numberline {20}{\ignorespaces Definição da classe Documento\relax }}{47}{algocf.caption.36}
-\contentsline {algocf}{\numberline {21}{\ignorespaces Mapeamento da classe Documento com a biblioteca ORM4Qt\relax }}{49}{algocf.caption.37}
-\contentsline {algocf}{\numberline {22}{\ignorespaces Mapeamento da classe Documento com a biblioteca ODB\relax }}{50}{algocf.caption.38}
-\contentsline {algocf}{\numberline {23}{\ignorespaces Mapeamento da classe Documento com a biblioteca QxOrm\relax }}{52}{algocf.caption.39}
-\contentsline {algocf}{\numberline {24}{\ignorespaces Definição da classe \textit {``IRepository<T>''}\relax }}{53}{algocf.caption.40}
+\contentsline {algocf}{\numberline {20}{\ignorespaces Código de declaração da classe ``Usuario''\relax }}{45}{algocf.caption.35}
+\contentsline {algocf}{\numberline {21}{\ignorespaces Exemplo de utilização dos métodos de reflexão\relax }}{46}{algocf.caption.36}
+\contentsline {algocf}{\numberline {22}{\ignorespaces Salvando um objeto no banco de dados\relax }}{47}{algocf.caption.37}
+\contentsline {algocf}{\numberline {23}{\ignorespaces Definição da classe Documento\relax }}{52}{algocf.caption.39}
+\contentsline {algocf}{\numberline {24}{\ignorespaces Mapeamento da classe Documento com a biblioteca ORM4Qt\relax }}{54}{algocf.caption.40}
+\contentsline {algocf}{\numberline {25}{\ignorespaces Mapeamento da classe Documento com a biblioteca ODB\relax }}{55}{algocf.caption.41}
+\contentsline {algocf}{\numberline {26}{\ignorespaces Mapeamento da classe Documento com a biblioteca QxOrm\relax }}{57}{algocf.caption.42}
+\contentsline {algocf}{\numberline {27}{\ignorespaces Definição da classe \textit {``IRepository<T>''}\relax }}{58}{algocf.caption.43}

@@ -1,19 +1,21 @@
-Desenvolver aplicativos multiplataforma utilizando a linguagem C++ é uma tarefa muito difícil, devido à reduzida biblioteca padrão da linguagem, e aos diversos componentes específicos desenvolvidos para cada plataforma. Esta complexidade pode ser minimizada a partir do uso de \textit{frameworks} multiplataforma, como o  Qt, para compor nosso ambiente de desenvolvimento. Porém, em comparação com ambientes oferecidos por linguagens mais recentes, este apresenta poucos mecanismos de automatização de tarefas diversas, ou os que existem apresentam interfaces complexas para utilização. É o que acontece por exemplo com as bibliotecas de Mapeamento Objeto Relacional (ORM).
+Desenvolver aplicativos multiplataforma utilizando a linguagem C++ é uma tarefa muito difícil, devido à reduzida biblioteca padrão da linguagem, e aos diversos componentes específicos desenvolvidos para cada plataforma. Esta complexidade pode ser minimizada a partir do uso de \textit{frameworks} multiplataforma, como o  Qt, para compor nosso ambiente de desenvolvimento. Porém, em comparação com ambientes oferecidos por linguagens mais recentes, este apresenta poucos mecanismos de automatização de tarefas diversas ou apenas mecanismos com interfaces complexas para utilização. É o que acontece por exemplo com as bibliotecas de Mapeamento Objeto Relacional (ORM).
 
 Analisando o ambiente de desenvolvimento oferecido a partir da combinação da linguagem C++ com o \textit{framework} Qt, encontramos algumas implementações de bibliotecas ORM, destacando-se o QxOrm. Estas bibliotecas, devido ao pouco suporte a reflexão oferecido pela linguagem C++, em sua maioria apresentam interfaces de configuração complexas. Além de usarem mecanismos como herança e \textbf{"classes \textit{friend}"}\footnote{Este recurso permite que uma classe ou método global externo acesse os componentes privados de uma classe.} para quebra de encapsulamento das classes a serem mapeadas, o que é indesejável por aumentar o nível de acoplamento do código.
 
 Neste trabalho é proposto o desenvolvimento de uma biblioteca ORM intitulada ORM4Qt para ser utilizada neste ambiente de desenvolvimento. A biblioteca utiliza o paradigma orientado a aplicação e a abordagem transparente para definição das classes mapeadas. A interface de configuração do mapeamento é feita através de um mecanismo de anotações desenvolvido especificamente para a biblioteca. Para a quebra de encapsulamento das classes será utilizada a manipulação de ponteiros de funções através do uso de estruturas de alto nível oferecidos pela linguagem C++. A biblioteca desenvolvida é capaz de mapear somente classes simples, ou seja, que contém somente atributos escalares e não utilize herança. Posteriormente, ela poderá ser estendida para suportar o mapeamento de classes que utilizem mecanismos mais avançados da orientação a objetos.
 
-Das bibliotecas ORM existentes para o cenário abordado, a QxOrm e a ODB são as que mais se aproximam das características citadas, portanto elas são utilizada em testes ao final do desenvolvimento que comparam a configuração do ambiente de desenvolvimento para utilização das bibliotecas, a facilidade em utilização dos mecanismos de configuração de mapeamento e a facilidade em migração de código legado.
+Para o mapeamento de herança existem três abordagens principais que geralmente são suportadas pelas bibliotecas ORM. O suporte simultâneo a tais abordagens pela ORM4Qt poderia aumentar o nível de dificuldade do trabalho excessivamente, então tal suporte foi considerado como uma melhoria futura para a biblioteca. O mesmo acontece com o suporte ao mapeamento de composição, onde é preciso criar um mecanismo de tratamento de referências circulares e otimização através da utilização de um mecanismo de \textit{cache}. 
 
-Nas próximas seções serão detalhados os mecanismos utilizados para o desenvolvimento, bem como a arquitetura utilizada.
+Das bibliotecas ORM existentes para o cenário abordado, a QxOrm e a ODB são as que mais se aproximam das características citadas, portanto elas são utilizada em testes ao final do desenvolvimento que comparam: a configuração do ambiente de desenvolvimento para utilização das bibliotecas, a facilidade em utilização dos mecanismos de configuração de mapeamento e a facilidade em migração de código legado.
+
+Nas próximas seções serão detalhados os mecanismos utilizados para o desenvolvimento da biblioteca, bem como a arquitetura utilizada.
 
 \section{Arquitetura em Camadas}
 \label{sec:layersArch}
 
 O desenvolvimento da biblioteca é estruturado em duas camadas, a \textbf{camada objeto} (ou \textit{\textbf{``Object Layer''}}) e a \textbf{camada de armazenamento} (ou \textit{\textbf{``Storage Layer''}}), seguindo a nomenclatura utilizada no trabalho desenvolvido por \cite{xiaobingZhang}. As duas camadas oferecem interfaces acessíveis diretamente pelo desenvolvedor e cooperam entre si através de troca de informações. 
 
-A camada objeto tem como objetivo apresentar uma interface transparente para o desenvolvedor que permita a configuração das classes a serem mapeadas e apresentar uma interface para a camada de Armazenamento que permita o acesso aos metadados bem como à estrutura interna das classes sendo mapeadas. Esta camada é a mais complexa de ser desenvolvida devido ao uso intenso de estruturas de baixo nível da linguagem para quebra de encapsulamento e criação do mecanismo de anotações. 
+A camada objeto tem como objetivo apresentar uma interface transparente para o desenvolvedor que permita a configuração das classes a serem mapeadas e apresentar uma interface para a camada de armazenamento que permita o acesso aos metadados bem como à estrutura interna das classes sendo mapeadas. Esta camada é a mais complexa a ser desenvolvida devido ao uso intenso de estruturas de baixo nível da linguagem para quebra de encapsulamento e criação do mecanismo de anotações. 
 
 A camada de armazenamento tem como objetivo apresentar uma interface para o desenvolvedor que permita executar tarefas relacionadas com a persistência de objetos no banco de dados, além de definir uma interface comum de geração de código SQL que possa ser implementada para diferentes SGBDs. Inicialmente esta interface é implementada para o SGBD PostgreSQL, e utiliza os mecanismos oferecidos pelo módulo QtSql para se comunicar com ele.
 
@@ -74,7 +76,7 @@ No trecho de código \ref{lst:lambdaExample} temos um exemplo de uma classe com u
 
 Como não temos um mecanismo nativo para obter conhecimento sobre as estruturas das classes sendo mapeadas em momento de execução, temos que criar algum mecanismo que permita a criação destas informações. Uma maneira de fazer isto seria criar um analisador de código, que a partir da leitura dos arquivos de definição das classes geraria estas informações automaticamente. Esta solução tem a grande vantagem de gerar as informações em momento de compilação e agir de forma transparente. Entretanto, a implementação de tal solução é uma tarefa bastante complexa, além de seu uso promover uma quebra no fluxo padrão de compilação de programas, pois o desenvolvedor terá que inserir a execução deste analisador no fluxo de compilação antes da execução do próprio compilador. Outro problema, é que somente a informação das estruturas das classes não é suficiente para realizar o mapeamento, precisamos de informações a mais, como o nome das colunas equivalentes aos atributos. 
 
-A solução proposta neste trabalho consiste em inserir um método nas classes mapeadas que retorne uma estrutura com todos os metadados necessários para o mapeamento, ampliando a ideia exposta na seção \ref{sec:quebraEncapsulamento}. Para organizar as informações a serem retornadas foi criada uma hierarquia de classes de armazenamento de metainformações, baseada em uma classe chamada \textbf{\textit{``Reflect''}}. Esta classe permite o registro de tuplas do tipo chave e valor, chamadas de \textbf{\textit{``tags''}}, que podem ser recuperadas através de funções de sua interface. A partir desta classe são definidas as classes \textbf{\textit{``Property''}} e \textbf{\textit{``Class''}}. A primeira é responsável por descrever as informações relativas a um atributo de uma classe, e provê métodos para acesso a este atributo em uma instância de classe utilizando o mecanismo de expressões lambda citado anteriormente. A segunda classe é responsável por descrever as informações relativas a uma classe. Ela contém uma lista de objetos de descrição de atributos, além de permitir a definição de informações adicionais através da inserção de tags. Na imagem \ref{fig:reflectDiagram} temos um diagrama de classe simplificado que demonstra a hierarquia criada.
+A solução proposta neste trabalho consiste em inserir um método nas classes mapeadas que retorne uma estrutura com todos os metadados necessários para o mapeamento, ampliando a ideia exposta na seção \ref{sec:quebraEncapsulamento}. Para organizar as informações a serem retornadas foi criada uma hierarquia de classes de armazenamento de metainformações, baseada em uma classe chamada \textbf{\textit{``Reflect''}}. Esta classe permite o registro de tuplas do tipo chave e valor, chamadas de \textbf{\textit{``tags''}}, que podem ser recuperadas através de funções de sua interface. A partir desta classe são definidas as classes \textbf{\textit{``Property''}} e \textbf{\textit{``Class''}}, que se aproveitam da interface de adição e consulta de \textit{``tags''}. A primeira é responsável por descrever as informações relativas a um atributo de uma classe, e provê métodos para acesso a este atributo em uma instância de classe utilizando o mecanismo de expressões lambda citado anteriormente. A segunda classe é responsável por descrever as informações relativas a uma classe. Ela contém uma lista de objetos de descrição de atributos, além de permitir a definição de informações adicionais através da inserção de tags. Na imagem \ref{fig:reflectDiagram} temos um diagrama de classe simplificado que demonstra a hierarquia criada.
 
 \begin{figure}[!htb]
 \centering
@@ -85,7 +87,7 @@ A solução proposta neste trabalho consiste em inserir um método nas classes mape
 
 Com o uso desta técnica conseguimos contornar os dois limitadores impostos pela linguagem C++ para conhecimento e acesso a estrutura de objetos em tempo de execução, porém, ainda temos um problema relacionado com a inserção do método que retorna o objeto de reflexão. Ao impormos ao desenvolvedor a necessidade de criar tal método, a biblioteca deixa de ser transparente, pois estamos impondo a implementação de uma interface nas classes a serem mapeadas. Para contornar este problema é proposto a criação de uma camada de abstração através do uso de macros de registro, simulando o recurso de \textbf{anotações} existentes na linguagem JAVA. Estas macros em tempo de pré-processamento do código serão expandidas, construindo o método de retorno do objeto de reflexão. Desta maneira a criação do método será feita de forma transparente para o desenvolvedor.
 
-No trecho de código \ref{lst:annotationsExample} temos um esboço da utilização deste mecanismo. Nas linhas 7 e 13 temos as macros \textbf{``ORM4QT{\textunderscore}BEGIN''} e \textbf{``ORM4QT{\textunderscore}END''}, que delimitam o início e final da área de especificação de mapeamento. A primeira macro será expandida gerando a declaração do método de retorno do objeto de reflexão e a segunda expandirá o encerramento do método. Todas as macros compreendidas entre elas irão expandir o corpo do método. As outras duas macros utilizadas são a \textbf{``CLASS''} que recebe como parâmetros uma lista variável de \textit{tags}, e a macro \textbf{``PROPERTY''} que recebe o atributo a ser mapeado, seguido de uma série de \textit{tags}. Estas macros servem para registrar metadados sobre classes e atributos respectivamente.
+No trecho de código \ref{lst:annotationsExample} temos um esboço da utilização deste mecanismo. Nas linhas 7 e 13 temos as macros \textbf{``ORM4QT{\textunderscore}BEGIN''} e \textbf{``ORM4QT{\textunderscore}END''}, que delimitam o início e final da área de especificação de mapeamento. A primeira macro será expandida gerando a declaração do método de retorno do objeto de reflexão e a segunda expandirá o encerramento do método. Todas as macros compreendidas entre elas irão expandir o corpo do método. As outras duas macros utilizadas são a \textbf{``CLASS''} que recebe como parâmetros uma lista variável de \textit{tags}, e a macro \textbf{``PROPERTY''} que recebe o atributo a ser mapeado, seguido de uma série de \textit{tags}. Estas macros servem para registrar metadados sobre classes e atributos respectivamente. Ambas as macros podem receber um conjunto variável e indefinido de \textit{``tags''}, o que facilita a expansão da biblioteca no caso de ser necessária a criação de novos tipos de \textit{``tags''}.
 
 \begin{algorithm}
 \caption{Esboço da utilização de macros para registro de metainformação}
@@ -100,7 +102,9 @@ Com este mecanismo definido foi possível implementar as responsabilidades da cam
 
 O objetivo principal de uma biblioteca ORM é abstrair do desenvolvedor a criação dos comandos SQL para executar as tarefas de persistência, bem como a comunicação com o banco de dados. A camada de armazenamento alcança este cenário a partir da utilização de duas classes. A primeira é a \textbf{\textit{``Repository''}}, que disponibiliza em sua interface métodos para salvar, atualizar, deletar e carregar registros de objetos no banco de dados. Esta classe oferece a possibilidade do uso de transações para garantir que um grupo de operações seja executado de forma atômica. Ela também tem a responsabilidade de gerenciar a comunicação com o banco de dados, o que é feito através da utilização da API disponibilizada pelo módulo QtSQL oferecido pelo \textit{framework} Qt.
 
-A segunda classe é a \textbf{\textit{``SQLProvider''}} que define uma interface para geração de comandos em linguagem SQL para a execução das tarefas de persistência de objetos. Ela utiliza os objetos de reflexão disponibilizados pela camada objeto para construir sentenças de acordo com a instância de objeto a ser persistida. Esta interface deve ser implementada para cada tipo de SGBD que se deseja utilizar, desta forma a adição de suporte da biblioteca para diversos SGBDs se torna uma tarefa mais simples. A classe \textit{``Repository''} utiliza uma implementação desta interface para gerar os comandos necessários para execução de suas tarefas. 
+A segunda classe é a \textbf{\textit{``SQLProvider''}} que define uma interface para geração de comandos em linguagem SQL para a execução das tarefas de persistência de objetos. Ela utiliza os objetos de reflexão disponibilizados pela camada objeto para construir sentenças de acordo com a instância de objeto a ser persistida. Esta interface deve ser implementada para cada tipo de SGBD que se deseja utilizar, desta forma a adição de suporte da biblioteca para diversos SGBDs se torna uma tarefa mais simples. A classe \textit{``Repository''} utiliza uma implementação desta interface para gerar os comandos necessários para execução de suas tarefas.
+
+A interação entre as duas classes pode ser vista da seguinte maneira: quando é solicitada a execução de alguma tarefa no banco de dados a uma instância da classe \textit{``Repository''}, esta captura um objeto de reflexão com as informações da classe mapeada envolvida na tarefa e pede para uma instância da classe \textit{``SqlProvider''} para criar uma sentença em linguagem SQL que execute tal tarefa. Ao receber a sentença pronta, a instância de \textit{``Repository''} utiliza a API do \textit{framework} Qt para se comunicar com o banco de dados e executar a sentença criada. Portanto, as duas classes cooperam entre si para realizar as tarefas no banco de dados.
 
 \begin{figure}[!htb]
 \centering
@@ -110,3 +114,75 @@ A segunda classe é a \textbf{\textit{``SQLProvider''}} que define uma interface 
 \end{figure}
 
 Na figura \ref{fig:storageDiagram} temos um esboço do diagrama de classes da camada de Armazenamento, onde temos a representação de duas possíveis implementações da interface \textit{``SQLProvider''}, uma que daria suporte ao SGBD PostgreSQL e outra ao MySQL. A camada de armazenamento é menos complexa pelo fato de utilizar a própria camada objeto e o módulo QtSql para facilitar sua implementação, porém ela também é responsável por tratar os erros que podem ocorrer durante a comunicação com o banco de dados ou execução de comandos SQL, caso em que ela deve retornar mensagens bem formatadas descrevendo os erros e oferecer mecanismos para geração de logs. 
+
+\section{Pós Desenvolvimento}
+\label{posDesenvolvimento}
+
+Nesta seção é detalhado a utilização da biblioteca propriamente dita. Primeiramente é demonstrado como utilizar o sistema de reflexão para obter informações sobre objetos, e, em seguida é demonstrado como utilizar as funções da classe \textit{``Repository''} para manipular objetos no banco de dados.
+
+Para auxiliar na explicação é utilizada uma classe de exemplo chamada \textbf{``Usuário''} cuja definição é demonstrada na seção a seguir.
+
+\section{O Sistema de Reflexão na Prática}
+\label{reflexaoNaPratica}
+
+Para utilizar o sistema de reflexão da biblioteca ORM4Qt, devemos primeiramente inserir uma série de macros no final do bloco de declaração das classes a serem mapeadas. As macros a serem inseridas são:
+
+\begin{description}
+\item[``ORM4QT\_BEGIN'':] Esta macro deve ser a primeira a ser inserida, e tem a função de demarcar o início da região de definição de metadados da classe. Durante a compilação esta macro expande a declaração de um atributo privado \textbf{``m\_reflection''} do tipo \textbf{\textit{``Orm4Qt::Class''}} (classe container de metadados referente a classes), e, também expande a declaração de um método chamado \textit{\textbf{``reflection''}}. Este método, quando executado pela primeira vez, inicializa o atributo de reflexão. Nas próximas chamadas, ele retorna o conteúdo do atributo já inicializado. 
+
+\item[``CLASS'':] Esta macro deve ser inserida logo após a ``ORM4QT\_BEGIN'', e tem a função de definir os metadados referentes à classe mapeada. Ela recebe como parâmetros uma série de tuplas no formato ``chave = valor'', que podem ser informados em uma quantidade variável. Qualquer tupla inserida pode ser acessada posteriormente, porém, as chaves utilizadas pela biblioteca ORM4Qt atualmente são:
+  \begin{itemize}
+  	\item \textit{\textbf{``name''}}: Define o nome da classe mapeada e deve ser informada obrigatoriamente;
+  	\item \textit{\textbf{``autocolumn''}}: Nome da propriedade que é auto-incrementada pelo banco de dados. Não é obrigatória;
+  	\item \textit{\textbf{``table''}}: Define o nome da tabela no banco de dados equivalente à classe sendo mapeada. Deve ser informada obrigatoriamente.
+  \end{itemize}
+Durante a compilação, esta macro expande sentenças que inicializam o atributo \textit{``m\_reflection''} com um objeto já com os metadados referentes à classe inseridos. Esta inicialização só ocorre durante a primeira chamada do método \textit{``reflection''}.
+  
+\item[``PROPERTY'':] Esta macro deve ser informada logo após a macro ``CLASS'', sendo informada uma vez para cada atributo a ser mapeado. Ela recebe como parâmetros o atributo a ser mapeado, seguido por uma série de tuplas no formato ``chave = valor'', que podem ser informados em uma quantidade variável. Qualquer tupla inserida pode ser acessada posteriormente, porém, as chaves utilizadas pela biblioteca ORM4Qt atualmente são:
+	\begin{itemize}
+		\item \textit{\textbf{``name''}}: Define o nome do atributo mapeado. Não é obrigatório, porém pode ser utilizado para definir nomes mais fáceis para os atributos, visto que estes nomes são utilizados em funções de acesso que serão demonstradas adiante;
+		\item \textit{\textbf{``column''}}: Define o nome da coluna de uma tabela no banco de dados que equivale ao atributo mapeado. Ele deve ser informado obrigatoriamente;
+		\item \textit{\textbf{``key''}}: Define se o atributo mapeado compõe a chave primária da tabela equivalente à classe. Deve ser definido com os valores \textbf{\textit{``true''}} ou \textbf{\textit{``false''}}, e, caso não informado é assumido como \textbf{\textit{``false''}}.
+	\end{itemize}
+Durante a compilação, esta macro expande sentenças que criam uma expressão lambda de acesso ao atributo e uma instância da classe \textbf{\textit{``Orm4Qt::Property''}}. A expressão criada é inserida na instância declarada em conjunto com os metadados informados. Em seguida a instância declarada é inserida no objeto de reflexão da classe que é declarado pela macro ``CLASS''.
+	
+\item[``ORM4QT\_END'':] Esta macro deve ser inserida no fim do bloco de definição de metadados. Ele expande o encerramento do método \textit{``reflection''}.
+\end{description}
+
+No trecho de código \ref{lst:reflexaoPratica} temos um exemplo de definição de uma classe chamada ``Usuario'', onde é demonstrado a inserção das macros de mapeamento no fim do bloco de declaração.
+
+\begin{algorithm}
+\caption{Código de declaração da classe ``Usuario''}
+\label{lst:reflexaoPratica}
+\lstinputlisting[]{codigos/reflexaoPratica.cpp}
+\end{algorithm}
+
+No trecho de código \ref{lst:metodosReflexao} é demonstrado a utilização dos métodos definidos pela biblioteca ORM4Qt para acessar os metadados e atributos de classes mapeadas. Nele temos a declaração de uma instância da classe ``Usuario'', e em seguida temos a utilização do método \textit{``reflection''} inserido pelas macros de mapeamento para acessar os dados de reflexão.
+
+\begin{algorithm}
+\caption{Exemplo de utilização dos métodos de reflexão}
+\label{lst:metodosReflexao}
+\lstinputlisting[]{codigos/metodosReflexao.cpp}
+\end{algorithm}
+
+\subsection{Persistindo Objetos no Banco de Dados}
+\label{lst:persistindoObjetos}
+
+Para efetuar operações no banco de dados utilizando a biblioteca é preciso criar uma instância da classe \textit{\textbf{``Orm4Qt::Repository''}}, que por sua vez depende de uma instância da classe \textit{\textbf{``Orm4Qt::SqlProvider''}}. 
+
+No trecho de código \ref{lst:salvandoObjetos} é demonstrado a utilização do método \textbf{\textit{``saveObject''}} para persistir um objeto no banco de dados. Repare que as ações de abertura e encerramento de conexões com o banco de dados são transparentes para o desenvolvedor (são tratadas pelo repositório) e a geração de código SQL também (é tratado pelo provedor SQL).
+
+\begin{algorithm}
+\caption{Salvando um objeto no banco de dados}
+\label{lst:salvandoObjetos}
+\lstinputlisting[]{codigos/salvandoObjetos.cpp}
+\end{algorithm}
+
+No exemplo é utilizado um provedor para o banco de dados PostgreSql que foi utilizado para o desenvolvimento inicial da biblioteca. Todos os métodos que realizam ações no banco de dados que são definidos na biblioteca tem retorno booleano, de forma a informar sucesso na operação realizada. Caso tenha ocorrido algum erro, é possível acessar a descrição do mesmo através do método \textbf{\textit{``lastError''}}, conforme demonstrado no exemplo.
+
+\subsection{Acesso ao Código}
+\label{sec:acessoCodigo}
+
+A biblioteca ORM4Qt foi desenvolvida, em grande parte, com a utilização de \textit{software} de código aberto e gratuito. Além disso, o conhecimento necessário para o seu desenvolvimento veio, em sua grande maioria, da análise e utilização de outras bibliotecas de código aberto.
+
+Devido a isso, e também com o intuito de proporcionar a continuação do desenvolvimento da biblioteca, a ORM4Qt está licenciada como uma biblioteca de código aberto, podendo ser utilizada inclusive para fins comerciais. O seu código está hospedado no link \textit{\textbf{``https://github.com/micdoug/orm4qt''}}. Contribuições para o desenvolvimento de novas funcionalidades para a biblioteca são bem vindas. Acredito que com o apoio de mais desenvolvedores, conseguiremos melhorar muito a biblioteca e suas funcionalidades.

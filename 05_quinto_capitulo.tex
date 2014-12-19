@@ -1,10 +1,10 @@
 Após a implementação da biblioteca ORM4Qt foi necessário definir um modelo de testes que pudesse ser aplicado a ela em conjunto com outras bibliotecas já existentes. O objetivo deste modelo é o de avaliar o nível de usabilidade da biblioteca sob o ponto de vista do desenvolvedor, isto é, avaliar a facilidade de uso da biblioteca no ambiente de desenvolvimento utilizado.
 
-O modelo de testes escolhido foi o desenvolvimento de uma aplicação simples chamada ``Minhas Apostilas'', que consiste de um programa que permite o armazenamento de arquivos no formato PDF em uma base de dados do SGBD PostgreSql. Além do arquivo, o aplicativo armazena um pequeno grupo de informações referentes a ele, como nome, descrição e data de alteração.
+O modelo de testes escolhido foi o desenvolvimento de uma aplicação simples chamada ``Minhas Apostilas'', que consiste em um programa que permite o armazenamento de arquivos no formato PDF em uma base de dados do SGBD PostgreSql. Além do arquivo, o aplicativo armazena um pequeno grupo de informações referentes a ele, como nome, descrição e data de alteração.
 
 Com o intuito de testar a integração das bibliotecas utilizadas com o ambiente de desenvolvimento baseado no \textit{framework} Qt, o aplicativo utiliza alguns recursos adicionais do \textit{framework} para a construção de uma interface gráfica (módulos \textit{QtGui} e \textit{QtWidgets}) e para realização de tarefas de forma assíncrona (módulo \textit{QtConcurrent}). Além disso, o aplicativo foi desenvolvido de forma totalmente portável, sendo testado nos sistemas operacionais Ubuntu 14.04 e Microsoft Windows 8.1, ambos com a arquitetura 64 bits.
 
-Foram escolhidas duas bibliotecas ORM existentes para serem comparadas com a biblioteca desenvolvida, sendo elas, a ODB e a QxOrm. Ambas bibliotecas foram descritas no Capítulo \ref{cap_quarto}. Nas próximas seções são detalhados os ambientes de desenvolvimento utilizados para realização dos testes e descritas as funcionalidades presentes no programa ``Minhas Apostilas''.
+Foram escolhidas duas bibliotecas ORM existentes para serem comparadas com a biblioteca desenvolvida: a ODB e a QxOrm. Ambas bibliotecas foram descritas no Capítulo \ref{cap_quarto}. Nas próximas seções são detalhados os ambientes de desenvolvimento utilizados para realização dos testes e descritas as funcionalidades presentes no programa ``Minhas Apostilas''.
 
 \section{Ambiente de Testes}
 \label{sec:ambienteTestes}
@@ -151,7 +151,7 @@ Para possibilitar que as operações do aplicativo relacionadas com gerenciamento 
 
 Todas as operações de gerenciamento de objetos da classe ``Documento'' são feitas a partir de implementações da classe \textit{``IRepository<Documento>''}. No programa foram definidas três implementações, sendo elas, a \textit{``DocumentoRepositorioOrm4Qt''} (implementação que utiliza a biblioteca ORM4Qt), a \textit{``DocumentoRepositorioODB''} (implementação que utiliza a biblioteca ODB) e \textit{``DocumentoRepositorioQxOrm''} (implementação que utiliza a biblioteca QxOrm).
 
-Quando o programa ``Minhas Apostilas'' é iniciado, é apresentado uma lista com as opções das três bibliotecas ORM. De acordo com a opção escolhida, uma instância da implementação equivalente é criada e utilizada ao longo da execução do aplicativo. Outra aspecto importante a observar, é que todas as implementações ficam exibindo no console os comandos SQL gerados pela biblioteca utilizando recursos específicos de cada uma.
+Quando o programa ``Minhas Apostilas'' é iniciado, é apresentado uma lista com as opções das três bibliotecas ORM. De acordo com a opção escolhida, uma instância da implementação equivalente é criada e utilizada ao longo da execução do aplicativo. Outro aspecto importante a observar é que todas as implementações ficam exibindo no console os comandos SQL gerados pela biblioteca utilizando recursos específicos de cada uma.
 
 As implementações dos métodos da interface de \textit{``IRepository<Documento>''} para as três bibliotecas são bem parecidas devido a similaridade entre as API apresentadas por elas para realização de operações no banco de dados. Sendo assim, estas implementações não serão comparadas.
 
